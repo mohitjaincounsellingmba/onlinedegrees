@@ -250,36 +250,186 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
             </div>
           </div>
           
-          {/* Symlinked Cyberpunk illustration showcase */}
+          {/* Cyberpunk vector illustration showcase */}
           <div className="lg:col-span-5 relative w-full aspect-square flex items-center justify-center">
             {/* Outer Glowing Rings */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-70 animate-pulse pointer-events-none" />
             
             {/* Monitor Mockup Wrapper */}
             <div className="w-full h-full max-w-[420px] aspect-square rounded-3xl p-2.5 bg-slate-900/40 border border-white/10 backdrop-blur-xl shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-2.5 left-4 flex gap-1.5">
+              <div className="absolute top-2.5 left-4 flex gap-1.5 z-20">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
               </div>
-              <div className="absolute top-1.5 right-4 text-[9px] font-bold text-slate-500 select-none uppercase tracking-wider">
+              <div className="absolute top-1.5 right-4 text-[9px] font-bold text-slate-500 select-none uppercase tracking-wider z-20">
                 future_forge.exe
               </div>
               
               {/* Graphic Container */}
-              <div className="w-full h-full rounded-2xl overflow-hidden mt-3 relative border border-white/[0.05]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                  src="/genz-hero.png" 
-                  alt="Future Forge Career Intel Illustration" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[6s]"
-                />
+              <div className="w-full h-full rounded-2xl overflow-hidden mt-3 relative border border-white/[0.05] bg-[#050811] flex items-center justify-center">
                 
+                {/* Embedded Responsive High-Tech SVG illustration */}
+                <svg className="w-full h-full p-4" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#22d3ee" />
+                      <stop offset="100%" stopColor="#06b6d4" />
+                    </linearGradient>
+                    <linearGradient id="cyberPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#a855f7" />
+                      <stop offset="100%" stopColor="#7c3aed" />
+                    </linearGradient>
+                    <linearGradient id="cyberGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#fbbf24" />
+                      <stop offset="100%" stopColor="#f59e0b" />
+                    </linearGradient>
+                    <filter id="neonFilter" x="-10%" y="-10%" width="120%" height="120%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <style>{`
+                    .grid-line { stroke: rgba(255, 255, 255, 0.03); stroke-width: 1; }
+                    .hologram-glow { animation: pulseGlow 4s ease-in-out infinite alternate; }
+                    .spin-ring { transform-origin: 200px 200px; animation: spinCW 20s linear infinite; }
+                    .spin-ring-counter { transform-origin: 200px 200px; animation: spinCCW 15s linear infinite; }
+                    .node-pulse { animation: nodePulse 2s ease-in-out infinite; }
+                    .data-bar { animation: barGrow 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; transform-origin: bottom; }
+                    
+                    @keyframes pulseGlow {
+                      0% { opacity: 0.15; filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.1)); }
+                      100% { opacity: 0.35; filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.3)); }
+                    }
+                    @keyframes spinCW {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                    }
+                    @keyframes spinCCW {
+                      0% { transform: rotate(360deg); }
+                      100% { transform: rotate(0deg); }
+                    }
+                    @keyframes nodePulse {
+                      0%, 100% { transform: scale(1); opacity: 0.7; }
+                      50% { transform: scale(1.3); opacity: 1; }
+                    }
+                    @keyframes barGrow {
+                      0% { transform: scaleY(0); }
+                      100% { transform: scaleY(1); }
+                    }
+                  `}</style>
+
+                  {/* Backdrop Matrix Grid */}
+                  <g>
+                    {Array.from({ length: 13 }).map((_, i) => (
+                      <line key={`x-${i}`} x1={i * 33.3} y1="0" x2={i * 33.3} y2="400" className="grid-line" />
+                    ))}
+                    {Array.from({ length: 13 }).map((_, i) => (
+                      <line key={`y-${i}`} x1="0" y1={i * 33.3} x2="400" y2={i * 33.3} className="grid-line" />
+                    ))}
+                  </g>
+
+                  {/* Tech circles / orbits underlay */}
+                  <circle cx="200" cy="200" r="140" stroke="url(#cyberCyan)" strokeWidth="0.5" strokeOpacity="0.2" strokeDasharray="5 5" className="spin-ring" />
+                  <circle cx="200" cy="200" r="110" stroke="url(#cyberPurple)" strokeWidth="1" strokeOpacity="0.15" strokeDasharray="40 10" className="spin-ring-counter" />
+                  <circle cx="200" cy="200" r="80" stroke="url(#cyberGold)" strokeWidth="0.5" strokeOpacity="0.1" strokeDasharray="3 3" />
+
+                  {/* Glowing central radial mesh */}
+                  <circle cx="200" cy="200" r="90" fill="url(#cyberCyan)" fillOpacity="0.05" className="hologram-glow" />
+
+                  {/* Central Avatar & Rig Representation */}
+                  <g transform="translate(100, 110)">
+                    {/* Floating Holo-Terminal Screen 1 */}
+                    <rect x="0" y="10" width="200" height="130" rx="12" fill="#090e1c" fillOpacity="0.9" stroke="url(#cyberCyan)" strokeWidth="1.5" filter="url(#neonFilter)" className="transition-all duration-300 group-hover:stroke-cyan-300" />
+                    
+                    {/* Screen 1 text elements */}
+                    <text x="15" y="32" fill="#22d3ee" fontSize="10" fontWeight="900" letterSpacing="1" fontFamily="sans-serif">FUTURE_FORGE // SYS_AUDIT</text>
+                    
+                    {/* Mock degree categories with progress charts */}
+                    <text x="15" y="55" fill="#94a3b8" fontSize="8" fontWeight="bold" fontFamily="sans-serif">ONLINE MBA (FINANCE)</text>
+                    <rect x="15" y="62" width="130" height="4" rx="2" fill="#1e293b" />
+                    <rect x="15" y="62" width="115" height="4" rx="2" fill="url(#cyberPurple)" className="data-bar" style={{ animationDelay: '0.1s' }} />
+                    <text x="155" y="66" fill="#a855f7" fontSize="8" fontWeight="900" fontFamily="sans-serif">92%</text>
+
+                    <text x="15" y="85" fill="#94a3b8" fontSize="8" fontWeight="bold" fontFamily="sans-serif">ONLINE MCA (AI/ML)</text>
+                    <rect x="15" y="92" width="130" height="4" rx="2" fill="#1e293b" />
+                    <rect x="15" y="92" width="125" height="4" rx="2" fill="url(#cyberCyan)" className="data-bar" style={{ animationDelay: '0.3s' }} />
+                    <text x="155" y="96" fill="#22d3ee" fontSize="8" fontWeight="900" fontFamily="sans-serif">98%</text>
+
+                    <text x="15" y="115" fill="#94a3b8" fontSize="8" fontWeight="bold" fontFamily="sans-serif">PLACEMENTS CONFIDENCE</text>
+                    <rect x="15" y="122" width="130" height="4" rx="2" fill="#1e293b" />
+                    <rect x="15" y="122" width="105" height="4" rx="2" fill="url(#cyberGold)" className="data-bar" style={{ animationDelay: '0.5s' }} />
+                    <text x="155" y="126" fill="#fbbf24" fontSize="8" fontWeight="900" fontFamily="sans-serif">84%</text>
+
+                    {/* Small dashboard items */}
+                    <circle cx="185" cy="30" r="3" fill="#34d399" className="node-pulse" />
+                  </g>
+
+                  {/* Sidebar floating metrics bento window (Right) */}
+                  <g transform="translate(255, 60)" className="transition-transform duration-500 group-hover:translate-y-[-5px]">
+                    <rect x="0" y="0" width="80" height="90" rx="10" fill="#090e1c" fillOpacity="0.8" stroke="url(#cyberPurple)" strokeWidth="1" />
+                    <text x="10" y="18" fill="#a855f7" fontSize="7" fontWeight="900" fontFamily="sans-serif">AVG PACKAGE</text>
+                    <text x="10" y="38" fill="#ffffff" fontSize="16" fontWeight="900" fontFamily="sans-serif">₹12L</text>
+                    <text x="10" y="48" fill="#94a3b8" fontSize="6" fontWeight="bold" fontFamily="sans-serif">ANNUAL RECORD</text>
+                    
+                    {/* Stylized bar mini-chart */}
+                    <g transform="translate(10, 60)">
+                      <rect x="0" y="5" width="8" height="15" rx="1" fill="url(#cyberPurple)" className="data-bar" />
+                      <rect x="12" y="10" width="8" height="10" rx="1" fill="url(#cyberCyan)" className="data-bar" style={{ animationDelay: '0.2s' }} />
+                      <rect x="24" y="0" width="8" height="20" rx="1" fill="url(#cyberGold)" className="data-bar" style={{ animationDelay: '0.4s' }} />
+                      <rect x="36" y="8" width="8" height="12" rx="1" fill="url(#cyberPurple)" className="data-bar" style={{ animationDelay: '0.6s' }} />
+                      <rect x="48" y="3" width="8" height="17" rx="1" fill="#38bdf8" className="data-bar" style={{ animationDelay: '0.8s' }} />
+                    </g>
+                  </g>
+
+                  {/* Sidebar floating credentials window (Left) */}
+                  <g transform="translate(20, 240)" className="transition-transform duration-500 group-hover:translate-y-[5px]">
+                    <rect x="0" y="0" width="90" height="70" rx="10" fill="#090e1c" fillOpacity="0.8" stroke="url(#cyberGold)" strokeWidth="1" />
+                    <text x="10" y="18" fill="#fbbf24" fontSize="7" fontWeight="900" fontFamily="sans-serif">CREDENTIALS</text>
+                    
+                    <g transform="translate(10, 28)">
+                      {/* Check 1 */}
+                      <circle cx="4" cy="4" r="3.5" fill="#10b981" fillOpacity="0.2" stroke="#10b981" strokeWidth="0.5" />
+                      <path d="M2.5 4 L3.5 5 L5.5 3" stroke="#10b981" strokeWidth="0.8" strokeLinecap="round" />
+                      <text x="12" y="6" fill="#ffffff" fontSize="6.5" fontWeight="bold" fontFamily="sans-serif">UGC-DEB APPROVED</text>
+                    </g>
+                    <g transform="translate(10, 42)">
+                      {/* Check 2 */}
+                      <circle cx="4" cy="4" r="3.5" fill="#10b981" fillOpacity="0.2" stroke="#10b981" strokeWidth="0.5" />
+                      <path d="M2.5 4 L3.5 5 L5.5 3" stroke="#10b981" strokeWidth="0.8" strokeLinecap="round" />
+                      <text x="12" y="6" fill="#ffffff" fontSize="6.5" fontWeight="bold" fontFamily="sans-serif">NAAC A++ STATUS</text>
+                    </g>
+                    <g transform="translate(10, 56)">
+                      {/* Check 3 */}
+                      <circle cx="4" cy="4" r="3.5" fill="#10b981" fillOpacity="0.2" stroke="#10b981" strokeWidth="0.5" />
+                      <path d="M2.5 4 L3.5 5 L5.5 3" stroke="#10b981" strokeWidth="0.8" strokeLinecap="round" />
+                      <text x="12" y="6" fill="#ffffff" fontSize="6.5" fontWeight="bold" fontFamily="sans-serif">WES CREDENTIALLING</text>
+                    </g>
+                  </g>
+
+                  {/* Connective nodes and network visual indicators */}
+                  <g stroke="#22d3ee" strokeWidth="0.5" strokeOpacity="0.4">
+                    <line x1="120" y1="120" x2="60" y2="240" strokeDasharray="3 3" />
+                    <line x1="300" y1="150" x2="255" y2="190" strokeDasharray="3 3" />
+                    <line x1="200" y1="110" x2="255" y2="80" strokeDasharray="3 3" />
+                  </g>
+
+                  {/* Micro blinking dots on nodes */}
+                  <circle cx="120" cy="120" r="3.5" fill="#22d3ee" className="node-pulse" />
+                  <circle cx="60" cy="240" r="3" fill="#fbbf24" className="node-pulse" style={{ animationDelay: '0.5s' }} />
+                  <circle cx="300" cy="150" r="3" fill="#a855f7" className="node-pulse" style={{ animationDelay: '1s' }} />
+                  <circle cx="255" cy="80" r="3.5" fill="#22d3ee" className="node-pulse" style={{ animationDelay: '1.5s' }} />
+                </svg>
+
                 {/* Holographic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent opacity-80 pointer-events-none" />
                 
                 {/* In-Illustration overlay metrics */}
-                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 border border-white/10 backdrop-blur-md p-3.5 rounded-xl space-y-1.5">
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 border border-white/10 backdrop-blur-md p-3.5 rounded-xl space-y-1.5 z-10">
                   <div className="flex justify-between items-center text-[10px] font-black text-cyan-400 uppercase tracking-widest">
                     <span>Active Audit Engine</span>
                     <span className="flex h-1.5 w-1.5 relative">
