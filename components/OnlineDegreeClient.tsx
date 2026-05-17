@@ -610,7 +610,7 @@ function InquiryModal({ college, onClose }: { college: typeof COLLEGES[0]; onClo
       await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, college: college.name, source: 'Online Degree Page', timestamp: new Date().toISOString() }),
+        body: JSON.stringify({ ...form, college: college.name, source: 'Online Shiksha Degree Page', timestamp: new Date().toISOString() }),
       });
       setStatus('success');
     } catch {

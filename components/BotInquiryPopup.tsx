@@ -150,7 +150,7 @@ export function BotInquiryPopup() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...data,
-          source: `Bot Inquiry (${data.course})`,
+          source: `Online Shiksha Bot Inquiry (${data.course})`,
           timestamp: new Date().toISOString()
         }),
       });

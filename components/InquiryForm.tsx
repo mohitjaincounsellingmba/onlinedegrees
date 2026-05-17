@@ -43,7 +43,7 @@ export function InquiryForm() {
       number: formData.number,
       email: formData.email,
       location: formData.location,
-      source: `ODH Inquiry (${formData.course})`,
+      source: `Online Shiksha Inquiry (${formData.course})`,
       budget: formData.budget,
       preferredLocation: formData.preferredLocation,
       course: formData.course,
