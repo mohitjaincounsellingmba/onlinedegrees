@@ -85,7 +85,7 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
                   <GraduationCap className="h-5 w-5" />
                 </div>
                 <span className="font-display text-lg font-black tracking-tight uppercase text-white">
-                  OnlineDegree<span className="text-indigo-400">Hub</span>
+                  Online<span className="text-indigo-400">Shiksha</span>
                 </span>
               </Link>
               <p className="text-slate-400 text-xs font-semibold leading-relaxed max-w-xs">
@@ -189,7 +189,7 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
         {/* BOTTOM BAR */}
         <div className="mt-16 pt-8 flex flex-col md:flex-row items-center justify-between border-t border-slate-800 gap-8">
           <div className="text-[10px] md:text-xs font-bold text-slate-500 flex flex-col md:flex-row items-center gap-2.5 text-center md:text-left">
-            <span>© {currentYear} Online Degree Hub. All rights reserved.</span>
+            <span>© {currentYear} Online Shiksha. All rights reserved.</span>
             <span className="hidden md:inline text-slate-700">|</span>
             <span className="text-slate-600 tracking-wider">UGC-DEB EDUCATION PARTNER</span>
           </div>

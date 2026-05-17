@@ -14,10 +14,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.onlinedegreehub.in"),
+  metadataBase: new URL("https://onlineshiksha.online"),
   title: {
-    default: "Online Degree Hub | UGC Approved Online Universities 2026",
-    template: "%s | Online Degree Hub",
+    default: "Online Shiksha | UGC Approved Online Universities 2026",
+    template: "%s | Online Shiksha",
   },
   description: "Compare 27+ UGC-DEB approved online universities in India for 2026. Find fees, NAAC grades, programs (MBA, MCA, BBA, BCA) and get FREE expert counselling.",
   keywords: [
@@ -26,26 +26,26 @@ export const metadata: Metadata = {
     "distance education India UGC", "NAAC A++ online university",
     "Amity University online", "LPU online MBA", "Chandigarh University online"
   ],
-  authors: [{ name: "Online Degree Hub" }],
+  authors: [{ name: "Online Shiksha" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.onlinedegreehub.in",
-    siteName: "OnlineDegreeHub",
-    title: "Online Degree Hub | UGC Approved Online Universities 2026",
+    url: "https://onlineshiksha.online",
+    siteName: "OnlineShiksha",
+    title: "Online Shiksha | UGC Approved Online Universities 2026",
     description: "Compare India's top online universities on fees, accreditation, and programs.",
     images: [
       {
         url: "/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Online Degree Hub",
+        alt: "Online Shiksha",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Online Degree Hub | UGC Approved Online Universities 2026",
+    title: "Online Shiksha | UGC Approved Online Universities 2026",
     description: "Compare India's top online universities on fees, accreditation, and programs.",
     images: ["/og-image.webp"],
   },
@@ -66,10 +66,10 @@ export default function RootLayout({
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Online Degree Hub",
-    "url": "https://www.onlinedegreehub.in",
-    "logo": "https://www.onlinedegreehub.in/logo.webp",
-    "image": "https://www.onlinedegreehub.in/og-image.webp",
+    "name": "Online Shiksha",
+    "url": "https://onlineshiksha.online",
+    "logo": "https://onlineshiksha.online/logo.webp",
+    "image": "https://onlineshiksha.online/og-image.webp",
     "telephone": "+91-9560020771",
     "address": {
       "@type": "PostalAddress",
@@ -85,11 +85,11 @@ export default function RootLayout({
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Online Degree Hub",
-    "url": "https://www.onlinedegreehub.in",
+    "name": "Online Shiksha",
+    "url": "https://onlineshiksha.online",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.onlinedegreehub.in/search?q={search_term_string}",
+      "target": "https://onlineshiksha.online/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

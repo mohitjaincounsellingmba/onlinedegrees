@@ -1,6 +1,6 @@
-# 🎓 Online Degree Hub (Stand-Alone Directory & Comparison Portal)
+# 🎓 Online Shiksha (Stand-Alone Directory & Comparison Portal)
 
-Welcome to the **Online Degree Hub** codebase! This is a dedicated, separate, standalone Next.js web application built using **React 19**, **TypeScript**, and **Tailwind CSS v4** to serve as a focused, high-converting directory for UGC-DEB approved online degrees in India.
+Welcome to the **Online Shiksha** codebase! This is a dedicated, separate, standalone Next.js web application built using **React 19**, **TypeScript**, and **Tailwind CSS v4** to serve as a focused, high-converting directory for UGC-DEB approved online degrees in India.
 
 This project is completely decoupled from the main portfolio website (`careerwithmohit`), offering an optimized search and aggregation landing page for students looking to compare fees, accreditations, and NAAC grades of 27+ premier universities.
 

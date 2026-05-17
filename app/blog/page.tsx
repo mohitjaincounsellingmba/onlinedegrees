@@ -3,7 +3,7 @@ import { BlogClient } from '@/components/BlogClient';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "University Reviews & Career Blog | Online Degree Hub",
+  title: "University Reviews & Career Blog | Online Shiksha",
   description: "Read verified reviews of UGC approved online universities in India. Get expert advice on MBA, BBA, MCA, BCA fees, accreditations, and placements.",
   alternates: {
     canonical: "/blog",

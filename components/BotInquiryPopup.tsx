@@ -43,7 +43,7 @@ export function BotInquiryPopup() {
 
   const steps = [
     {
-      question: "Hi there! 👋 I'm the Online Degree Hub assistant. What's your name?",
+      question: "Hi there! 👋 I'm the Online Shiksha assistant. What's your name?",
       field: 'name',
       type: 'text'
     },

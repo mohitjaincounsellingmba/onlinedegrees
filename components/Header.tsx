@@ -23,7 +23,7 @@ export function Header() {
             <GraduationCap className="h-6 w-6" />
           </div>
           <span className="font-display text-xl font-black tracking-tight text-slate-900 uppercase">
-            OnlineDegree<span className="text-indigo-600">Hub</span>
+            Online<span className="text-indigo-600">Shiksha</span>
           </span>
         </Link>
         

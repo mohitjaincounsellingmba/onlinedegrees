@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: postDescription,
       type: "article",
       publishedTime: postData.date,
-      authors: ["Online Degree Hub Editor"],
+      authors: ["Online Shiksha Editor"],
     }
   };
 }
@@ -68,20 +68,20 @@ export default async function BlogPost({ params }: PageProps) {
     "dateModified": postData.date,
     "author": {
       "@type": "Organization",
-      "name": "Online Degree Hub Team",
-      "url": "https://onlinedegreehub.in"
+      "name": "Online Shiksha Team",
+      "url": "https://onlineshiksha.online"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Online Degree Hub",
+      "name": "Online Shiksha",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://onlinedegreehub.in/logo.png"
+        "url": "https://onlineshiksha.online/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://onlinedegreehub.in/blog/${slug}`
+      "@id": `https://onlineshiksha.online/blog/${slug}`
     }
   };
 
@@ -93,19 +93,19 @@ export default async function BlogPost({ params }: PageProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://onlinedegreehub.in/"
+        "item": "https://onlineshiksha.online/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://onlinedegreehub.in/blog"
+        "item": "https://onlineshiksha.online/blog"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": postData.title,
-        "item": `https://onlinedegreehub.in/blog/${slug}`
+        "item": `https://onlineshiksha.online/blog/${slug}`
       }
     ]
   };
