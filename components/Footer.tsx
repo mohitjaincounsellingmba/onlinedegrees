@@ -25,6 +25,7 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
     support: [
       { name: 'Expert Counselling', href: '#' },
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
+      { name: 'University Reviews', href: '/blog' },
       { name: 'Comparison Guide', href: '#' },
       { name: 'Admissions 2026', href: '#' },
     ]
