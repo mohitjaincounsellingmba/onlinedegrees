@@ -283,7 +283,7 @@ export default function Home() {
       </div>
 
       {/* ── MAIN COMPARATOR BOARD ── */}
-      <div id="comparison-engine" className="relative z-10">
+      <div className="relative">
         <OnlineDegreeClient />
       </div>
 

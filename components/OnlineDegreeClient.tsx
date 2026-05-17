@@ -619,7 +619,7 @@ function InquiryModal({ college, onClose }: { college: typeof COLLEGES[0]; onClo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md" />
       <div
         className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 z-10 max-h-[90vh] overflow-y-auto border border-slate-100"
@@ -699,7 +699,7 @@ function CollegeDetailModal({ college, onClose, onInquire }: {
   onInquire: () => void;
 }) {
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={onClose}>
       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md" />
       <div
         className="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto z-10 border border-slate-100"
