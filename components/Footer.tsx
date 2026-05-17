@@ -112,9 +112,6 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
                <a href="tel:+919560020771" className="flex items-center gap-2.5 hover:text-indigo-400 transition-colors">
                  <Phone size={14} className="text-indigo-400" /> +91 95600 20771
                </a>
-               <a href="mailto:info@careerwithmohit.online" className="flex items-center gap-2.5 hover:text-indigo-400 transition-colors">
-                 <Mail size={14} className="text-indigo-400" /> info@careerwithmohit.online
-               </a>
             </div>
           </div>
 
