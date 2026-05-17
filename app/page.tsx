@@ -14,6 +14,7 @@ import {
   Compass
 } from 'lucide-react';
 import OnlineDegreeClient from '@/components/OnlineDegreeClient';
+import { JsonLd } from "@/components/JsonLd";
 
 export default function Home() {
   const FAQ_ITEMS = [
@@ -43,8 +44,22 @@ export default function Home() {
     },
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQ_ITEMS.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  };
+
   return (
     <div className="bg-[#0b0f19] text-white min-h-screen font-body overflow-x-hidden">
+      <JsonLd data={faqSchema} />
       {/* ── CUSTOM GEN-Z CSS STYLE tokens ── */}
       <style>{`
         .hero-mesh {

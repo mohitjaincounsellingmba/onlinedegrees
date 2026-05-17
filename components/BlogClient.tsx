@@ -58,6 +58,27 @@ const getCategoryStyles = (category: string) => {
       dot: 'bg-emerald-400'
     };
   }
+  if (cat.includes('exam') || cat.includes('coaching') || cat.includes('prep')) {
+    return {
+      bg: 'bg-rose-950/40 border-rose-500/30 text-rose-300',
+      glow: 'shadow-[0_0_15px_rgba(244,63,94,0.15)]',
+      dot: 'bg-rose-400'
+    };
+  }
+  if (cat.includes('tool') || cat.includes('platform') || cat.includes('e-learning')) {
+    return {
+      bg: 'bg-sky-950/40 border-sky-500/30 text-sky-300',
+      glow: 'shadow-[0_0_15px_rgba(14,165,233,0.15)]',
+      dot: 'bg-sky-400'
+    };
+  }
+  if (cat.includes('career') || cat.includes('guidance') || cat.includes('job') || cat.includes('salary')) {
+    return {
+      bg: 'bg-indigo-950/40 border-indigo-500/30 text-indigo-300',
+      glow: 'shadow-[0_0_15px_rgba(99,102,241,0.15)]',
+      dot: 'bg-indigo-400'
+    };
+  }
   return {
     bg: 'bg-pink-950/40 border-pink-500/30 text-pink-300',
     glow: 'shadow-[0_0_15px_rgba(236,72,153,0.15)]',

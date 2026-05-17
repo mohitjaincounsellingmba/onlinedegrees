@@ -1,6 +1,7 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { BlogClient } from '@/components/BlogClient';
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: "University Reviews & Career Blog | Online Shiksha",
@@ -22,5 +23,29 @@ export default function BlogPage() {
     category: category || 'Online Degrees',
   }));
 
-  return <BlogClient posts={postHeaders} />;
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://onlineshiksha.online/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://onlineshiksha.online/blog"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <BlogClient posts={postHeaders} />;
+    </>
+  );
 }

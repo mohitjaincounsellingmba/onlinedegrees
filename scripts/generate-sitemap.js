@@ -39,28 +39,8 @@ function getSortedPosts() {
         date = match[1];
       }
       
-      // Basic category parsing to exclude non-degrees
-      const textToSearch = `${slug} ${fileContents.substring(0, 500)}`.toLowerCase();
-      let isExclude = false;
-      if (
-        textToSearch.includes('exam') ||
-        textToSearch.includes('mock test') ||
-        textToSearch.includes('result') ||
-        textToSearch.includes('coaching') ||
-        textToSearch.includes('sell-courses') ||
-        textToSearch.includes('sell your coaching') ||
-        textToSearch.includes('platform') ||
-        textToSearch.includes('hiring') ||
-        textToSearch.includes('job') ||
-        textToSearch.includes('salary') ||
-        textToSearch.includes('career')
-      ) {
-        isExclude = true;
-      }
-
-      return { slug, date, isExclude };
-    })
-    .filter(post => !post.isExclude);
+      return { slug, date };
+    });
 }
 
 // Generate sitemap.xml
