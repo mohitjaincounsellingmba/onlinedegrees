@@ -2,7 +2,22 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, Calendar, ArrowRight, GraduationCap, Compass, BookOpen } from 'lucide-react';
+import { 
+  Search, 
+  Calendar, 
+  ArrowRight, 
+  Compass, 
+  BookOpen,
+  Sparkles,
+  Flame,
+  ShieldCheck,
+  CheckCircle2,
+  Clock,
+  X,
+  ChevronRight,
+  TrendingUp,
+  Zap
+} from 'lucide-react';
 
 interface PostHeader {
   slug: string;
@@ -12,9 +27,62 @@ interface PostHeader {
   category: string;
 }
 
+// Custom styling function for glowing dynamic tags based on category
+const getCategoryStyles = (category: string) => {
+  const cat = category.toLowerCase();
+  if (cat.includes('mba')) {
+    return {
+      bg: 'bg-purple-950/40 border-purple-500/30 text-purple-300',
+      glow: 'shadow-[0_0_15px_rgba(168,85,247,0.15)]',
+      dot: 'bg-purple-400'
+    };
+  }
+  if (cat.includes('mca') || cat.includes('bca') || cat.includes('tech')) {
+    return {
+      bg: 'bg-cyan-950/40 border-cyan-500/30 text-cyan-300',
+      glow: 'shadow-[0_0_15px_rgba(6,182,212,0.15)]',
+      dot: 'bg-cyan-400'
+    };
+  }
+  if (cat.includes('review') || cat.includes('university')) {
+    return {
+      bg: 'bg-amber-950/40 border-amber-500/30 text-amber-300',
+      glow: 'shadow-[0_0_15px_rgba(245,158,11,0.15)]',
+      dot: 'bg-amber-400'
+    };
+  }
+  if (cat.includes('mock') || cat.includes('test')) {
+    return {
+      bg: 'bg-emerald-950/40 border-emerald-500/30 text-emerald-300',
+      glow: 'shadow-[0_0_15px_rgba(16,185,129,0.15)]',
+      dot: 'bg-emerald-400'
+    };
+  }
+  return {
+    bg: 'bg-pink-950/40 border-pink-500/30 text-pink-300',
+    glow: 'shadow-[0_0_15px_rgba(236,72,153,0.15)]',
+    dot: 'bg-pink-400'
+  };
+};
+
 export function BlogClient({ posts }: { posts: PostHeader[] }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+
+  // --- VIBE CHECK QUIZ STATES ---
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizStep, setQuizStep] = useState(1);
+  const [quizAnswers, setQuizAnswers] = useState({
+    goal: '',
+    background: '',
+    style: ''
+  });
+  const [recommendation, setRecommendation] = useState<{
+    course: string;
+    description: string;
+    filterKeyword: string;
+    vibeTag: string;
+  } | null>(null);
 
   // Extract unique categories and sort them
   const categories = useMemo(() => {
@@ -39,54 +107,548 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
     });
   }, [posts, searchTerm, activeCategory]);
 
+  // --- QUIZ DATA & LOGIC ---
+  const handleQuizAnswer = (key: 'goal' | 'background' | 'style', value: string) => {
+    const updatedAnswers = { ...quizAnswers, [key]: value };
+    setQuizAnswers(updatedAnswers);
+
+    if (quizStep < 3) {
+      setQuizStep(quizStep + 1);
+    } else {
+      // Calculate recommendation
+      let recommendedCourse = '';
+      let recommendedDesc = '';
+      let filterKeyword = '';
+      let vibeTag = '';
+
+      const { goal, background, style } = updatedAnswers;
+
+      if (goal === 'money') {
+        if (background === 'tech') {
+          recommendedCourse = 'Online MCA (AI & Data Science)';
+          recommendedDesc = 'High-growth tech domains are hiring crazy fast. Get certified in cloud or AI to command the top brackets.';
+          filterKeyword = 'MCA';
+          vibeTag = '⚡️ Tech Mogul';
+        } else {
+          recommendedCourse = 'Online MBA (Finance / Marketing)';
+          recommendedDesc = 'The ultimate business toolkit. High placement packages with UGC double accreditations.';
+          filterKeyword = 'MBA';
+          vibeTag = '💼 Wolf of Wall Street';
+        }
+      } else if (goal === 'startup') {
+        recommendedCourse = 'Online MBA in Entrepreneurship & Marketing';
+        recommendedDesc = 'Understand scaling, digital customer acquisition, and venture capital while building your network.';
+        filterKeyword = 'MBA';
+        vibeTag = '🚀 Unicorn Founder';
+      } else if (goal === 'easy') {
+        recommendedCourse = 'Online BBA / General Online MBA';
+        recommendedDesc = 'Maximize flex and get your degree sorted with structured syllabus & absolute flexibility.';
+        filterKeyword = 'BBA';
+        vibeTag = '🧘 Zen Learner';
+      } else {
+        // Career switch
+        if (background === 'arts' || background === 'other') {
+          recommendedCourse = 'Online BCA / BBA in Data Analytics';
+          recommendedDesc = 'Sleek bridge programs that teach analytics and management from absolute zero. Safe & future-proof.';
+          filterKeyword = 'BBA';
+          vibeTag = '🔄 Career Shifter';
+        } else {
+          recommendedCourse = 'Online MCA / Executive MBA';
+          recommendedDesc = 'Deep technical or strategic upgrade to unlock management fast track.';
+          filterKeyword = 'MCA';
+          vibeTag = '📈 Corporate Accelerator';
+        }
+      }
+
+      setRecommendation({
+        course: recommendedCourse,
+        description: recommendedDesc,
+        filterKeyword,
+        vibeTag
+      });
+      setQuizStep(4);
+    }
+  };
+
+  const resetQuiz = () => {
+    setQuizStep(1);
+    setQuizAnswers({ goal: '', background: '', style: '' });
+    setRecommendation(null);
+  };
+
+  const applyQuizFilter = () => {
+    if (recommendation) {
+      setSearchTerm(recommendation.filterKeyword);
+      setActiveCategory('All'); // Reset category pill to find matching keyword
+      setShowQuiz(false);
+      // Smooth scroll to blog grid
+      const element = document.getElementById('blog-grid-anchor');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#f8f7f4] py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <div className="min-h-screen bg-[#080C14] text-slate-100 relative overflow-hidden font-display selection:bg-cyan-500 selection:text-[#080C14]">
+      
+      {/* ── BACKGROUND MESH AURAS & GLOWING BLOBS ── */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        {/* Animated Radial blobs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[140px] animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute top-[25%] right-[-10%] w-[45%] h-[45%] bg-cyan-500/10 rounded-full blur-[130px] animate-pulse" style={{ animationDuration: '10s' }} />
+        <div className="absolute bottom-[10%] left-[15%] w-[40%] h-[40%] bg-pink-500/8 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '12s' }} />
         
-        {/* ── HEADER SECTION ── */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 px-4 py-1.5 rounded-full text-indigo-700 text-xs font-black uppercase tracking-wider mb-4">
-            <GraduationCap className="h-4 w-4" /> Career Advice & Reviews
+        {/* Subtle grid lines background overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+        
+        {/* ── HERO ZONE: TYPOGRAPHY & SYMLINKED ILLUSTRATION ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-cyan-500/20 px-4 py-1.5 rounded-full text-cyan-400 text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="h-4 w-4 text-cyan-400 animate-spin" style={{ animationDuration: '6s' }} /> 
+              No BS. Real Career Analytics.
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] text-white">
+              Uncensored Review <br />
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Career Intel Hub
+              </span> ⚡️
+            </h1>
+            
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl">
+              We cut through the marketing jargon. Real UGC-approved university audits, updated fee structure spreadsheets, placements analytics, and honest student critiques. Build your future on cold, hard data.
+            </p>
+            
+            {/* Call to action & Vibe Check button */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <button 
+                onClick={() => setShowQuiz(true)}
+                className="group relative px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-[#080C14] font-black rounded-2xl text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] cursor-pointer hover:scale-[1.02]"
+              >
+                <span className="flex items-center gap-2">
+                  Take Career Vibe Check <Flame className="h-4 w-4 fill-current text-[#080C14]" />
+                </span>
+              </button>
+              
+              <a 
+                href="#blog-grid-anchor"
+                className="px-6 py-3.5 bg-slate-900/50 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 font-bold rounded-2xl text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2"
+              >
+                Read Raw Reviews <BookOpen className="h-4 w-4" />
+              </a>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none">
-            Online Degree <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Hub Blog</span>
-          </h1>
-          <p className="text-slate-600 font-semibold mt-4 text-base md:text-lg">
-            Stay updated with expert career guides, in-depth UGC-approved university reviews, fee structures, and placement analytics.
-          </p>
+          
+          {/* Symlinked Cyberpunk illustration showcase */}
+          <div className="lg:col-span-5 relative w-full aspect-square flex items-center justify-center">
+            {/* Outer Glowing Rings */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-70 animate-pulse pointer-events-none" />
+            
+            {/* Monitor Mockup Wrapper */}
+            <div className="w-full h-full max-w-[420px] aspect-square rounded-3xl p-2.5 bg-slate-900/40 border border-white/10 backdrop-blur-xl shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-2.5 left-4 flex gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+              </div>
+              <div className="absolute top-1.5 right-4 text-[9px] font-bold text-slate-500 select-none uppercase tracking-wider">
+                future_forge.exe
+              </div>
+              
+              {/* Graphic Container */}
+              <div className="w-full h-full rounded-2xl overflow-hidden mt-3 relative border border-white/[0.05]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="/genz-hero.png" 
+                  alt="Future Forge Career Intel Illustration" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[6s]"
+                />
+                
+                {/* Holographic overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
+                
+                {/* In-Illustration overlay metrics */}
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 border border-white/10 backdrop-blur-md p-3.5 rounded-xl space-y-1.5">
+                  <div className="flex justify-between items-center text-[10px] font-black text-cyan-400 uppercase tracking-widest">
+                    <span>Active Audit Engine</span>
+                    <span className="flex h-1.5 w-1.5 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+                    </span>
+                  </div>
+                  <div className="text-xs font-black text-white leading-tight">
+                    🔥 Verified 2026 Salary Packages Analytics
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* ── SEARCH & FILTER CONTROLS ── */}
-        <div className="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-100/50 mb-12">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Search Input */}
-            <div className="relative w-full md:max-w-md">
-              <Search className="absolute left-4 top-3.5 h-5 w-5 text-slate-400" />
+        {/* ── WIDGET 1: POPUP/SLIDEOUT CAREER VIBE CHECK QUIZ ── */}
+        {showQuiz && (
+          <div className="fixed inset-0 z-50 bg-[#04060b]/90 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="bg-slate-900/90 border border-slate-800 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl relative">
+              <button 
+                onClick={() => setShowQuiz(false)}
+                className="absolute top-4 right-4 bg-slate-800/80 text-slate-400 hover:text-white p-2 rounded-xl transition-all cursor-pointer"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="p-8">
+                {/* Header state */}
+                <div className="flex items-center gap-2 mb-6">
+                  <Flame className="h-5 w-5 text-cyan-400 animate-bounce" />
+                  <span className="text-xs font-black text-cyan-400 uppercase tracking-widest">
+                    Vibe Check {quizStep <= 3 ? `[Step ${quizStep}/3]` : `[Vibe Matcher]`}
+                  </span>
+                </div>
+
+                {/* Progress bar */}
+                {quizStep <= 3 && (
+                  <div className="w-full bg-slate-800 h-1.5 rounded-full mb-8 overflow-hidden">
+                    <div 
+                      className="bg-gradient-to-r from-cyan-400 to-purple-500 h-full transition-all duration-300"
+                      style={{ width: `${(quizStep / 3) * 100}%` }}
+                    />
+                  </div>
+                )}
+
+                {/* Step 1: Goal */}
+                {quizStep === 1 && (
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-black text-white">What's your primary career hustle goal?</h3>
+                      <p className="text-xs text-slate-400">Be honest. No judgment. We optimize for results.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-3.5">
+                      <button 
+                        onClick={() => handleQuizAnswer('goal', 'money')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">💰 Max Salary & Placements</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Show me online degrees that print cash</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('goal', 'startup')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">🚀 Launch My Own Startup</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Learn to build products, scale, and capture VC attention</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('goal', 'easy')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">🎓 Smooth & Flexible Degree</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Just need the certified papers, keep workload chill</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('goal', 'switch')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">🔄 Quick Career Pivot</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Transition to high-paying domains without tech history</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 2: Background */}
+                {quizStep === 2 && (
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-black text-white">What's your current intellectual vibe?</h3>
+                      <p className="text-xs text-slate-400">Select the closest match. We bridge all gap disciplines.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-3.5">
+                      <button 
+                        onClick={() => handleQuizAnswer('background', 'commerce')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-purple-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <span className="text-white">💼 Commerce, Finance & Business Ops</span>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('background', 'tech')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-purple-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <span className="text-white">💻 Coding, Science & Analytics</span>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('background', 'arts')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-purple-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <span className="text-white">🎨 Arts, Design & Humanities</span>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('background', 'other')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-purple-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <span className="text-white">🤷 Anything else / Undecided</span>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 3: Work Style */}
+                {quizStep === 3 && (
+                  <div className="space-y-6">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-black text-white">How do you want to handle the grind?</h3>
+                      <p className="text-xs text-slate-400">Match your energy level to the study structure.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-3.5">
+                      <button 
+                        onClick={() => handleQuizAnswer('style', 'fast')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">⚡️ Speedrun & High Output</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Finish program ASAP, max hours weekly</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('style', 'chill')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">🧘 Chill & Balanced</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Steady progression alongside side-hustles & gym</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                      <button 
+                        onClick={() => handleQuizAnswer('style', 'flexible')}
+                        className="p-4 bg-slate-950/40 hover:bg-slate-950 border border-slate-800 hover:border-cyan-500/50 rounded-2xl text-left text-sm font-bold transition-all flex justify-between items-center group cursor-pointer"
+                      >
+                        <div>
+                          <p className="text-white">🕒 Ultra Flexible / Mobile</p>
+                          <p className="text-xs text-slate-500 font-semibold mt-0.5">Study from anywhere in the world on a fluid timetable</p>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 4: Results */}
+                {quizStep === 4 && recommendation && (
+                  <div className="space-y-6 text-center">
+                    <div className="mx-auto w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-4">
+                      <Sparkles className="h-8 w-8 text-cyan-400 animate-spin" style={{ animationDuration: '4s' }} />
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="inline-block bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+                        VIBE: {recommendation.vibeTag}
+                      </div>
+                      <h3 className="text-2xl font-black text-white">Your Ideal Degree Vibe</h3>
+                      <p className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mt-1">
+                        {recommendation.course}
+                      </p>
+                    </div>
+
+                    <p className="text-slate-400 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed">
+                      {recommendation.description}
+                    </p>
+
+                    <div className="pt-6 space-y-3">
+                      <button 
+                        onClick={applyQuizFilter}
+                        className="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-[#080C14] font-black rounded-2xl text-xs uppercase tracking-widest transition-all cursor-pointer shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/30"
+                      >
+                        Search reviews matching this vibe ⚡️
+                      </button>
+
+                      <button 
+                        onClick={resetQuiz}
+                        className="w-full py-3 bg-slate-950/80 hover:bg-slate-950 border border-slate-800 text-slate-400 hover:text-white font-bold rounded-2xl text-xs uppercase tracking-widest transition-all cursor-pointer"
+                      >
+                        Reset & Retake Vibe Check
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ── BENTO 2-COLUMN SECTION: LIVE METRICS & TRUTH INDICATOR ── */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+          {/* Truth/BS Meter Glass Card */}
+          <div className="md:col-span-7 bg-slate-900/40 border border-slate-800/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between group">
+            {/* Dot grid in bento card */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl" />
+            
+            <div className="space-y-4 relative z-10">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-black text-cyan-400 tracking-widest uppercase flex items-center gap-1.5">
+                  <ShieldCheck className="h-4 w-4" /> Editorial Promise
+                </span>
+                <span className="bg-slate-800/80 px-2.5 py-1 rounded-lg text-[9px] font-black text-slate-400 uppercase">
+                  Verified 2026
+                </span>
+              </div>
+              
+              <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
+                100% Unbiased Auditing. <br />
+                <span className="text-slate-400">Zero sponsored hype or corporate puff.</span>
+              </h2>
+              
+              <p className="text-xs text-slate-400 leading-relaxed max-w-lg">
+                Unlike sponsored comparison sites, we review based on direct UGC transcripts, actual student reviews, and official fee ledgers. If a degree fails our placement metrics, we label it.
+              </p>
+            </div>
+            
+            {/* Visual BS-Meter scale */}
+            <div className="mt-8 bg-slate-950/60 border border-slate-800/60 p-4 rounded-2xl flex flex-col sm:flex-row gap-4 items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="h-9 w-9 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                  <Zap className="h-4 w-4 text-cyan-400 animate-pulse" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-black text-slate-500 uppercase tracking-wider">Audit Confidence</div>
+                  <div className="text-xs font-bold text-white">99.8% Legitimacy Index</div>
+                </div>
+              </div>
+              
+              {/* Fake visual spectrum line */}
+              <div className="w-full sm:w-44 flex flex-col gap-1.5">
+                <div className="flex justify-between text-[9px] font-bold text-slate-500">
+                  <span>Sponsored fluff</span>
+                  <span>Pure raw data</span>
+                </div>
+                <div className="w-full bg-slate-850 h-2 rounded-full overflow-hidden relative">
+                  <div className="absolute top-0 left-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 h-full rounded-full w-[95%]" />
+                  {/* Glowing needle dot */}
+                  <span className="absolute top-1/2 left-[95%] -translate-x-1/2 -translate-y-1/2 h-3.5 w-3.5 bg-white border border-cyan-400 rounded-full shadow-[0_0_10px_rgba(34,211,238,1)] animate-ping" />
+                  <span className="absolute top-1/2 left-[95%] -translate-x-1/2 -translate-y-1/2 h-2.5 w-2.5 bg-white border border-cyan-400 rounded-full shadow-[0_0_10px_rgba(34,211,238,1)]" />
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Quick Metrics Bento Glass Card */}
+          <div className="md:col-span-5 bg-gradient-to-br from-slate-900/60 to-purple-950/10 border border-slate-800/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl" />
+            
+            <span className="text-[10px] font-black text-purple-400 tracking-widest uppercase flex items-center gap-1.5 mb-4">
+              <TrendingUp className="h-4 w-4" /> Live Market Metrics
+            </span>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-slate-950/40 border border-slate-800/50 p-4 rounded-2xl relative group-hover:border-purple-500/20 transition-colors">
+                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Active Audits</div>
+                <div className="text-2xl font-black text-white mt-1">27+</div>
+                <div className="text-[9px] font-bold text-cyan-400 mt-1 flex items-center gap-0.5">
+                  Top Colleges <CheckCircle2 className="h-3 w-3" />
+                </div>
+              </div>
+              
+              <div className="bg-slate-950/40 border border-slate-800/50 p-4 rounded-2xl relative group-hover:border-purple-500/20 transition-colors">
+                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">High Package</div>
+                <div className="text-2xl font-black text-white mt-1">₹12 LPA</div>
+                <div className="text-[9px] font-bold text-purple-400 mt-1">
+                  Average Placement
+                </div>
+              </div>
+              
+              <div className="bg-slate-950/40 border border-slate-800/50 p-4 rounded-2xl relative group-hover:border-purple-500/20 transition-colors">
+                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Accreditations</div>
+                <div className="text-2xl font-black text-white mt-1">NAAC A++</div>
+                <div className="text-[9px] font-bold text-emerald-400 mt-1">
+                  UGC-DEB Approved
+                </div>
+              </div>
+              
+              <div className="bg-slate-950/40 border border-slate-800/50 p-4 rounded-2xl relative group-hover:border-purple-500/20 transition-colors">
+                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Reading Intel</div>
+                <div className="text-2xl font-black text-white mt-1">89+</div>
+                <div className="text-[9px] font-bold text-slate-400 mt-1">
+                  Deep Dive Articles
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── SEARCH & FILTER ENGINE BAR ── */}
+        <div id="blog-grid-anchor" className="bg-slate-900/30 border border-slate-800/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl relative mb-12">
+          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+            {/* Search Input Box */}
+            <div className="relative w-full lg:max-w-md">
+              <Search className="absolute left-4 top-3.5 h-5 w-5 text-slate-500" />
               <input
                 type="text"
-                placeholder="Search college reviews, courses, or guides..."
+                placeholder="Search college reviews, specific courses, or guides..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 pl-12 pr-4 py-3 rounded-2xl text-sm font-semibold text-slate-800 focus:outline-none focus:border-indigo-500 focus:bg-white transition-all shadow-inner"
+                className="w-full bg-slate-950/80 border border-slate-800 pl-12 pr-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20 focus:bg-slate-950 transition-all shadow-inner"
               />
+              {searchTerm && (
+                <button 
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-4 top-3.5 text-slate-500 hover:text-white transition-colors cursor-pointer"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
             </div>
 
             {/* Total Results Counter */}
-            <div className="text-xs font-black uppercase tracking-wider text-slate-400 shrink-0">
-              Showing {filteredPosts.length} of {posts.length} Articles
+            <div className="flex items-center gap-4 text-xs font-black uppercase tracking-wider text-slate-500 shrink-0">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              </span>
+              <span>Showing {filteredPosts.length} of {posts.length} Curated Reviews</span>
             </div>
           </div>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-2 mt-6 border-t border-slate-50 pt-6">
+          <div className="flex flex-wrap gap-2.5 mt-6 border-t border-slate-800/50 pt-6">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-black tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-indigo-600 text-white border border-indigo-500 shadow-md shadow-indigo-100'
-                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-[#080C14] shadow-[0_0_15px_rgba(6,182,212,0.35)] scale-[1.03]'
+                    : 'bg-slate-950/60 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-white'
                 }`}
               >
                 {cat}
@@ -95,68 +657,93 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
           </div>
         </div>
 
-        {/* ── BLOG POSTS GRID ── */}
+        {/* ── BLOG POSTS GRID: BENTO CARDS ── */}
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, idx) => (
-              <article 
-                key={post.slug}
-                className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full"
-                style={{ animationDelay: `${idx * 50}ms` }}
-              >
-                <div className="p-6 md:p-8 flex flex-col h-full flex-grow">
-                  {/* Category & Date */}
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="bg-indigo-50 text-indigo-700 border border-indigo-100 px-3 py-1 rounded-xl text-[10px] font-black uppercase tracking-wider">
-                      {post.category || 'Online Degrees'}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-slate-400 text-xs font-bold">
-                      <Calendar className="h-3.5 w-3.5" />
-                      <span>{post.date}</span>
+            {filteredPosts.map((post, idx) => {
+              const catStyles = getCategoryStyles(post.category);
+              return (
+                <article 
+                  key={post.slug}
+                  className="group bg-slate-900/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-800/80 hover:border-cyan-500/40 shadow-xl hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative"
+                  style={{ animationDelay: `${idx * 40}ms` }}
+                >
+                  {/* Top Glowing Mesh Strip */}
+                  <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="p-6 sm:p-8 flex flex-col h-full flex-grow space-y-5">
+                    {/* Category & Date Row */}
+                    <div className="flex items-center justify-between gap-4">
+                      <span className={`inline-flex items-center gap-1.5 border px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest ${catStyles.bg} ${catStyles.glow}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${catStyles.dot} animate-pulse`} />
+                        {post.category || 'Online Degrees'}
+                      </span>
+                      <div className="flex items-center gap-1.5 text-slate-500 text-xs font-bold">
+                        <Calendar className="h-3.5 w-3.5" />
+                        <span>{post.date}</span>
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-snug group-hover:text-cyan-400 transition-colors duration-300 flex-grow min-h-[50px] line-clamp-2">
+                      <Link href={`/blog/${post.slug}`} className="focus:outline-none">
+                        {post.title}
+                      </Link>
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-slate-400 text-xs sm:text-sm font-medium leading-relaxed line-clamp-3">
+                      {post.description || 'Read our complete in-depth review covering fees, programs, accreditation, placements and admission guidelines.'}
+                    </p>
+
+                    {/* Bottom Link and Read Time mock */}
+                    <div className="border-t border-slate-800/80 pt-4 mt-auto flex items-center justify-between">
+                      <Link 
+                        href={`/blog/${post.slug}`}
+                        className="inline-flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 text-xs font-black uppercase tracking-wider group/link transition-all"
+                      >
+                        Read Intel 
+                        <ArrowRight className="h-3.5 w-3.5 group-hover/link:translate-x-1 transition-transform duration-300" />
+                      </Link>
+                      
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+                        <Clock className="h-3 w-3" /> 4 Min Read
+                      </span>
                     </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg md:text-xl font-black text-slate-900 tracking-tight leading-snug group-hover:text-indigo-600 transition-colors mb-3 line-clamp-2">
-                    <Link href={`/blog/${post.slug}`} className="focus:outline-none">
-                      {post.title}
-                    </Link>
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-slate-600 text-xs md:text-sm font-semibold leading-relaxed mb-6 line-clamp-3 flex-grow">
-                    {post.description || 'Read our complete in-depth review covering fees, programs, accreditation, placements and admission guidelines.'}
-                  </p>
-
-                  {/* Action Link */}
-                  <div className="border-t border-slate-50 pt-4 mt-auto">
-                    <Link 
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 text-xs font-black uppercase tracking-wider group/link transition-all"
-                    >
-                      Read Full Article 
-                      <ArrowRight className="h-3.5 w-3.5 group-hover/link:translate-x-1.5 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         ) : (
-          <div className="bg-white border border-slate-100 rounded-3xl p-16 text-center shadow-xl">
-            <div className="mx-auto bg-slate-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 border border-slate-100">
-              <Compass className="h-8 w-8 text-slate-400 animate-spin" style={{ animationDuration: '4s' }} />
+          /* Empty Search Fallback */
+          <div className="bg-slate-900/20 border border-slate-800/80 backdrop-blur-xl rounded-3xl p-16 text-center max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl" />
+            
+            <div className="mx-auto bg-slate-950/60 border border-slate-850 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
+              <Compass className="h-8 w-8 text-cyan-500 animate-spin" style={{ animationDuration: '6s' }} />
             </div>
-            <h3 className="text-xl font-black text-slate-900">No Articles Found</h3>
-            <p className="text-slate-500 font-semibold mt-2 max-w-sm mx-auto text-sm">
-              We couldn't find any reviews matching "{searchTerm}". Try exploring other categories or clearing your search.
+            
+            <h3 className="text-xl font-black text-white tracking-tight">Vibe Search Failed</h3>
+            <p className="text-slate-400 font-semibold mt-2 max-w-sm mx-auto text-xs sm:text-sm leading-relaxed">
+              We couldn't find any reviews matching "{searchTerm}". Try clearing your filters or take the vibe check quiz.
             </p>
-            <button
-              onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
-              className="mt-6 bg-indigo-600 text-white border border-indigo-500 px-6 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider hover:bg-indigo-700 transition-colors cursor-pointer"
-            >
-              Reset Filters
-            </button>
+            
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <button
+                onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
+                className="bg-cyan-500 hover:bg-cyan-400 text-[#080C14] border border-cyan-400 px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer shadow-lg shadow-cyan-500/10"
+              >
+                Reset Filters
+              </button>
+              
+              <button
+                onClick={() => setShowQuiz(true)}
+                className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer"
+              >
+                Launch Vibe Quiz
+              </button>
+            </div>
           </div>
         )}
 
