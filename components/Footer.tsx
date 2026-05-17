@@ -1,10 +1,22 @@
 "use client";
 
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { Instagram, Linkedin, Facebook, Youtube, Phone, Mail, ArrowRight, GraduationCap } from 'lucide-react';
 
 export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNode }) {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleScroll = (id: string) => {
+    if (pathname !== '/') {
+      router.push(`/#${id}`);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const footerLinks = {
     programs: [
@@ -63,10 +75,7 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
               </p>
             </div>
             <button 
-              onClick={() => {
-                const form = document.getElementById('comparison-engine');
-                if (form) form.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => handleScroll('comparison-engine')}
               className="bg-white text-slate-900 px-8 py-3.5 rounded-2xl font-black uppercase tracking-wider text-xs md:text-sm hover:scale-105 transition-all shadow-xl flex items-center gap-2 shrink-0 cursor-pointer"
             >
               Start Comparison <ArrowRight size={18} />
@@ -124,10 +133,7 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
               {footerLinks.programs.map((link, idx) => (
                 <li key={idx}>
                   <button 
-                    onClick={() => {
-                      const el = document.getElementById('comparison-engine');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    onClick={() => handleScroll('comparison-engine')}
                     className="text-slate-400 hover:text-white transition-all text-xs font-semibold text-left cursor-pointer"
                   >
                     {link.name}
@@ -146,10 +152,7 @@ export function Footer({ instagramGallery }: { instagramGallery?: React.ReactNod
               {footerLinks.approvals.map((link, idx) => (
                 <li key={idx}>
                   <button 
-                    onClick={() => {
-                      const el = document.getElementById('ugc-guidelines');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    onClick={() => handleScroll('ugc-guidelines')}
                     className="text-slate-400 hover:text-white transition-all text-xs font-semibold text-left cursor-pointer"
                   >
                     {link.name}
