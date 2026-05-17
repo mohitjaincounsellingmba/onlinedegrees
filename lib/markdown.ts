@@ -17,31 +17,31 @@ export interface PostData {
 }
 
 function inferCategory(data: any, slug: string): string {
-  if (data.category && data.category.trim() !== '') {
-    const rawCategory = data.category.toLowerCase();
-    if (rawCategory.includes('mba') || rawCategory.includes('pgdm')) return 'Online MBA';
-    if (rawCategory.includes('bba')) return 'Online BBA';
-    if (rawCategory.includes('bca')) return 'Online BCA';
-    if (rawCategory.includes('mca')) return 'Online MCA';
-    if (rawCategory.includes('msc')) return 'Online MSc';
-    if (rawCategory.includes('btech') || rawCategory.includes('b.tech')) return 'Online B.Tech';
-    if (rawCategory.includes('job') || rawCategory.includes('career')) return 'Careers';
-    if (rawCategory.includes('exam')) return 'Exams';
-    if (rawCategory.includes('online')) return 'Online Degrees';
-    return data.category;
+  const textToSearch = `${slug} ${data.title} ${(data.keywords || []).join(' ')} ${data.category || ''}`.toLowerCase();
+  
+  // Explicitly check for non-degree, exam, coaching, mock tests, careers, platform posts to exclude
+  if (
+    textToSearch.includes('exam') ||
+    textToSearch.includes('mock test') ||
+    textToSearch.includes('result') ||
+    textToSearch.includes('coaching') ||
+    textToSearch.includes('sell-courses') ||
+    textToSearch.includes('sell your coaching') ||
+    textToSearch.includes('platform') ||
+    textToSearch.includes('hiring') ||
+    textToSearch.includes('job') ||
+    textToSearch.includes('salary') ||
+    textToSearch.includes('career')
+  ) {
+    return 'Exclude';
   }
 
-  const textToSearch = `${slug} ${data.title} ${(data.keywords || []).join(' ')}`.toLowerCase();
-  
-  if (textToSearch.includes('mba') || textToSearch.includes('pgdm')) return 'Online MBA';
-  if (textToSearch.includes('bba')) return 'Online BBA';
-  if (textToSearch.includes('bca')) return 'Online BCA';
-  if (textToSearch.includes('mca')) return 'Online MCA';
-  if (textToSearch.includes('msc')) return 'Online MSc';
-  if (textToSearch.includes('btech') || textToSearch.includes('b.tech')) return 'Online B.Tech';
-  if (textToSearch.includes('hiring') || textToSearch.includes('job') || textToSearch.includes('salary')) return 'Careers';
-  if (textToSearch.includes('exam') || textToSearch.includes('mock test') || textToSearch.includes('result')) return 'Exams';
-  
+  // Check if it's an MBA or PGDM program
+  if (textToSearch.includes('mba') || textToSearch.includes('pgdm')) {
+    return 'Online MBA';
+  }
+
+  // All other posts (BBA, BCA, MCA, MSc, B.Tech reviews, general degree reviews) are "Online Degrees"
   return 'Online Degrees';
 }
 
@@ -76,7 +76,7 @@ export const getSortedPostsData = cache(() => {
         category: inferCategory(matterResult.data, slug),
       };
     })
-    .filter(post => post.title !== 'Untitled Post');
+    .filter(post => post.title !== 'Untitled Post' && post.category !== 'Exclude');
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 });
