@@ -6,11 +6,8 @@ import { Footer } from "@/components/Footer";
 import { InstagramGallery } from "@/components/InstagramGallery";
 import { JsonLd } from "@/components/JsonLd";
 import Script from "next/script";
-import dynamic from 'next/dynamic';
-
-const InquiryPopup = dynamic(() => import('@/components/InquiryPopup').then(mod => mod.InquiryPopup), { ssr: false });
-const BotInquiryPopup = dynamic(() => import('@/components/BotInquiryPopup').then(mod => mod.BotInquiryPopup), { ssr: false });
-
+import { InquiryPopup } from "@/components/InquiryPopup";
+import { BotInquiryPopup } from "@/components/BotInquiryPopup";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
