@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,10 +7,6 @@ import { JsonLd } from "@/components/JsonLd";
 import Script from "next/script";
 import { InquiryPopup } from "@/components/InquiryPopup";
 import { BotInquiryPopup } from "@/components/BotInquiryPopup";
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://onlineshiksha.online"),
@@ -97,11 +92,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
         <JsonLd data={organizationData} />
         <JsonLd data={websiteData} />
       </head>
       <body
-        className={`${outfit.variable} font-body antialiased min-h-screen flex flex-col bg-background text-foreground`}
+        className="font-body antialiased min-h-screen flex flex-col bg-background text-foreground"
       >
         <Header />
         <InquiryPopup />

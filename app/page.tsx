@@ -5,13 +5,10 @@ import {
   GraduationCap, 
   Award, 
   Clock, 
-  Sparkles, 
-  CheckCircle2, 
   ArrowRight, 
   ShieldCheck, 
   Zap, 
   Flame, 
-  Users,
   Compass
 } from 'lucide-react';
 import OnlineDegreeClient from '@/components/OnlineDegreeClient';

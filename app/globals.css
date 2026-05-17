@@ -8,6 +8,7 @@
   --accent: #f59e0b; /* Amber 500 */
   --muted: #f1f5f9; /* Slate 100 */
   --border: #e2e8f0; /* Slate 200 */
+  --font-outfit: 'Outfit', sans-serif;
 }
 
 @theme inline {
