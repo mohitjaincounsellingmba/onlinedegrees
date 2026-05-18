@@ -39,6 +39,7 @@ export function Footer() {
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
       { name: 'University Reviews', href: '/blog' },
       { name: 'Comparison Guide', href: '#' },
+      { name: 'Create Resume', href: '/create-resume' },
       { name: 'Admissions 2026', href: '#' },
     ]
   };
