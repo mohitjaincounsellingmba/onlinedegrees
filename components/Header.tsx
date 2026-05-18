@@ -37,13 +37,8 @@ export function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
           <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+          <Link href="/compare" className="hover:text-indigo-600 transition-colors">Compare College</Link>
           <Link href="/blog" className="hover:text-indigo-600 transition-colors">Blog</Link>
-          <button 
-            onClick={() => scrollToSection('comparison-engine')} 
-            className="hover:text-indigo-600 transition-colors font-bold text-left cursor-pointer"
-          >
-            Compare ODL
-          </button>
           <button 
             onClick={() => scrollToSection('ugc-guidelines')} 
             className="hover:text-indigo-600 transition-colors font-bold text-left cursor-pointer"
@@ -83,15 +78,12 @@ export function Header() {
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-indigo-600 transition-colors flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-3"></span>Home
             </Link>
+            <Link href="/compare" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-indigo-600 transition-colors flex items-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-3"></span>Compare College
+            </Link>
             <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-indigo-600 transition-colors flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-3"></span>Blog
             </Link>
-            <button 
-              onClick={() => scrollToSection('comparison-engine')} 
-              className="hover:text-indigo-600 transition-colors flex items-center font-bold text-left cursor-pointer"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-3"></span>Compare Universities
-            </button>
             <button 
               onClick={() => scrollToSection('ugc-guidelines')} 
               className="hover:text-indigo-600 transition-colors flex items-center font-bold text-left cursor-pointer"
