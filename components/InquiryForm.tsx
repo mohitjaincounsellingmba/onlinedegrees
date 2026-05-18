@@ -82,30 +82,33 @@ export function InquiryForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-emerald-50 border border-emerald-100 p-8 rounded-2xl text-center">
-        <div className="mx-auto w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">
+      <div className="bg-[#111] border-2 border-[#ccff00] p-8 rounded-2xl text-center shadow-[6px_6px_0px_#ccff00]">
+        <div className="mx-auto w-16 h-16 bg-[#ccff00] rounded-full flex items-center justify-center mb-4 text-black font-black text-3xl border-2 border-black">
           ✓
         </div>
-        <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase tracking-tight">Success!</h3>
-        <p className="text-sm font-semibold text-slate-600 mb-6">
-          Your inquiry has been received. Our senior counselling experts will call or WhatsApp you shortly.
+        <h3 className="text-3xl font-black text-white mb-2 uppercase tracking-tight">W! Success!</h3>
+        <p className="text-sm font-semibold text-gray-400 mb-6">
+          Your inquiry is locked in. Our experts will hit you up on WhatsApp shortly. 🚀
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl px-6 py-2.5 text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
+          className="bg-transparent border-2 border-[#ccff00] text-[#ccff00] hover:bg-[#ccff00] hover:text-black rounded-xl px-6 py-3 text-xs font-black uppercase tracking-wider transition-all cursor-pointer shadow-[4px_4px_0px_rgba(204,255,0,0.2)] hover:shadow-none translate-x-[-2px] translate-y-[-2px] hover:translate-x-0 hover:translate-y-0"
         >
-          Send Another Inquiry
+          Send Another
         </button>
       </div>
     );
   }
 
+  const inputClasses = "w-full h-12 bg-[#050505] border-2 border-[#333] focus:border-[#ccff00] focus:bg-[#111] transition-all rounded-xl px-4 text-sm font-bold text-white outline-none focus:shadow-[4px_4px_0px_rgba(204,255,0,0.5)] focus:-translate-y-1";
+  const labelClasses = "block text-xs font-black uppercase tracking-wider text-gray-400 mb-1.5";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Name */}
-        <div className="space-y-1.5">
-          <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+        <div>
+          <label htmlFor="name" className={labelClasses}>Full Name</label>
           <input
             id="name"
             name="name"
@@ -114,13 +117,13 @@ export function InquiryForm() {
             placeholder="e.g. John Doe"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none"
+            className={inputClasses}
           />
         </div>
 
         {/* Number */}
-        <div className="space-y-1.5">
-          <label htmlFor="number" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Phone Number (WhatsApp)</label>
+        <div>
+          <label htmlFor="number" className={labelClasses}>Phone (WhatsApp)</label>
           <input
             id="number"
             name="number"
@@ -129,13 +132,13 @@ export function InquiryForm() {
             placeholder="e.g. 9876543210"
             value={formData.number}
             onChange={(e) => setFormData({ ...formData, number: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none"
+            className={inputClasses}
           />
         </div>
 
         {/* Email */}
-        <div className="space-y-1.5">
-          <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</label>
+        <div>
+          <label htmlFor="email" className={labelClasses}>Email Address</label>
           <input
             id="email"
             name="email"
@@ -144,13 +147,13 @@ export function InquiryForm() {
             placeholder="e.g. name@example.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none"
+            className={inputClasses}
           />
         </div>
 
         {/* Location */}
-        <div className="space-y-1.5">
-          <label htmlFor="location" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Current Location</label>
+        <div>
+          <label htmlFor="location" className={labelClasses}>Current City</label>
           <input
             id="location"
             name="location"
@@ -159,13 +162,13 @@ export function InquiryForm() {
             placeholder="e.g. Mumbai"
             value={formData.location}
             onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none"
+            className={inputClasses}
           />
         </div>
 
         {/* Preferred Location */}
-        <div className="space-y-1.5">
-          <label htmlFor="preferredLocation" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Preferred Location / Remote</label>
+        <div>
+          <label htmlFor="preferredLocation" className={labelClasses}>Preferred City / Remote</label>
           <input
             id="preferredLocation"
             name="preferredLocation"
@@ -174,20 +177,20 @@ export function InquiryForm() {
             placeholder="e.g. Online / Pune"
             value={formData.preferredLocation}
             onChange={(e) => setFormData({ ...formData, preferredLocation: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none"
+            className={inputClasses}
           />
         </div>
 
         {/* Budget */}
-        <div className="space-y-1.5">
-          <label htmlFor="budget" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Budget Range</label>
+        <div>
+          <label htmlFor="budget" className={labelClasses}>Budget Range</label>
           <select
             id="budget"
             name="budget"
             required
             value={formData.budget}
             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none cursor-pointer"
+            className={inputClasses + " cursor-pointer appearance-none"}
           >
             <option value="" disabled>Select Budget</option>
             {BUDGET_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
@@ -195,15 +198,15 @@ export function InquiryForm() {
         </div>
 
         {/* Course */}
-        <div className="space-y-1.5 md:col-span-2">
-          <label htmlFor="course" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Course Interest</label>
+        <div className="md:col-span-2">
+          <label htmlFor="course" className={labelClasses}>Course Interest</label>
           <select
             id="course"
             name="course"
             required
             value={formData.course}
             onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-            className="w-full h-11 bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl px-4 text-sm font-semibold text-slate-800 outline-none cursor-pointer"
+            className={inputClasses + " cursor-pointer appearance-none"}
           >
             <option value="" disabled>Select Program</option>
             {COURSE_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
@@ -211,8 +214,8 @@ export function InquiryForm() {
         </div>
 
         {/* Message */}
-        <div className="space-y-1.5 md:col-span-2">
-          <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-slate-500">Questions (Optional)</label>
+        <div className="md:col-span-2">
+          <label htmlFor="message" className={labelClasses}>Any Questions? (Optional)</label>
           <textarea
             id="message"
             name="message"
@@ -220,7 +223,7 @@ export function InquiryForm() {
             placeholder="Tell us about your career goals..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 transition-all rounded-xl p-4 text-sm font-semibold text-slate-800 outline-none resize-none"
+            className={`${inputClasses} h-auto py-3 resize-none`}
           />
         </div>
       </div>
@@ -228,12 +231,14 @@ export function InquiryForm() {
       <button
         disabled={status === 'submitting'}
         type="submit"
-        className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-base font-bold uppercase tracking-wider transition-all shadow-md active:scale-98 cursor-pointer flex items-center justify-center"
+        className="w-full h-14 bg-[#ccff00] text-black border-2 border-[#ccff00] hover:bg-transparent hover:text-[#ccff00] rounded-xl text-lg font-black uppercase tracking-wider transition-all cursor-pointer shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)] flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === 'submitting' ? 'Processing Lead...' : 'Submit Form'}
+        {status === 'submitting' ? 'Processing...' : 'Submit Inquiry 🔥'}
       </button>
       <div className="text-center">
-        <span className="text-[9px] font-bold uppercase text-slate-400">Secure 256-bit Encrypted Admission Portal</span>
+        <span className="text-[10px] font-black uppercase text-[#ff007f] tracking-widest bg-[#ff007f]/10 px-3 py-1 rounded-full border border-[#ff007f]/20">
+          Secure 256-bit Encrypted
+        </span>
       </div>
     </form>
   );

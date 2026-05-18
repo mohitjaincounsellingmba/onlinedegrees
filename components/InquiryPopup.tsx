@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, GraduationCap } from 'lucide-react';
+import { X, Zap } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 const InquiryForm = dynamic(() => import('./InquiryForm').then(mod => mod.InquiryForm), {
-  loading: () => <div className="h-[400px] flex items-center justify-center font-bold text-slate-500">Loading Form...</div>,
+  loading: () => <div className="h-[400px] flex items-center justify-center font-black text-[#ccff00] animate-pulse">LOADING...</div>,
   ssr: false
 });
 
@@ -28,33 +28,33 @@ export function InquiryPopup() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-300">
-      <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-white/20 bg-white">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
+      <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#050505] border-4 border-[#333] shadow-[0_0_80px_rgba(204,255,0,0.15)]">
         {/* Close Button */}
         <button 
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 z-[110] bg-slate-100 p-2 rounded-xl hover:bg-slate-200 hover:text-slate-900 text-slate-500 transition-all cursor-pointer"
+          className="absolute top-4 right-4 z-[110] bg-[#111] border-2 border-[#333] p-2 rounded-xl hover:border-[#ff007f] hover:text-[#ff007f] text-gray-400 transition-all cursor-pointer shadow-[4px_4px_0px_#333] hover:shadow-[4px_4px_0px_#ff007f] active:translate-x-1 active:translate-y-1 active:shadow-none"
           aria-label="Close Pop-up"
         >
-          <X className="h-5 w-5" />
+          <X className="h-6 w-6" />
         </button>
 
         <div>
           {/* Header */}
-          <div className="bg-gradient-to-r from-indigo-600 to-violet-600 p-8 text-center text-white">
-            <div className="mx-auto bg-white/10 w-12 h-12 rounded-2xl flex items-center justify-center mb-3">
-              <GraduationCap className="h-6 w-6 text-white" />
+          <div className="bg-gradient-to-r from-[#ccff00] to-[#00ffa3] p-8 text-center text-black border-b-4 border-[#333]">
+            <div className="mx-auto bg-black text-[#ccff00] w-14 h-14 rounded-2xl flex items-center justify-center mb-4 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+              <Zap className="h-8 w-8" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
-              Get Free Admission Guidance
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter">
+              Get Free Guidance 🔥
             </h2>
-            <p className="text-indigo-100 text-sm font-semibold mt-1.5">
-              Talk directly with top advisors & discover the right online degree program.
+            <p className="text-black/80 font-bold mt-2 text-sm uppercase tracking-wide">
+              Talk directly with top advisors & discover the right degree.
             </p>
           </div>
           
           {/* Form Area */}
-          <div className="p-6 md:p-8">
+          <div className="p-6 md:p-8 bg-[#0b0b0b]">
             <InquiryForm />
           </div>
         </div>

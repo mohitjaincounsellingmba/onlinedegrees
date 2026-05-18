@@ -43,38 +43,38 @@ export function BotInquiryPopup() {
 
   const steps = [
     {
-      question: "Hi there! 👋 I'm the Online Shiksha assistant. What's your name?",
+      question: "Yo! 👋 I'm the Shiksha assistant. What's your name?",
       field: 'name',
       type: 'text'
     },
     {
-      question: (name: string) => `Nice to meet you, ${name}! Which course are you interested in comparing?`,
+      question: (name: string) => `Wassup, ${name}! Which course are you trying to check out?`,
       field: 'course',
       type: 'select',
       options: COURSE_OPTIONS
     },
     {
-      question: "Great choice! Could you share your WhatsApp number so we can send you the brochures & comparison PDFs?",
+      question: "Bet. Drop your WhatsApp number so we can shoot over the brochures & details.",
       field: 'number',
       type: 'tel'
     },
     {
-      question: "And your email address for admission alerts?",
+      question: "And your email address for the alerts?",
       field: 'email',
       type: 'email'
     },
     {
-      question: "Where are you currently located?",
+      question: "Where are you based rn?",
       field: 'location',
       type: 'text'
     },
     {
-      question: "Where would you prefer to study? (Online or specific city)",
+      question: "Where do you wanna study? (Online or a specific city)",
       field: 'preferredLocation',
       type: 'text'
     },
     {
-      question: "Last question: What's your budget range for the complete course?",
+      question: "Last one: What's the budget looking like?",
       field: 'budget',
       type: 'select',
       options: BUDGET_OPTIONS
@@ -157,12 +157,12 @@ export function BotInquiryPopup() {
 
       if (response.ok) {
         setIsSubmitted(true);
-        addBotMessage("Thank you! Your details have been submitted. Our counsellor will reach out on WhatsApp within 10 minutes. ✨");
+        addBotMessage("W! Your details are locked in. Our team will hit you up on WhatsApp in a few mins. 🔥");
       } else {
-        addBotMessage("Oops! Something went wrong. Please try using our main inquiry forms.");
+        addBotMessage("Oops! Connection bugged out. Try the main form.");
       }
     } catch (e) {
-      addBotMessage("Connection error. Please try again later.");
+      addBotMessage("Network error. Hit us up later.");
     }
     setIsTyping(false);
   };
@@ -173,53 +173,53 @@ export function BotInquiryPopup() {
     <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
       {/* Chat Window */}
       {!isMinimized && (
-        <div className="mb-4 w-[330px] sm:w-[380px] h-[480px] bg-white border border-slate-200 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+        <div className="mb-4 w-[330px] sm:w-[380px] h-[480px] bg-[#111] border-4 border-[#333] rounded-3xl shadow-[8px_8px_0px_rgba(204,255,0,0.2)] flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
           {/* Header */}
-          <div className="bg-indigo-600 p-4 flex items-center justify-between text-white">
+          <div className="bg-[#ccff00] p-4 flex items-center justify-between text-black border-b-4 border-[#333]">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center border border-white/20">
-                <Bot size={20} className="text-white" />
+              <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center border-2 border-black">
+                <Bot size={24} className="text-[#ccff00]" />
               </div>
               <div>
-                <h3 className="font-black text-sm tracking-tight">Counselling Assistant</h3>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-                  <span className="text-[10px] font-bold text-indigo-200 uppercase tracking-wider">Active Now</span>
+                <h3 className="font-black text-lg tracking-tighter uppercase leading-none">Counsellor Bot</h3>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <span className="w-2 h-2 bg-red-500 border border-black rounded-full animate-pulse"></span>
+                  <span className="text-[10px] font-black uppercase tracking-wider">Online rn</span>
                 </div>
               </div>
             </div>
             <button 
               onClick={() => setIsMinimized(true)}
-              className="p-1 hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 border-2 border-transparent hover:border-black rounded-xl transition-all cursor-pointer hover:bg-black hover:text-[#ccff00]"
             >
-              <X size={18} className="text-white" />
+              <X size={20} />
             </button>
           </div>
 
           {/* Messages Area */}
           <div 
             ref={scrollRef}
-            className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 scroll-smooth"
+            className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#050505] scroll-smooth"
           >
             {messages.map((msg) => (
               <div 
                 key={msg.id} 
                 className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`max-w-[85%] p-3 rounded-2xl text-xs font-semibold shadow-sm border ${
+                <div className={`max-w-[85%] p-3.5 rounded-2xl text-sm font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] border-2 ${
                   msg.type === 'user' 
-                    ? 'bg-indigo-600 text-white border-indigo-500 rounded-tr-none' 
-                    : 'bg-white text-slate-800 border-slate-100 rounded-tl-none'
+                    ? 'bg-[#ff007f] text-white border-black rounded-tr-none' 
+                    : 'bg-[#111] text-gray-200 border-[#333] rounded-tl-none'
                 }`}>
                   {msg.text}
                   
                   {msg.options && !isSubmitted && (
-                    <div className="mt-3 flex flex-wrap gap-1.5">
+                    <div className="mt-3 flex flex-wrap gap-2">
                       {msg.options.map(opt => (
                         <button
                           key={opt}
                           onClick={() => handleUserInput(opt)}
-                          className="bg-slate-50 hover:bg-indigo-600 hover:text-white border border-slate-200 px-2.5 py-1 rounded-lg text-[10px] transition-all cursor-pointer font-bold active:scale-95"
+                          className="bg-[#050505] hover:bg-[#ccff00] text-gray-300 hover:text-black border-2 border-[#333] hover:border-[#ccff00] px-3 py-1.5 rounded-xl text-xs transition-all cursor-pointer font-black uppercase active:translate-x-1 active:translate-y-1"
                         >
                           {opt}
                         </button>
@@ -232,18 +232,18 @@ export function BotInquiryPopup() {
             
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-white border border-slate-100 p-3 rounded-2xl rounded-tl-none flex gap-1 items-center">
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce delay-75"></span>
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce delay-150"></span>
+                <div className="bg-[#111] border-2 border-[#333] p-3 rounded-2xl rounded-tl-none flex gap-1.5 items-center shadow-[4px_4px_0px_#000]">
+                  <span className="w-2 h-2 bg-[#ccff00] rounded-full animate-bounce"></span>
+                  <span className="w-2 h-2 bg-[#ff007f] rounded-full animate-bounce delay-75"></span>
+                  <span className="w-2 h-2 bg-[#00ffa3] rounded-full animate-bounce delay-150"></span>
                 </div>
               </div>
             )}
             
             {isSubmitted && (
               <div className="flex justify-center py-2">
-                <div className="bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider">
-                  <CheckCircle2 size={13} className="text-emerald-600" /> Submitted Successfully
+                <div className="bg-[#050505] text-[#00ffa3] border-2 border-[#00ffa3] px-4 py-2 rounded-xl flex items-center gap-2 text-xs font-black uppercase tracking-wider shadow-[4px_4px_0px_#00ffa3]">
+                  <CheckCircle2 size={16} /> Locked In
                 </div>
               </div>
             )}
@@ -251,7 +251,7 @@ export function BotInquiryPopup() {
 
           {/* Input Area */}
           {!isSubmitted && (
-            <div className="p-3 bg-white border-t border-slate-100">
+            <div className="p-3 bg-[#111] border-t-4 border-[#333]">
               {steps[currentStep].type !== 'select' ? (
                 <form 
                   onSubmit={(e) => {
@@ -262,21 +262,21 @@ export function BotInquiryPopup() {
                 >
                   <input 
                     type={steps[currentStep].type}
-                    placeholder="Type your answer..."
+                    placeholder="Type here..."
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="flex-1 bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl font-semibold text-xs focus:outline-none focus:border-indigo-500 focus:bg-white transition-all text-slate-800"
+                    className="flex-1 bg-[#050505] border-2 border-[#333] px-4 py-2 rounded-xl font-bold text-sm text-white focus:outline-none focus:border-[#ccff00] transition-colors"
                   />
                   <button 
                     type="submit"
-                    className="bg-indigo-600 text-white border border-indigo-500 p-2 rounded-xl hover:bg-indigo-700 transition-colors cursor-pointer shrink-0 active:scale-95"
+                    className="bg-[#ccff00] text-black border-2 border-[#ccff00] p-2.5 rounded-xl hover:bg-transparent hover:text-[#ccff00] transition-all cursor-pointer shrink-0 shadow-[4px_4px_0px_rgba(204,255,0,0.3)] active:translate-x-1 active:translate-y-1 active:shadow-none"
                   >
-                    <Send size={16} />
+                    <Send size={20} />
                   </button>
                 </form>
               ) : (
-                <div className="text-center py-1">
-                  <span className="text-[9px] font-black uppercase text-slate-400 italic">Select an option above 👆</span>
+                <div className="text-center py-2">
+                  <span className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Select an option above 👆</span>
                 </div>
               )}
             </div>
@@ -287,14 +287,16 @@ export function BotInquiryPopup() {
       {/* Bubble Icon */}
       <button 
         onClick={() => setIsMinimized(!isMinimized)}
-        className={`w-14 h-14 rounded-full border border-slate-200 shadow-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 group relative cursor-pointer ${
-          isMinimized ? 'bg-indigo-600 text-white' : 'bg-white text-indigo-600 border-indigo-500'
+        className={`w-16 h-16 rounded-2xl border-4 shadow-[6px_6px_0px_#000] flex items-center justify-center transition-all hover:-translate-y-1 active:translate-y-0 active:shadow-none cursor-pointer ${
+          isMinimized 
+            ? 'bg-[#ccff00] border-black text-black' 
+            : 'bg-[#111] border-[#333] text-gray-400'
         }`}
       >
-        {isMinimized ? <MessageSquare size={24} /> : <X size={24} />}
+        {isMinimized ? <MessageSquare size={28} className="animate-pulse" /> : <X size={28} />}
         
         {isMinimized && (
-          <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-amber-500 border border-white rounded-full flex items-center justify-center text-[9px] font-black text-slate-900">
+          <span className="absolute -top-2 -right-2 w-6 h-6 bg-[#ff007f] border-2 border-black rounded-full flex items-center justify-center text-xs font-black text-white animate-bounce">
             1
           </span>
         )}
