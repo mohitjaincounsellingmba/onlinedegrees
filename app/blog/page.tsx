@@ -14,14 +14,25 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getSortedPostsData();
 
-  // Strip content key from posts headers so we don't send large content arrays to the client component
-  const postHeaders = posts.map(({ slug, title, date, description, category }) => ({
-    slug,
-    title,
-    date,
-    description: description || '',
-    category: category || 'Online Degrees',
-  }));
+  // Filter and strip content key from posts headers
+  const postHeaders = posts
+    .filter(post => {
+      const s = post.slug.toLowerCase();
+      // Only keep degree/university related posts
+      return s.includes('mba') || s.includes('mca') || s.includes('bba') || s.includes('bca') || s.includes('msc') || s.includes('university') || s.includes('review') || s.includes('degree');
+    })
+    .filter(post => {
+      const s = post.slug.toLowerCase();
+      // Explicitly exclude mock tests and coaching
+      return !s.includes('mock-test') && !s.includes('coaching') && !s.includes('sell-courses');
+    })
+    .map(({ slug, title, date, description, category }) => ({
+      slug,
+      title,
+      date,
+      description: description || '',
+      category: category || 'Online Degrees',
+    }));
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
