@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { InstagramGallery } from "@/components/InstagramGallery";
 import { JsonLd } from "@/components/JsonLd";
 import Script from "next/script";
 import { InquiryPopup } from "@/components/InquiryPopup";
@@ -108,7 +107,7 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <Footer instagramGallery={<InstagramGallery />} />
+        <Footer />
         
         {/* Combined Google Analytics and Ads Tag */}
         <Script
