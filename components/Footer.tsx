@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Instagram, Linkedin, Facebook, Youtube, Phone, Mail, ArrowRight, GraduationCap } from 'lucide-react';
+import { Instagram, Linkedin, Facebook, Youtube, Phone, ArrowRight, GraduationCap } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -45,72 +45,63 @@ export function Footer() {
   };
 
   const socials = [
-    { icon: <Instagram size={18} />, href: "https://www.instagram.com/careerwithmohit.online/", label: "Instagram", color: "hover:bg-pink-600" },
-    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/career-with-mohit", label: "LinkedIn", color: "hover:bg-blue-700" },
-    { icon: <Facebook size={18} />, href: "https://www.facebook.com/profile.php?id=61575525271998", label: "Facebook", color: "hover:bg-blue-600" },
-    { icon: <Youtube size={18} />, href: "https://www.youtube.com/@careerwithmohit.online", label: "YouTube", color: "hover:bg-red-600" }
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/careerwithmohit.online/", label: "Instagram", color: "hover:bg-[#ff007f] hover:border-[#ff007f]" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/company/career-with-mohit", label: "LinkedIn", color: "hover:bg-blue-600 hover:border-blue-600" },
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=61575525271998", label: "Facebook", color: "hover:bg-blue-500 hover:border-blue-500" },
+    { icon: <Youtube size={20} />, href: "https://www.youtube.com/@careerwithmohit.online", label: "YouTube", color: "hover:bg-red-600 hover:border-red-600" }
   ];
 
   return (
-    <footer className="relative bg-[#0f172a] text-white overflow-hidden border-t border-slate-800">
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <defs>
-            <pattern id="footer-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#footer-grid)" />
-        </svg>
-      </div>
+    <footer className="relative bg-[#050505] text-white overflow-hidden border-t-4 border-[#333]">
 
-      {/* Top Banner */}
-      <div className="relative z-10 border-b border-slate-800">
-        <div className="mx-auto max-w-7xl px-6 py-12 sm:px-12">
-          <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white">Compare UGC ODL Approved Universities</h2>
-              <p className="text-indigo-100 text-sm md:text-base font-medium max-w-xl">
-                Get free admission assistance and study roadmaps from India&apos;s leading career counsel experts for 2026.
-              </p>
-            </div>
-            <button 
-              onClick={() => handleScroll('comparison-engine')}
-              className="bg-white text-slate-900 px-8 py-3.5 rounded-2xl font-black uppercase tracking-wider text-xs md:text-sm hover:scale-105 transition-all shadow-xl flex items-center gap-2 shrink-0 cursor-pointer"
-            >
-              Start Comparison <ArrowRight size={18} />
-            </button>
+      {/* ── TOP CTA BANNER ── */}
+      <div className="bg-[#ccff00] border-b-4 border-black">
+        <div className="mx-auto max-w-7xl px-6 py-10 sm:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black">
+              Still Deciding? Get Free Guidance 🎓
+            </h2>
+            <p className="text-black/70 font-bold text-sm mt-1">
+              India's leading career counsel experts. No cap. 100% free.
+            </p>
           </div>
+          <button
+            onClick={() => handleScroll('comparison-engine')}
+            className="bg-black text-[#ccff00] px-8 py-4 rounded-2xl font-black uppercase tracking-wider text-sm hover:-translate-y-1 transition-all shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:shadow-[8px_8px_0px_rgba(0,0,0,0.4)] flex items-center gap-2 shrink-0 cursor-pointer border-2 border-black"
+          >
+            Compare Now <ArrowRight size={18} strokeWidth={3} />
+          </button>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-12 relative z-10">
+      {/* ── MAIN FOOTER GRID ── */}
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand */}
+          
+          {/* ── Brand Column ── */}
           <div className="space-y-6">
-            <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-2.5 w-fit">
-                <div className="bg-indigo-600 p-2 rounded-xl text-white">
-                  <GraduationCap className="h-5 w-5" />
-                </div>
-                <span className="font-display text-lg font-black tracking-tight uppercase text-white">
-                  Online<span className="text-indigo-400">Shiksha</span>
-                </span>
-              </Link>
-              <p className="text-slate-400 text-xs font-semibold leading-relaxed max-w-xs">
-                Compare 27+ UGC approved ODL and online universities on NAAC grades, accreditation, and programs. Built to simplify professional degree searches in India.
-              </p>
-            </div>
+            <Link href="/" className="flex items-center gap-3 w-fit group">
+              <div className="bg-[#ccff00] p-2.5 rounded-xl text-black border-2 border-black group-hover:shadow-[4px_4px_0px_#ccff00] transition-all">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <span className="font-black text-xl tracking-tight uppercase text-white">
+                Online<span className="text-[#ccff00]">Shiksha</span>
+              </span>
+            </Link>
+            
+            <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-xs">
+              Compare 27+ UGC approved universities on NAAC grades, accreditation, and fees. Built to simplify professional degree searches in India.
+            </p>
 
-            <div className="flex gap-2">
+            {/* Social Links */}
+            <div className="flex gap-3">
               {socials.map((social, idx) => (
-                <a 
+                <a
                   key={idx}
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={`bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-slate-300 transition-all duration-300 ${social.color} hover:scale-110 hover:border-slate-500`}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`bg-[#111] p-2.5 rounded-xl border-2 border-[#333] text-gray-400 hover:text-white transition-all duration-200 ${social.color} hover:scale-110 shadow-[4px_4px_0px_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:translate-x-0 active:translate-y-0`}
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -118,64 +109,69 @@ export function Footer() {
               ))}
             </div>
 
-            <div className="space-y-2 text-xs font-bold text-slate-400">
-               <a href="tel:+919560020771" className="flex items-center gap-2.5 hover:text-indigo-400 transition-colors">
-                 <Phone size={14} className="text-indigo-400" /> +91 95600 20771
-               </a>
-            </div>
+            {/* Phone */}
+            <a
+              href="tel:+919560020771"
+              className="inline-flex items-center gap-2 text-sm font-black text-gray-400 hover:text-[#ccff00] transition-colors uppercase tracking-wider"
+            >
+              <Phone size={16} className="text-[#ccff00]" /> +91 95600 20771
+            </a>
           </div>
 
-          {/* Quick Links Column 1: Programs */}
-          <div className="space-y-4">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-indigo-400 flex items-center gap-2">
-              <span className="w-3 h-[2px] bg-indigo-400"></span> Online Degrees
+          {/* ── Programs Column ── */}
+          <div className="space-y-5">
+            <h3 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
+              <span className="w-4 h-1 bg-[#ccff00] rounded-full inline-block"></span>
+              Online Degrees
             </h3>
             <ul className="space-y-3">
               {footerLinks.programs.map((link, idx) => (
                 <li key={idx}>
-                  <button 
+                  <button
                     onClick={() => handleScroll('comparison-engine')}
-                    className="text-slate-400 hover:text-white transition-all text-xs font-semibold text-left cursor-pointer"
+                    className="text-gray-500 hover:text-white transition-all text-sm font-medium text-left cursor-pointer hover:translate-x-1 inline-block"
                   >
-                    {link.name}
+                    → {link.name}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Quick Links Column 2: Approvals */}
-          <div className="space-y-4">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-emerald-400 flex items-center gap-2">
-              <span className="w-3 h-[2px] bg-emerald-400"></span> UGC Guidelines
+          {/* ── Approvals Column ── */}
+          <div className="space-y-5">
+            <h3 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
+              <span className="w-4 h-1 bg-[#ff007f] rounded-full inline-block"></span>
+              UGC Guidelines
             </h3>
             <ul className="space-y-3">
               {footerLinks.approvals.map((link, idx) => (
                 <li key={idx}>
-                  <button 
+                  <button
                     onClick={() => handleScroll('ugc-guidelines')}
-                    className="text-slate-400 hover:text-white transition-all text-xs font-semibold text-left cursor-pointer"
+                    className="text-gray-500 hover:text-white transition-all text-sm font-medium text-left cursor-pointer hover:translate-x-1 inline-block"
                   >
-                    {link.name}
+                    → {link.name}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Quick Links Column 3: Support */}
-          <div className="space-y-4">
-            <h3 className="text-xs font-black uppercase tracking-[0.2em] text-amber-400 flex items-center gap-2">
-              <span className="w-3 h-[2px] bg-amber-400"></span> Counselling
+          {/* ── Support Column ── */}
+          <div className="space-y-5">
+            <h3 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
+              <span className="w-4 h-1 bg-[#00ffa3] rounded-full inline-block"></span>
+              Counselling
             </h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link, idx) => (
                 <li key={idx}>
-                  <a 
+                  <a
                     href={link.href}
-                    className="text-slate-400 hover:text-white transition-all text-xs font-semibold text-left"
+                    className="text-gray-500 hover:text-white transition-all text-sm font-medium hover:translate-x-1 inline-block"
                   >
-                    {link.name}
+                    → {link.name}
                   </a>
                 </li>
               ))}
@@ -183,16 +179,24 @@ export function Footer() {
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
-        <div className="mt-16 pt-8 flex flex-col md:flex-row items-center justify-between border-t border-slate-800 gap-8">
-          <div className="text-[10px] md:text-xs font-bold text-slate-500 flex flex-col md:flex-row items-center gap-2.5 text-center md:text-left">
+        {/* ── BIG BRAND STATEMENT ── */}
+        <div className="mt-16 pt-12 border-t-2 border-[#1a1a1a] text-center">
+          <p className="text-[4rem] sm:text-[6rem] lg:text-[8rem] font-black uppercase tracking-[-0.05em] text-transparent [-webkit-text-stroke:1px_#333] leading-none pointer-events-none select-none">
+            ONLINE SHIKSHA
+          </p>
+        </div>
+
+        {/* ── BOTTOM BAR ── */}
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-2 text-xs font-bold text-gray-600 text-center">
             <span>© {currentYear} Online Shiksha. All rights reserved.</span>
-            <span className="hidden md:inline text-slate-700">|</span>
-            <span className="text-slate-600 tracking-wider">UGC-DEB EDUCATION PARTNER</span>
+            <span className="hidden md:inline text-[#333]">|</span>
+            <span className="text-[#ccff00]/40 uppercase tracking-widest text-[10px]">UGC-DEB Education Partner</span>
           </div>
-          <div className="flex gap-6 items-center text-xs font-semibold text-slate-500">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          <div className="flex gap-4 items-center text-xs font-bold text-gray-600">
+            <Link href="#" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Privacy Policy</Link>
+            <span className="text-[#333]">·</span>
+            <Link href="#" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Terms of Service</Link>
           </div>
         </div>
       </div>
