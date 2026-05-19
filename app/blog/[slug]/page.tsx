@@ -40,6 +40,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       publishedTime: postData.date,
       authors: ["Online Shiksha Editor"],
+      images: [
+        {
+          url: "/og-image.webp",
+          width: 1200,
+          height: 630,
+          alt: postTitle,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: postTitle,
+      description: postDescription,
+      images: ["/og-image.webp"],
     }
   };
 }

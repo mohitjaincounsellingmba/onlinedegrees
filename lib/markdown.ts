@@ -84,6 +84,63 @@ export const getSortedPostsData = cache(() => {
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 });
 
+function parseFaqsFromContent(content: string): { question: string; answer: string }[] {
+  const faqs: { question: string; answer: string }[] = [];
+  
+  const faqSectionIndex = content.search(/##\s+.*(?:FAQ|Frequently Asked Questions)/i);
+  if (faqSectionIndex === -1) return [];
+  
+  const faqSection = content.substring(faqSectionIndex);
+  const lines = faqSection.split('\n');
+  let currentQuestion = '';
+  let currentAnswerLines: string[] = [];
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    
+    const headingMatch = line.match(/^###\s+(?:Q\d*[\.:\s]+)?(.*)/i);
+    const boldMatch = line.match(/^\*\*(?:Q\d*[\.:\s]+)?([^*]+)\*\*/i);
+    
+    let questionText = '';
+    if (headingMatch) {
+      questionText = headingMatch[1].trim();
+    } else if (boldMatch) {
+      const candidate = boldMatch[1].trim();
+      const isExplicitQ = line.match(/^\*\*(?:Q\d*[\.:\s]+)/i);
+      const endsWithQuestionMark = candidate.endsWith('?');
+      if (isExplicitQ || endsWithQuestionMark) {
+        questionText = candidate;
+      }
+    }
+    
+    if (questionText) {
+      if (currentQuestion && currentAnswerLines.length > 0) {
+        faqs.push({
+          question: currentQuestion,
+          answer: currentAnswerLines.join(' ').replace(/\s+/g, ' ').trim()
+        });
+      }
+      currentQuestion = questionText;
+      currentAnswerLines = [];
+    } else if (currentQuestion) {
+      if (line.startsWith('## ') || line.startsWith('---') || line.startsWith('[👉')) {
+        break;
+      }
+      currentAnswerLines.push(line);
+    }
+  }
+  
+  if (currentQuestion && currentAnswerLines.length > 0) {
+    faqs.push({
+      question: currentQuestion,
+      answer: currentAnswerLines.join(' ').replace(/\s+/g, ' ').trim()
+    });
+  }
+  
+  return faqs;
+}
+
 export function getPostData(slug: string): PostData | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`);
@@ -97,6 +154,10 @@ export function getPostData(slug: string): PostData | null {
           : String(matterResult.data.date)) 
       : new Date().toISOString().split('T')[0];
 
+    const parsedFaqs = matterResult.data.faqs && matterResult.data.faqs.length > 0
+      ? matterResult.data.faqs
+      : parseFaqsFromContent(matterResult.content || '');
+
     return {
       slug,
       title,
@@ -104,7 +165,7 @@ export function getPostData(slug: string): PostData | null {
       description: matterResult.data.description,
       keywords: matterResult.data.keywords || [],
       content: matterResult.content,
-      faqs: matterResult.data.faqs || [],
+      faqs: parsedFaqs,
       category: inferCategory(matterResult.data, slug),
     };
   } catch (e) {
