@@ -4,6 +4,7 @@ import { cache } from 'react';
 import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+const blogsDirectory = path.join(process.cwd(), 'blogs');
 
 export interface PostData {
   slug: string;
@@ -49,37 +50,36 @@ function inferCategory(data: any, slug: string): string {
 }
 
 export const getSortedPostsData = cache(() => {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
-  }
+  const directories = [postsDirectory, blogsDirectory].filter(dir => fs.existsSync(dir));
+  const allPostsData: PostData[] = [];
 
-  const fileNames = fs.readdirSync(postsDirectory);
-  
-  const allPostsData = fileNames
-    .filter(fileName => fileName.endsWith('.md'))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, '');
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const matterResult = matter(fileContents);
-
-      const title = matterResult.data.title ? String(matterResult.data.title) : 'Untitled Post';
-      const date = matterResult.data.date 
-        ? (matterResult.data.date instanceof Date 
-            ? matterResult.data.date.toISOString().split('T')[0] 
-            : String(matterResult.data.date)) 
-        : new Date().toISOString().split('T')[0];
-
-      return {
-        slug,
-        title,
-        date,
-        description: matterResult.data.description || '',
-        keywords: matterResult.data.keywords || [],
-        category: inferCategory(matterResult.data, slug),
-      };
-    })
-    .filter(post => post.title !== 'Untitled Post');
+  directories.forEach(dir => {
+    const fileNames = fs.readdirSync(dir);
+    const posts = fileNames
+      .filter(fileName => fileName.endsWith('.md'))
+      .map(fileName => {
+        const slug = fileName.replace(/\.md$/, '');
+        const fullPath = path.join(dir, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const matterResult = matter(fileContents);
+        const title = matterResult.data.title ? String(matterResult.data.title) : 'Untitled Post';
+        const date = matterResult.data.date
+          ? (matterResult.data.date instanceof Date
+              ? matterResult.data.date.toISOString().split('T')[0]
+              : String(matterResult.data.date))
+          : new Date().toISOString().split('T')[0];
+        return {
+          slug,
+          title,
+          date,
+          description: matterResult.data.description || '',
+          keywords: matterResult.data.keywords || [],
+          category: inferCategory(matterResult.data, slug),
+        } as PostData;
+      })
+      .filter(post => post.title !== 'Untitled Post');
+    allPostsData.push(...posts);
+  });
 
   return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 });
@@ -143,7 +143,10 @@ function parseFaqsFromContent(content: string): { question: string; answer: stri
 
 export function getPostData(slug: string): PostData | null {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
+    let fullPath = path.join(postsDirectory, `${slug}.md`);
+    if (!fs.existsSync(fullPath)) {
+      fullPath = path.join(blogsDirectory, `${slug}.md`);
+    }
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
