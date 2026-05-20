@@ -1,5 +1,6 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { BlogClient } from '@/components/BlogClient';
+import { BlogMeter } from '@/components/BlogMeter';
 import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -33,6 +34,7 @@ export default function BlogPage() {
       description: description || '',
       category: category || 'Online Degrees',
     }));
+  const totalBlogs = postHeaders.length;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -56,7 +58,8 @@ export default function BlogPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <BlogClient posts={postHeaders} />;
+      <BlogMeter count={totalBlogs} />
+      <BlogClient posts={postHeaders} />
     </>
   );
 }
