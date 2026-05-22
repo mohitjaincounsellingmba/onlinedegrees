@@ -11,26 +11,26 @@ interface BlogCardProps {
 }
 
 const COLLEGE_IMAGES = [
-  // Beautiful classic university brick campus building
-  "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Stack of books / university library desk
-  "https://images.pexels.com/photos/159844/pexels-photo-159844.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Group of diverse college students studying together
-  "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Books stack with graduation cap
-  "https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Laptop with student hands writing / tech learning
-  "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Young students working on group study
-  "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Graduation cap throwing celebration
-  "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Classic university library interior hall
-  "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Modern campus buildings quad
-  "https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=600",
-  // Student with headphones studying online on a laptop
-  "https://images.pexels.com/photos/3762185/pexels-photo-3762185.jpeg?auto=compress&cs=tinysrgb&w=600"
+  // Historic brick university campus building and clock tower
+  "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop",
+  // Graduation ceremony caps and gowns
+  "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop",
+  // Happy college students studying together on campus
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop",
+  // Beautiful spacious university library hall
+  "https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?q=80&w=600&auto=format&fit=crop",
+  // Classroom lecture hall with students
+  "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop",
+  // Laptop screen showing online degree learning
+  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop",
+  // Stack of academic textbooks with a graduation cap
+  "https://images.unsplash.com/photo-1558021211-6d1403321394?q=80&w=600&auto=format&fit=crop",
+  // Diverse college students studying in a cafe/library
+  "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=600&auto=format&fit=crop",
+  // Bookshelves in a quiet university library
+  "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=600&auto=format&fit=crop",
+  // Student workspace with study laptop and notes
+  "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=600&auto=format&fit=crop"
 ];
 
 function getCollegeImage(slug: string): string {
