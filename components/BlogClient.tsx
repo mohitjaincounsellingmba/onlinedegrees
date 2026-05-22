@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Search, Calendar, ArrowRight, BookOpen, GraduationCap, Sparkles } from "lucide-react";
 import BlogCard from "@/components/BlogCard";
-import styles from "@/app/blog/blog.module.css";
+import blogStyles from "@/app/blog/blog.module.css";
+import genzStyles from "@/app/blog/blog-genz.module.css";
 
 interface PostHeader {
   slug: string;
@@ -53,24 +54,14 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         
-        {/* Premium Hero Section */}
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-semibold tracking-wide">
-            <Sparkles className="h-4 w-4" />
-            <span>Premium Degree Intel</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-            Unlock Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400">
-              Future Potential
-            </span>
-          </h1>
-          
-          <p className="text-lg text-slate-400 leading-relaxed font-light">
-            In-depth reviews, fee structures, and placement analytics for top UGC-approved online degrees. Make your next career move with data-backed confidence.
+        {/* Gen Z Hero Section */}
+        <section className={genzStyles.genzHero}>
+          <h1 className={genzStyles.genzTitle}>Unlock Your Future Potential</h1>
+          <p className="text-lg text-slate-200 max-w-2xl mx-auto mt-4">
+            In‑depth reviews, fee structures, and placement analytics for top UGC‑approved online degrees. Make your next career move with data‑backed confidence.
           </p>
-        </div>
+          <a href="/blog" className={genzStyles.genzCTA}>Explore Guides</a>
+        </section>
 
         {/* Search and Filters */}
         <div className="mb-16 space-y-8">
@@ -96,11 +87,7 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === cat
-                    ? 'bg-indigo-500 text-white shadow-[0_0_20px_rgba(99,102,241,0.4)] border border-indigo-500'
-                    : 'bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 hover:bg-slate-800/80'
-                }`}
+                className={`${genzStyles.filterChip} ${activeCategory === cat ? 'active' : ''}`}
               >
                 {cat}
               </button>
@@ -110,7 +97,7 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
 
           {/* Blog Grid */}
           {filteredPosts.length > 0 ? (
-            <div className={styles.blogGrid}>
+            <div className={blogStyles.blogGrid}>
               {filteredPosts.map((post) => (
                 <BlogCard key={post.slug} {...post} />
               ))}
