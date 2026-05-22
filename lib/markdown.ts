@@ -50,8 +50,10 @@ function inferCategory(data: any, slug: string): string {
 }
 
 export const getSortedPostsData = cache(() => {
-  const directories = [postsDirectory, blogsDirectory].filter(dir => fs.existsSync(dir));
+  const rootDirectory = process.cwd();
+  const directories = [postsDirectory, blogsDirectory, rootDirectory].filter(dir => fs.existsSync(dir));
   const allPostsData: PostData[] = [];
+
 
   directories.forEach(dir => {
     const fileNames = fs.readdirSync(dir);

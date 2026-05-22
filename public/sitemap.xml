@@ -2,37 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://onlineshiksha.online</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://onlineshiksha.online/blog</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://onlineshiksha.online/compare</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://onlineshiksha.online/emi-calculator</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://onlineshiksha.online/create-resume</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://onlineshiksha.online/blog/1-year-online-mba-colleges-india-2026</loc>
     <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/affordable-online-mba-colleges-under-1-lakh</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -97,8 +103,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://onlineshiksha.online/blog/best-online-mba-colleges-india</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://onlineshiksha.online/blog/best-online-mba-colleges-working-professionals-india-2026</loc>
     <lastmod>2026-04-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/best-online-mba-universities-working-professionals</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -175,6 +193,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://onlineshiksha.online/blog/future-scope-online-mba-india</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://onlineshiksha.online/blog/galgotias-university-online-mba-review-2026</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -217,6 +241,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://onlineshiksha.online/blog/highest-paying-specializations-online-mba</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://onlineshiksha.online/blog/how-to-sell-your-coaching-online-2026</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -225,6 +255,12 @@
   <url>
     <loc>https://onlineshiksha.online/blog/iit-delhi-online-executive-programs-2026</loc>
     <lastmod>2026-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/is-an-online-mba-worth-it-2026</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -373,8 +409,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://onlineshiksha.online/blog/online-mba-admission-eligibility</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/online-mba-fees-comparison-india</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://onlineshiksha.online/blog/online-mba-india-2026</loc>
     <lastmod>2026-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/online-mba-vs-regular-mba</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -483,6 +537,24 @@
   <url>
     <loc>https://onlineshiksha.online/blog/srm-university-online-review-2026</loc>
     <lastmod>2026-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/top-career-opportunities-after-online-mba</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/top-online-mba-colleges-placement-support</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/blog/ugc-approved-online-mba-universities-list</loc>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
