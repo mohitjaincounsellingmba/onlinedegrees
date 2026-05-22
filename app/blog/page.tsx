@@ -15,25 +15,14 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getSortedPostsData();
 
-  // Filter and strip content key from posts headers
-  const postHeaders = posts
-    .filter(post => {
-      const s = post.slug.toLowerCase();
-      // Only keep degree/university related posts
-      return s.includes('mba') || s.includes('mca') || s.includes('bba') || s.includes('bca') || s.includes('msc') || s.includes('university') || s.includes('review') || s.includes('degree');
-    })
-    .filter(post => {
-      const s = post.slug.toLowerCase();
-      // Explicitly exclude mock tests and coaching
-      return !s.includes('mock-test') && !s.includes('coaching') && !s.includes('sell-courses');
-    })
-    .map(({ slug, title, date, description, category }) => ({
-      slug,
-      title,
-      date,
-      description: description || '',
-      category: category || 'Online Degrees',
-    }));
+  // No keyword filtering – include all posts
+  const postHeaders = posts.map(({ slug, title, date, description, category }) => ({
+    slug,
+    title,
+    date,
+    description: description || '',
+    category: category || 'Online Degrees',
+  }));
   const totalBlogs = postHeaders.length;
 
   const breadcrumbSchema = {
