@@ -1,15 +1,10 @@
 "use client";
 
-import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { 
-  Search, 
-  Calendar, 
-  ArrowRight, 
-  BookOpen,
-  GraduationCap,
-  Sparkles
-} from 'lucide-react';
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import { Search, Calendar, ArrowRight, BookOpen, GraduationCap, Sparkles } from "lucide-react";
+import BlogCard from "@/components/BlogCard";
+import styles from "@/app/blog/blog.module.css";
 
 interface PostHeader {
   slug: string;
@@ -113,61 +108,28 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
           </div>
         </div>
 
-        {/* Blog Grid */}
-        {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, idx) => (
-              <Link 
-                href={`/blog/${post.slug}`} 
-                key={post.slug}
-                className="group relative flex flex-col h-full bg-slate-900/40 backdrop-blur-sm rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-indigo-500/10"
-                style={{ animationDelay: `${idx * 50}ms` }}
+          {/* Blog Grid */}
+          {filteredPosts.length > 0 ? (
+            <div className={styles.blogGrid}>
+              {filteredPosts.map((post) => (
+                <BlogCard key={post.slug} {...post} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-32 bg-slate-900/30 rounded-3xl border border-slate-800 backdrop-blur-sm shadow-xl">
+              <BookOpen className="h-12 w-12 text-slate-600 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">No reviews found</h3>
+              <p className="text-slate-400 max-w-md mx-auto">
+                We couldn't find any reviews matching your search criteria. Try adjusting your filters or search term.
+              </p>
+              <button
+                onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
+                className="mt-8 px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-medium transition-colors border border-indigo-400 shadow-lg shadow-indigo-500/20"
               >
-                <div className="p-8 flex flex-col h-full space-y-6 relative z-10">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wide">
-                      <GraduationCap className="h-3.5 w-3.5" />
-                      {post.category || 'Online Degrees'}
-                    </span>
-                    <span className="flex items-center gap-1.5 text-slate-500 text-xs font-medium">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {post.date}
-                    </span>
-                  </div>
-
-                  <div className="space-y-4 flex-grow">
-                    <h3 className="text-xl font-bold text-white leading-tight group-hover:text-indigo-300 transition-colors line-clamp-3">
-                      {post.title}
-                    </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 font-light">
-                      {post.description || 'Comprehensive review covering fee structure, accreditations, syllabus, and verified placement statistics.'}
-                    </p>
-                  </div>
-
-                  <div className="pt-6 border-t border-slate-800/60 flex items-center justify-between mt-auto">
-                    <span className="inline-flex items-center gap-2 text-indigo-400 text-sm font-semibold group-hover:gap-3 transition-all">
-                      Read Full Review <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-32 bg-slate-900/30 rounded-3xl border border-slate-800 backdrop-blur-sm shadow-xl">
-            <BookOpen className="h-12 w-12 text-slate-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">No reviews found</h3>
-            <p className="text-slate-400 max-w-md mx-auto">
-              We couldn't find any reviews matching your search criteria. Try adjusting your filters or search term.
-            </p>
-            <button
-              onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
-              className="mt-8 px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-medium transition-colors border border-indigo-400 shadow-lg shadow-indigo-500/20"
-            >
-              Clear Filters
-            </button>
-          </div>
-        )}
+                Clear Filters
+              </button>
+            </div>
+          )}
       </div>
     </div>
   );

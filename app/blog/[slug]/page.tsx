@@ -6,8 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft, Calendar, User, MessageSquare, BookOpen, CheckCircle, GraduationCap } from 'lucide-react';
-import { JsonLd } from "@/components/JsonLd";
-import { InquiryForm } from "@/components/InquiryForm";
+import SimpleInquiryForm from "@/components/SimpleInquiryForm";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -139,21 +138,11 @@ export default async function BlogPost({ params }: PageProps) {
 
   return (
     <article className="min-h-screen bg-[#FAFAFA] selection:bg-indigo-200">
-      <JsonLd data={articleSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      {faqSchema && <JsonLd data={faqSchema} />}
+
 
       {/* ── HERO SECTION ── */}
-      <div className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-slate-950 text-white rounded-b-[2.5rem] lg:rounded-b-[4rem] mb-12 lg:mb-16 shadow-2xl">
-        {/* Ambient Glow Effects */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-[30%] -left-[10%] w-[60%] h-[60%] rounded-full bg-indigo-600/30 blur-[120px]" />
-          <div className="absolute top-[40%] -right-[10%] w-[50%] h-[50%] rounded-full bg-violet-600/20 blur-[100px]" />
-          <div className="absolute -bottom-[20%] left-[20%] w-[40%] h-[40%] rounded-full bg-blue-600/20 blur-[120px]" />
-          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+      <div className="pt-12 pb-8 bg-white text-gray-900 rounded-b-2xl mb-8 shadow-md">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
           {/* Breadcrumbs */}
           <nav className="flex flex-wrap items-center justify-center gap-2 text-[10px] md:text-xs font-black uppercase tracking-widest text-indigo-300/70 mb-8">
@@ -393,7 +382,7 @@ export default async function BlogPost({ params }: PageProps) {
                 Enter your details to receive customized university comparisons directly on WhatsApp.
               </p>
               
-              <InquiryForm />
+              <SimpleInquiryForm />
             </div>
 
           </div>
