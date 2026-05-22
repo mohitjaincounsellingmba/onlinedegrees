@@ -141,8 +141,12 @@ export default async function BlogPost({ params }: PageProps) {
 
 
       {/* ── HERO SECTION ── */}
-      <div className="pt-12 pb-8 bg-white text-gray-900 rounded-b-2xl mb-8 shadow-md">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
+      <div className="relative pt-20 pb-16 bg-slate-950 text-white rounded-b-[2.5rem] mb-12 shadow-xl overflow-hidden">
+        {/* Dynamic decorative blobs */}
+        <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-500/10 rounded-full blur-[80px] -ml-20 -mb-20 pointer-events-none" />
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
           
           {/* Breadcrumbs */}
           <nav className="flex flex-wrap items-center justify-center gap-2 text-[10px] md:text-xs font-black uppercase tracking-widest text-indigo-300/70 mb-8">

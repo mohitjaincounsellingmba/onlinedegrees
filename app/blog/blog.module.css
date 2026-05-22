@@ -1,4 +1,4 @@
-/* File: /Users/mohitjain/Desktop/my portfolio/onlinedegrees/app/blog/blog.module.css */
+/* Blog module CSS */
 .blogGrid {
   display: grid;
   gap: 1.5rem;
@@ -6,27 +6,73 @@
   padding: 2rem 0;
 }
 
-/* Card hover effect */
-.card {
+/* Card container */
+.blogCard {
+  display: block;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(8px);
   border-radius: 0.75rem;
+  padding: 1.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
 }
-.card:hover {
+
+.blogCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
 
-/* Hero background mesh (already in component, but keep for reference) */
-.hero-bg {
-  position: absolute;
-  inset: 0;
+.blogMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blogTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.blogExcerpt {
+  font-size: 0.95rem;
+  color: #cbd5e1; /* slate-300 */
+  line-height: 1.4;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #60a5fa; /* sky-400 */
+  font-weight: 500;
+  margin-top: 0.75rem;
+}
+
+/* Ensure dark mode consistent */
+@media (prefers-color-scheme: dark) {
+  .blogCard { background: rgba(255,255,255,0.03); }
+}
+
+/* Image wrapper for BlogCard */
+.blogImageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
-  pointer-events: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
-.hero-bg > div {
-  border-radius: 9999px;
-  filter: blur(120px);
+
+.blogImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
