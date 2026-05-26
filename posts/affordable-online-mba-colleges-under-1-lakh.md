@@ -1,4 +1,11 @@
-# Affordable Online MBA Colleges Under ₹1 Lakh (2026)
+---
+title: "Affordable Online MBA Colleges Under ₹1 Lakh (2026)"
+date: "2026-05-22"
+category: "Online MBA"
+description: " Why Cost Matters
+A budget‑friendly MBA still needs to deliver quality education, accreditation, and placement support. Below is a curated list of programs w..."
+keywords: ["Best Online MBA Colleges","Online MBA Fees","Online MBA Placement","Cheap Online MBA India","UGC Approved Online MBA","Distance MBA vs Online MBA"]
+---
 
 ## Why Cost Matters
 A budget‑friendly MBA still needs to deliver **quality education, accreditation, and placement support**. Below is a curated list of programs with total tuition **≤ ₹1 Lakh**.
@@ -21,6 +28,3 @@ A budget‑friendly MBA still needs to deliver **quality education, accreditatio
 - **Scholarships**: Many state universities offer merit‑based scholarships up to 30%.
 - **EMI Plans**: Use 0% EMI options offered by partner banks.
 - **Corporate Sponsorship**: If you are employed, ask your employer for tuition assistance.
-
----
-**Keywords**: Best Online MBA Colleges, Online MBA Fees, Online MBA Placement, Cheap Online MBA India, UGC Approved Online MBA, Distance MBA vs Online MBA

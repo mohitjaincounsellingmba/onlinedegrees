@@ -7,6 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft, Calendar, User, MessageSquare, BookOpen, CheckCircle, GraduationCap } from 'lucide-react';
 import SimpleInquiryForm from "@/components/SimpleInquiryForm";
+import { JsonLd } from "@/components/JsonLd";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -138,6 +139,9 @@ export default async function BlogPost({ params }: PageProps) {
 
   return (
     <article className="min-h-screen bg-[#FAFAFA] selection:bg-indigo-200">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
 
 
       {/* ── HERO SECTION ── */}

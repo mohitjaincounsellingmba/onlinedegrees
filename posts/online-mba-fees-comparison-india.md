@@ -1,4 +1,11 @@
-# Online MBA Fees Comparison in India (2026)
+---
+title: "Online MBA Fees Comparison in India (2026)"
+date: "2026-05-22"
+category: "Online MBA"
+description: " Why Fees Matter
+Understanding fee structures helps you calculate ROI and choose a program that balances cost with outcomes."
+keywords: ["Online MBA Fees","Best Online MBA Colleges","Cheap Online MBA India","UGC Approved Online MBA","Distance MBA vs Online MBA"]
+---
 
 ## Why Fees Matter
 Understanding fee structures helps you calculate **ROI** and choose a program that balances cost with outcomes.
@@ -23,6 +30,3 @@ Understanding fee structures helps you calculate **ROI** and choose a program th
 - **Scholarships** – Merit‑based scholarships (up to 30% of tuition) are offered by many institutes.
 - **Employer Sponsorship** – Ask your employer for tuition assistance.
 - **EMI Plans** – 0% interest EMI for up to 12 months (see EMI options blog).
-
----
-**Keywords**: Online MBA Fees, Best Online MBA Colleges, Cheap Online MBA India, UGC Approved Online MBA, Distance MBA vs Online MBA

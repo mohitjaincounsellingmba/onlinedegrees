@@ -1,4 +1,13 @@
-# Online MBA Admission & Eligibility (2026)
+---
+title: "Online MBA Admission & Eligibility (2026)"
+date: "2026-05-22"
+category: "Online MBA"
+description: " 1. Admission Process Explained
+| Step | Action | Details |
+|------|--------|---------|
+| 1 | Online Application | Fill the web form on the college portal, u..."
+keywords: ["Online MBA Admission Process","Online MBA Eligibility","CAT MAT CMAT Required for Online MBA","Documents Required for Online MBA Admission","Apply for Online MBA Step‑by‑Step"]
+---
 
 ## 1. Admission Process Explained
 | Step | Action | Details |
@@ -40,6 +49,3 @@
 6. **Prepare for Entrance/Test/Interview** – Follow institute‑specific guidelines.
 7. **Receive Offer Letter** – Accept and proceed to fee payment.
 8. **Enroll & Start Learning** – Access LMS, join orientation webinars.
-
----
-**Keywords**: Online MBA Admission Process, Online MBA Eligibility, CAT MAT CMAT Required for Online MBA, Documents Required for Online MBA Admission, Apply for Online MBA Step‑by‑Step

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const postsDirectory = path.join(__dirname, '../posts');
+const blogsDirectory = path.join(__dirname, '../blogs');
 const publicDirectory = path.join(__dirname, '../public');
 
 // Create public directory if it doesn't exist
@@ -20,27 +21,70 @@ Sitemap: https://onlineshiksha.online/sitemap.xml
 fs.writeFileSync(path.join(publicDirectory, 'robots.txt'), robotsTxt);
 console.log('✅ Generated public/robots.txt');
 
-// Helper to clean slug/name
+// Helper to clean slug/name and scan both directories
 function getSortedPosts() {
-  if (!fs.existsSync(postsDirectory)) return [];
-  const fileNames = fs.readdirSync(postsDirectory);
-  
-  return fileNames
-    .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => {
-      const slug = fileName.replace(/\.md$/, '');
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      
-      // Basic frontmatter parsing
-      let date = new Date().toISOString().split('T')[0];
-      const match = fileContents.match(/date:\s*['"]?([^\r\n'"]+)['"]?/i);
-      if (match && match[1]) {
-        date = match[1];
-      }
-      
-      return { slug, date };
-    });
+  const directories = [postsDirectory, blogsDirectory].filter(dir => fs.existsSync(dir));
+  const allPosts = [];
+
+  directories.forEach(dir => {
+    const fileNames = fs.readdirSync(dir);
+    fileNames
+      .filter(fileName => fileName.endsWith('.md'))
+      .forEach(fileName => {
+        const slug = fileName.replace(/\.md$/, '');
+        const fullPath = path.join(dir, fileName);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        
+        // Basic frontmatter parsing
+        let date = '';
+        let title = '';
+        let description = '';
+        let keywords = '';
+
+        const dateMatch = fileContents.match(/date:\s*['"]?([^\r\n'"]+)['"]?/i);
+        if (dateMatch && dateMatch[1]) {
+          date = dateMatch[1].trim();
+        }
+
+        const titleMatch = fileContents.match(/title:\s*['"]?([^\r\n'"]+)['"]?/i);
+        if (titleMatch && titleMatch[1]) {
+          title = titleMatch[1].trim();
+        }
+
+        const descMatch = fileContents.match(/description:\s*['"]?([^\r\n'"]+)['"]?/i);
+        if (descMatch && descMatch[1]) {
+          description = descMatch[1].trim();
+        }
+
+        const keywordsMatch = fileContents.match(/keywords:\s*\[([^\]]+)\]/i);
+        if (keywordsMatch && keywordsMatch[1]) {
+          keywords = keywordsMatch[1].trim();
+        }
+
+        // Warnings for missing metadata to assist with SEO audits
+        const warnings = [];
+        if (!title) warnings.push('title');
+        if (!date) {
+          warnings.push('date (falling back to today)');
+          date = new Date().toISOString().split('T')[0];
+        }
+        if (!description) warnings.push('description');
+        if (!keywords) warnings.push('keywords');
+
+        if (warnings.length > 0) {
+          console.warn(`⚠️ SEO Audit Warning [${fileName}] in /${path.basename(dir)}: Missing ${warnings.join(', ')}`);
+        }
+
+        // Prevent adding draft / untitled posts to sitemap
+        if (title && title.toLowerCase().includes('untitled')) {
+          return;
+        }
+
+        allPosts.push({ slug, date });
+      });
+  });
+
+  return allPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 // Generate sitemap.xml

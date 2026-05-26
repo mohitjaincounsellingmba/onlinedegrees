@@ -1,4 +1,10 @@
-# UGC Approved Online MBA Universities List
+---
+title: "UGC Approved Online MBA Universities List"
+date: "2026-05-22"
+category: "Online MBA"
+description: "An exhaustive, SEO‑friendly list of universities that offer UGC‑approved online MBA programs in India."
+keywords: ["UGC Approved Online MBA", "Online MBA Universities India", "Distance MBA UGC"]
+---
 
 *An exhaustive, SEO‑friendly list of universities that offer UGC‑approved online MBA programs in India.*
 
@@ -15,6 +21,3 @@
 | **Kurukshetra University – Directorate of Distance Education** | MBA (Online) | 2 years | UGC, AICTE | https://dde.kuk.ac.in |
 
 > **Tip:** Always verify the latest approval status on the university’s official website before enrollment.
-
----
-*Keywords: UGC Approved Online MBA, Online MBA Universities India, Distance MBA UGC*

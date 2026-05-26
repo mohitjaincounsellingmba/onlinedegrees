@@ -1,4 +1,11 @@
-# Highest Paying Specializations in Online MBA (2026)
+---
+title: "Highest Paying Specializations in Online MBA (2026)"
+date: "2026-05-22"
+category: "Online MBA"
+description: " Introduction
+Choosing the right specialization can dramatically boost your earnings. Below are the top‑paying streams for online MBA graduates in India, bas..."
+keywords: ["Best Online MBA Colleges","Online MBA Salary","Online MBA Fees","UGC Approved Online MBA","Cheap Online MBA India","Distance MBA vs Online MBA"]
+---
 
 ## Introduction
 Choosing the right specialization can dramatically boost your earnings. Below are the top‑paying streams for online MBA graduates in India, based on average salary data from placement reports (2024‑2026).
@@ -24,6 +31,3 @@ Choosing the right specialization can dramatically boost your earnings. Below ar
 1. **Interest & Strengths** – Align with your passion.
 2. **Industry Growth** – Look at projected CAGR (e.g., Analytics 14% YoY).
 3. **ROI** – Compare tuition vs. salary uplift (see Fees & ROI blog).
-
----
-**Keywords**: Best Online MBA Colleges, Online MBA Salary, Online MBA Fees, UGC Approved Online MBA, Cheap Online MBA India, Distance MBA vs Online MBA
