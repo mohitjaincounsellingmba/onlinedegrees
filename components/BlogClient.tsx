@@ -15,7 +15,7 @@ interface PostHeader {
   category: string;
 }
 
-export function BlogClient({ posts }: { posts: PostHeader[] }) {
+export function BlogClient({ posts, totalBlogs }: { posts: PostHeader[]; totalBlogs: number }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -56,15 +56,30 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
         
         {/* Gen Z Hero Section */}
         <section className={genzStyles.genzHero}>
-          <h1 className={genzStyles.genzTitle}>Unlock Your Future Potential</h1>
-          <p className="text-lg text-slate-200 max-w-2xl mx-auto mt-4">
+          <div className={genzStyles.heroBadge}>
+            <Sparkles className="h-4 w-4 text-[#ccff00] animate-pulse shrink-0" />
+            <span>{totalBlogs} Verified Guides & Reviews Live</span>
+          </div>
+
+          <h1 className={genzStyles.genzTitle}>
+            Unlock Your <span className="bg-gradient-to-r from-[#ccff00] via-[#00ffa3] to-indigo-400 bg-clip-text text-transparent">Future Potential</span>
+          </h1>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto mt-4 leading-relaxed font-medium">
             In‑depth reviews, fee structures, and placement analytics for top UGC‑approved online degrees. Make your next career move with data‑backed confidence.
           </p>
-          <a href="/blog" className={genzStyles.genzCTA}>Explore Guides</a>
+          <button 
+            onClick={() => {
+              const el = document.getElementById('search-section');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className={genzStyles.genzCTA}
+          >
+            Explore Guides
+          </button>
         </section>
 
         {/* Search and Filters */}
-        <div className="mb-16 space-y-8">
+        <div id="search-section" className="mb-16 space-y-8 scroll-mt-24">
           <div className="max-w-2xl mx-auto relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
             <div className="relative bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-2xl p-2 flex items-center shadow-2xl">
@@ -87,7 +102,7 @@ export function BlogClient({ posts }: { posts: PostHeader[] }) {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`${genzStyles.filterChip} ${activeCategory === cat ? 'active' : ''}`}
+                className={`${genzStyles.filterChip} ${activeCategory === cat ? genzStyles.activeChip : ''}`}
               >
                 {cat}
               </button>

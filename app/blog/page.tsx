@@ -1,6 +1,5 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { BlogClient } from '@/components/BlogClient';
-import { BlogMeter } from '@/components/BlogMeter';
 import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -47,8 +46,7 @@ export default function BlogPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <BlogMeter count={totalBlogs} />
-      <BlogClient posts={postHeaders} />
+      <BlogClient posts={postHeaders} totalBlogs={totalBlogs} />
     </>
   );
 }

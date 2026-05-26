@@ -1,78 +1,70 @@
 /* Blog module CSS */
 .blogGrid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  padding: 2rem 0;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  padding: 3rem 0;
 }
 
 /* Card container */
 .blogCard {
-  display: block;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-decoration: none;
-}
-
-.blogCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
 
 .blogMeta {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .blogTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0.5rem 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease-in-out;
+}
+
+.blogCard:hover .blogTitle {
+  color: #ccff00;
 }
 
 .blogExcerpt {
-  font-size: 0.95rem;
-  color: #cbd5e1; /* slate-300 */
-  line-height: 1.4;
+  font-size: 0.925rem;
+  color: #94a3b8; /* slate-400 */
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes the Read More link to the bottom so cards look uniform */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .readMore {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  color: #60a5fa; /* sky-400 */
-  font-weight: 500;
-  margin-top: 0.75rem;
+  gap: 0.35rem;
+  color: #ccff00;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease-in-out;
+  margin-top: auto;
 }
 
-/* Ensure dark mode consistent */
-@media (prefers-color-scheme: dark) {
-  .blogCard { background: rgba(255,255,255,0.03); }
+.blogCard:hover .readMore {
+  color: #00ffa3;
 }
 
-/* Image wrapper for BlogCard */
-.blogImageWrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-  overflow: hidden;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+.blogCard:hover .readMore svg {
+  transform: translateX(4px);
 }
-
-.blogImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-

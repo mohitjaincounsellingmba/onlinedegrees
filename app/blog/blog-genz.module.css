@@ -1,100 +1,111 @@
 /* blog-genz.module.css – Gen Z education portal styling (uses site theme colors) */
 :root {
-  --primary: #6366f1;   /* indigo-500 */
-  --secondary: #8b5cf6; /* violet-500 */
-  --accent: #14b8a6;    /* teal-500 */
+  --primary: #ccff00;   /* lime green */
+  --secondary: #00ffa3; /* neon teal */
+  --accent: #ff007f;    /* neon pink */
 }
 
 /* Hero --------------------------------------------------------------- */
 .genzHero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: #fff;
-  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 4rem 1rem 5rem;
   position: relative;
-  overflow: hidden;
 }
-.genzHero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.07), transparent 60%);
-  pointer-events: none;
-}
-.genzTitle {
-  font-size: clamp(2.5rem,6vw,4.5rem);
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(204, 255, 0, 0.08);
+  border: 1px solid rgba(204, 255, 0, 0.2);
+  color: #ccff00;
+  font-size: 0.8rem;
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.genzTitle {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 900;
   line-height: 1.1;
-  background: linear-gradient(to right, #a5b4fc, #c4b5fd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.genzCTA {
-  margin-top: 2rem;
-  display: inline-block;
-  padding: .75rem 1.75rem;
-  background: var(--primary);
+  letter-spacing: -0.03em;
   color: #fff;
-  border-radius: 1rem;
-  font-weight: 600;
-  transition: transform .2s, background .2s;
+  margin-bottom: 1.5rem;
 }
+
+.genzCTA {
+  cursor: pointer;
+  margin-top: 2rem;
+  padding: 0.8rem 2.25rem;
+  background: #ccff00;
+  color: #000;
+  border: none;
+  border-radius: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .genzCTA:hover {
-  background: var(--secondary);
-  transform: translateY(-3px);
+  background: #00ffa3;
+  box-shadow: 0 0 30px rgba(0, 255, 163, 0.4);
+  transform: translateY(-2px);
 }
 
 /* Filter Bar ----------------------------------------------------------- */
-.filterBar {
-  backdrop-filter: blur(12px);
-  background: rgba(0,0,0,.35);
-  border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  padding: .75rem 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  justify-content: center;
-  align-items: center;
-}
 .filterChip {
   cursor: pointer;
-  padding: .4rem .8rem;
-  border-radius: .75rem;
-  font-size: .85rem;
-  font-weight: 500;
-  background: rgba(255,255,255,.07);
-  color: #cbd5e1;
-  transition: background .2s, color .2s;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.filterChip.active {
-  background: var(--primary);
+
+.filterChip:hover {
+  background: rgba(255, 255, 255, 0.06);
   color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Glass‑Morphism Card ---------------------------------------------------- */
+.activeChip {
+  background: linear-gradient(135deg, #ccff00 0%, #00ffa3 100%) !important;
+  color: #000 !important;
+  border: none !important;
+  font-weight: 800;
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.2);
+}
+
+/* Glass-Morphism Card ---------------------------------------------------- */
 .blogCardGlass {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: .75rem;
-  backdrop-filter: blur(12px);
-  padding: 1.5rem;
-  transition: transform .25s, box-shadow .25s;
-}
-.blogCardGlass:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,0,0,.35);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Read More Arrow ------------------------------------------------------- */
-.readMoreGlitch {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  font-weight: 500;
-  color: #a5b4fc;
-  transition: transform .2s;
-}
-.readMoreGlitch:hover {
-  transform: translateX(4px);
+.blogCardGlass:hover {
+  transform: translateY(-6px);
+  border-color: rgba(204, 255, 0, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(204, 255, 0, 0.05);
 }
