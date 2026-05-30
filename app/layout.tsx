@@ -6,6 +6,8 @@ import { JsonLd } from "@/components/JsonLd";
 import Script from "next/script";
 import { InquiryPopup } from "@/components/InquiryPopup";
 import { BotInquiryPopup } from "@/components/BotInquiryPopup";
+import { DefaultSeo } from "next-seo";
+import seoConfig from "../next-seo.config";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://onlineshiksha.online"),
@@ -95,6 +97,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <DefaultSeo {...seoConfig} />
         <JsonLd data={organizationData} />
         <JsonLd data={websiteData} />
       </head>

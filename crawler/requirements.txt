@@ -1,0 +1,4 @@
+# Requirements for the web crawler
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+lxml>=5.2.2
