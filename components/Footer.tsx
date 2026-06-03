@@ -194,9 +194,11 @@ export function Footer() {
             <span className="text-[#ccff00]/40 uppercase tracking-widest text-[10px]">UGC-DEB Education Partner</span>
           </div>
           <div className="flex gap-4 items-center text-xs font-bold text-gray-600">
-            <Link href="#" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Privacy Policy</Link>
             <span className="text-[#333]">·</span>
-            <Link href="#" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Terms of Service</Link>
+            <Link href="/terms-of-service" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Terms of Service</Link>
+            <span className="text-[#333]">·</span>
+            <Link href="/disclaimer" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Disclaimer</Link>
           </div>
         </div>
       </div>

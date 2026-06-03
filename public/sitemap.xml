@@ -31,6 +31,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://onlineshiksha.online/disclaimer</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/privacy-policy</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://onlineshiksha.online/terms-of-service</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://onlineshiksha.online/blog/why-skill-based-learning-replacing-degree-centric-hiring</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
