@@ -1,6 +1,4 @@
-import { DefaultSeoProps } from "next-seo";
-
-const seoConfig: DefaultSeoProps = {
+const seoConfig = {
   titleTemplate: "%s | Online Shiksha",
   defaultTitle: "Online Shiksha | UGC Approved Online Universities 2026",
   description: "Compare 27+ UGC‑DEB approved online universities in India for 2026. Find fees, NAAC grades, programs (MBA, MCA, BBA, BCA) and get FREE expert counselling.",
@@ -26,6 +24,9 @@ const seoConfig: DefaultSeoProps = {
     handle: "@onlineshiksha",
     site: "@onlineshiksha",
     cardType: "summary_large_image",
+    title: "Online Shiksha | UGC Approved Online Universities 2026",
+    description: "Compare India's top online universities on fees, accreditation, and programs.",
+    images: ["/og-image.webp"],
   },
 };
 
