@@ -30,3 +30,8 @@ yarn-error.log*
 
 # OS files
 .DS_Store
+
+# GSC Indexing
+service_account.json
+google*.html
+
