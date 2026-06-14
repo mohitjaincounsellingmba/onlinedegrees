@@ -40,6 +40,7 @@ export function Footer() {
       { name: 'University Reviews', href: '/blog' },
       { name: 'Comparison Guide', href: '#' },
       { name: 'Create Resume', href: '/create-resume' },
+      { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
       { name: 'Admissions 2026', href: '#' },
     ]
   };
