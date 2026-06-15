@@ -61,7 +61,6 @@ To better understand your options, check out these related guides:
 *   [Overall Guide to Online MBA India 2026](/blog/online-mba-india-2026)
 *   [Amity University Online MBA: Deep Dive Review](/blog/amity-university-online-mba-review-2026)
 *   [Comparison: Amity Online vs. LPU Online](/blog/lovely-professional-university-lpu-online-mba-review-2026)
-*   [Why Never Join NMIMS Online MBA: Honest Review](/blog/why-never-join-nmims-online-mba-honest-review-2026)
 
 **Planning Your Admission in Amity Online?**
 Don't navigate the complex admission process alone. At **CareerWithMohit**, we provide 100% verified guidance to help you choose the right specialization and secure your seat in the 2026 batch.

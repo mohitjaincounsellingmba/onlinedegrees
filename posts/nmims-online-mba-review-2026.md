@@ -99,7 +99,6 @@ Admission to the NMIMS Online MBA is merit-based. You don't need a CAT/NMAT scor
 *   [Overall Guide to Online MBA in India 2026](/blog/online-mba-india-2026)
 *   [Amity University Online MBA Review](/blog/amity-university-online-mba-review-2026)
 *   [Jain University Online MBA Review](/blog/jain-university-online-mba-review-2026)
-*   [Honeyst Review: Why You Should NEVER Join NMIMS Online MBA](/blog/why-never-join-nmims-online-mba-honest-review-2026) (A Critical Perspective)
 
 ---
 
