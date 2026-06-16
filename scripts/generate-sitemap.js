@@ -4,6 +4,7 @@ const path = require('path');
 const postsDirectory = path.join(__dirname, '../posts');
 const blogsDirectory = path.join(__dirname, '../blogs');
 const publicDirectory = path.join(__dirname, '../public');
+const collegesData = require('../lib/colleges.json');
 
 // Create public directory if it doesn't exist
 if (!fs.existsSync(publicDirectory)) {
@@ -90,65 +91,67 @@ function getSortedPosts() {
 // Generate sitemap.xml
 const posts = getSortedPosts();
 const baseUrl = 'https://onlineshiksha.online';
+const today = new Date().toISOString().split('T')[0];
 
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${baseUrl}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>${baseUrl}/blog</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/compare</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/emi-calculator</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/create-resume</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/tools/cat-score-calculator</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>${baseUrl}/disclaimer</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>${baseUrl}/privacy-policy</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>${baseUrl}/terms-of-service</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 `;
 
+// 1. Add all dynamic blog posts
 posts.forEach(post => {
   sitemapXml += `  <url>
     <loc>${baseUrl}/blog/${post.slug}</loc>
@@ -158,7 +161,22 @@ posts.forEach(post => {
   </url>\n`;
 });
 
+// 2. Add all dynamic comparison pairs (Alphabetically sorted to avoid duplicates)
+let comparisonCount = 0;
+for (let i = 0; i < collegesData.length; i++) {
+  for (let j = i + 1; j < collegesData.length; j++) {
+    const slugPair = `${collegesData[i].slug}-vs-${collegesData[j].slug}`;
+    sitemapXml += `  <url>
+    <loc>${baseUrl}/compare/${slugPair}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`;
+    comparisonCount++;
+  }
+}
+
 sitemapXml += `</urlset>`;
 
 fs.writeFileSync(path.join(publicDirectory, 'sitemap.xml'), sitemapXml);
-console.log(`✅ Generated public/sitemap.xml with ${posts.length} pages!`);
+console.log(`✅ Generated public/sitemap.xml with ${posts.length} blogs and ${comparisonCount} comparison pages!`);
