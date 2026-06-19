@@ -4,8 +4,38 @@ const path = require('path');
 const collegesData = require('../lib/colleges.json');
 const postsDir = path.join(__dirname, '../posts');
 
-// Ensure directory exists
-if (!fs.existsSync(postsDir)) {
+// Helper to clean college names for titles
+function getCleanName(name) {
+  let clean = name;
+  clean = clean.replace(/\s*-\s*Online\s*\(Pune\)/i, ' (Pune)');
+  clean = clean.replace(/\s*-\s*Online\s*PGDM/i, '');
+  clean = clean.replace(/\s+Online\s+\(Navi\s+Mumbai\)/i, ' (Navi Mumbai)');
+  clean = clean.replace(/\s*Online\s*Vidyapeeth/i, 'Vidyapeeth');
+  clean = clean.replace(/\s+Online/gi, '');
+  return clean.trim();
+}
+
+// Helper to clean slug for file naming to prevent duplicate "online"
+function getCleanSlug(slug) {
+  return slug
+    .replace(/-online$/, '')
+    .replace(/-online-pgdm$/, '')
+    .replace(/-online-pune$/, '-pune')
+    .replace(/-online-navi-mumbai$/, '-navi-mumbai');
+}
+
+// Clean up existing files ending with admission-review-2026.md
+if (fs.existsSync(postsDir)) {
+  const files = fs.readdirSync(postsDir);
+  let deleteCount = 0;
+  files.forEach(file => {
+    if (file.endsWith('admission-review-2026.md')) {
+      fs.unlinkSync(path.join(postsDir, file));
+      deleteCount++;
+    }
+  });
+  console.log(`🧹 Cleaned up ${deleteCount} old admission-review-2026.md files.`);
+} else {
   fs.mkdirSync(postsDir, { recursive: true });
 }
 
@@ -14,49 +44,49 @@ const categoriesSetup = {
   'Online MBA': {
     colleges: collegesData.slice(0, 25),
     slugSuffix: 'online-mba-admission-review-2026',
-    titleGenerator: (name) => `[${name}](/colleges/${slugify(name)}) Online MBA Review 2026: The Ultimate Admission Guide`,
-    descGenerator: (name, fee, acc) => `Is the ${name} Online MBA worth it? Read our honest review of its fees (${fee}), approvals (${acc}), specializations, and why it is a smart choice for your career.`,
+    titleGenerator: (name, slug) => `[${getCleanName(name)}](/colleges/${slug}) Online MBA Admission Review 2026`,
+    descGenerator: (name, fee, acc) => `Is the ${getCleanName(name)} Online MBA worth your admission? Read our comprehensive review covering total fees (${fee}), UGC accreditation (${acc}), and placement records.`,
     keywordsGenerator: (name) => [
-      `${name} online mba review 2026`,
-      `${name} online mba admission`,
-      `is ${name} online mba good`,
-      `online mba reviews ${name}`
+      `${getCleanName(name)} online mba review 2026`,
+      `${getCleanName(name)} online mba admission`,
+      `is ${getCleanName(name)} online mba good`,
+      `online mba reviews ${getCleanName(name)}`
     ]
   },
   'Online BCA': {
     colleges: collegesData.filter(c => c.programs && (c.programs.includes('BCA') || c.programs.includes('B.Sc'))).slice(0, 25),
     slugSuffix: 'online-bca-admission-review-2026',
-    titleGenerator: (name) => `[${name}](/colleges/${slugify(name)}) Online BCA Review 2026: Best Choice for IT Aspirants?`,
-    descGenerator: (name, fee, acc) => `Thinking of taking admission in ${name} Online BCA? Read our comprehensive review covering fees (${fee}), UGC approvals (${acc}), syllabus, and career scope.`,
+    titleGenerator: (name, slug) => `[${getCleanName(name)}](/colleges/${slug}) Online BCA Admission Review 2026`,
+    descGenerator: (name, fee, acc) => `Read our review on taking admission in ${getCleanName(name)} Online BCA. Explore fees (${fee}), UGC-DEB status (${acc}), and syllabus.`,
     keywordsGenerator: (name) => [
-      `${name} online bca review 2026`,
-      `${name} online bca admission`,
-      `is ${name} online bca worth it`,
-      `online bca placement ${name}`
+      `${getCleanName(name)} online bca review 2026`,
+      `${getCleanName(name)} online bca admission`,
+      `is ${getCleanName(name)} online bca worth it`,
+      `online bca placement ${getCleanName(name)}`
     ]
   },
   'Online PGDM': {
     colleges: collegesData.filter(c => c.programs && (c.programs.includes('PGDM') || c.programs.includes('MBA') || c.programs.includes('PGDBA'))).slice(0, 25),
     slugSuffix: 'online-pgdm-admission-review-2026',
-    titleGenerator: (name) => `[${name}](/colleges/${slugify(name)}) Online PGDM Review 2026: Fees, Placements & Admission Reality`,
-    descGenerator: (name, fee, acc) => `Read this detailed review of ${name} Online PGDM program. Explore its approvals (${acc}), total fees (${fee}), dual specializations, and placement outcomes.`,
+    titleGenerator: (name, slug) => `[${getCleanName(name)}](/colleges/${slug}) Online PGDM Admission Review 2026`,
+    descGenerator: (name, fee, acc) => `Thinking of enrolling in ${getCleanName(name)} Online PGDM? Check our detailed review on fees (${fee}), approvals (${acc}), and placements.`,
     keywordsGenerator: (name) => [
-      `${name} online pgdm review 2026`,
-      `${name} online pgdm admission`,
-      `is ${name} online pgdm worth it`,
-      `online pgdm fees ${name}`
+      `${getCleanName(name)} online pgdm review 2026`,
+      `${getCleanName(name)} online pgdm admission`,
+      `is ${getCleanName(name)} online pgdm worth it`,
+      `online pgdm fees ${getCleanName(name)}`
     ]
   },
   'Executive MBA': {
     colleges: collegesData.filter(c => c.programs && (c.programs.includes('Executive MBA') || c.programs.includes('MBA') || c.programs.includes('Global MBA'))).slice(0, 25),
     slugSuffix: 'executive-mba-admission-review-2026',
-    titleGenerator: (name) => `[${name}](/colleges/${slugify(name)}) Executive MBA Review 2026: Perfect for Working Professionals`,
-    descGenerator: (name, fee, acc) => `Is the ${name} Executive MBA program the right choice for mid-to-senior professionals? Read our positive review on fees (${fee}), accreditations (${acc}), and career growth.`,
+    titleGenerator: (name, slug) => `[${getCleanName(name)}](/colleges/${slug}) Executive MBA Admission Review 2026`,
+    descGenerator: (name, fee, acc) => `Read our review of the ${getCleanName(name)} Executive MBA program. Get insights on fees (${fee}), accreditations (${acc}), and key highlights.`,
     keywordsGenerator: (name) => [
-      `${name} executive mba review 2026`,
-      `${name} executive mba admission`,
-      `is ${name} executive mba good`,
-      `executive mba placement ${name}`
+      `${getCleanName(name)} executive mba review 2026`,
+      `${getCleanName(name)} executive mba admission`,
+      `is ${getCleanName(name)} executive mba good`,
+      `executive mba placement ${getCleanName(name)}`
     ]
   }
 };
@@ -72,14 +102,6 @@ Object.keys(categoriesSetup).forEach(cat => {
   }
 });
 
-// Helper to slugify college names
-function slugify(name) {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)+/g, '');
-}
-
 // Generate scattered dates between 2026-06-01 and 2026-06-19
 function getRandomDate(index) {
   const startDay = 1;
@@ -92,11 +114,12 @@ let generatedCount = 0;
 
 Object.entries(categoriesSetup).forEach(([categoryName, config]) => {
   config.colleges.forEach((college, index) => {
-    const slug = `${college.slug}-${config.slugSuffix}`;
+    const cleanCollegeSlug = getCleanSlug(college.slug);
+    const slug = `${cleanCollegeSlug}-${config.slugSuffix}`;
     const filename = `${slug}.md`;
     const filepath = path.join(postsDir, filename);
 
-    const title = config.titleGenerator(college.name);
+    const title = config.titleGenerator(college.name, college.slug);
     const date = getRandomDate(generatedCount);
     const description = config.descGenerator(college.name, college.feeText, college.accreditation);
     const keywords = config.keywordsGenerator(college.name);
@@ -206,4 +229,4 @@ Boost your skills and test your preparation! **[Explore Our Premium Mock Test Se
   });
 });
 
-console.log(`🎉 Successfully generated ${generatedCount} positive review blogs!`);
+console.log(`🎉 Successfully generated ${generatedCount} positive review blogs with clean titles and slugs!`);
