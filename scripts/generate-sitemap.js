@@ -60,6 +60,12 @@ function getSortedPosts() {
         const keywordsMatch = fileContents.match(/keywords:\s*\[([^\]]+)\]/i);
         if (keywordsMatch && keywordsMatch[1]) {
           keywords = keywordsMatch[1].trim();
+        } else {
+          // Fallback to tags if present (can be inline array or yaml list)
+          const tagsMatch = fileContents.match(/tags:\s*\[([^\]]+)\]/i) || fileContents.match(/tags:\s*[\r\n]/i);
+          if (tagsMatch) {
+            keywords = 'found_via_tags';
+          }
         }
 
         // Warnings for missing metadata to assist with SEO audits

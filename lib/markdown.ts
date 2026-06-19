@@ -3,6 +3,11 @@ import path from 'path';
 import { cache } from 'react';
 import matter from 'gray-matter';
 
+export function stripMarkdownLinks(text: string): string {
+  if (!text) return '';
+  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+}
+
 const postsDirectory = path.join(process.cwd(), 'posts');
 const blogsDirectory = path.join(process.cwd(), 'blogs');
 
@@ -63,17 +68,20 @@ export const getSortedPostsData = cache(() => {
         const fullPath = path.join(dir, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const matterResult = matter(fileContents);
-        const title = matterResult.data.title ? String(matterResult.data.title) : 'Untitled Post';
+        const rawTitle = matterResult.data.title ? String(matterResult.data.title) : 'Untitled Post';
+        const title = stripMarkdownLinks(rawTitle);
         const date = matterResult.data.date
           ? (matterResult.data.date instanceof Date
               ? matterResult.data.date.toISOString().split('T')[0]
               : String(matterResult.data.date))
           : new Date().toISOString().split('T')[0];
+        const rawDesc = matterResult.data.description || '';
+        const description = stripMarkdownLinks(rawDesc);
         return {
           slug,
           title,
           date,
-          description: matterResult.data.description || '',
+          description,
           keywords: matterResult.data.keywords || [],
           category: inferCategory(matterResult.data, slug),
         } as PostData;
@@ -151,7 +159,8 @@ export function getPostData(slug: string): PostData | null {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
-    const title = matterResult.data.title ? String(matterResult.data.title) : 'Untitled Post';
+    const rawTitle = matterResult.data.title ? String(matterResult.data.title) : 'Untitled Post';
+    const title = stripMarkdownLinks(rawTitle);
     const date = matterResult.data.date 
       ? (matterResult.data.date instanceof Date 
           ? matterResult.data.date.toISOString().split('T')[0] 
@@ -162,11 +171,14 @@ export function getPostData(slug: string): PostData | null {
       ? matterResult.data.faqs
       : parseFaqsFromContent(matterResult.content || '');
 
+    const rawDesc = matterResult.data.description ? String(matterResult.data.description) : undefined;
+    const description = rawDesc ? stripMarkdownLinks(rawDesc) : undefined;
+
     return {
       slug,
       title,
       date,
-      description: matterResult.data.description,
+      description,
       keywords: matterResult.data.keywords || [],
       content: matterResult.content,
       faqs: parsedFaqs,

@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm';
 import { ArrowLeft, Calendar, User, MessageSquare, BookOpen, CheckCircle, GraduationCap } from 'lucide-react';
 import SimpleInquiryForm from "@/components/SimpleInquiryForm";
 import { JsonLd } from "@/components/JsonLd";
+import { collegesData } from "@/lib/colleges";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -71,6 +72,62 @@ export default async function BlogPost({ params }: PageProps) {
 
   if (!postData) {
     notFound();
+  }
+
+  // ── RELATED POSTS LOGIC ──
+  const allPosts = getSortedPostsData();
+  const currentCategory = postData.category || 'Online Degrees';
+  
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== slug)
+    .map((p) => {
+      let score = 0;
+      if (p.category === currentCategory) score += 5;
+      
+      const sharedKeywords = (p.keywords || []).filter((k) => 
+        (postData.keywords || []).includes(k)
+      );
+      score += sharedKeywords.length * 2;
+      return { post: p, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((x) => x.post);
+
+  // ── RECOMMENDED COMPARISONS LOGIC ──
+  const slugLower = slug.toLowerCase();
+  const titleLower = postData.title.toLowerCase();
+  const matchedColleges = collegesData.filter((c) => 
+    slugLower.includes(c.slug.toLowerCase()) || 
+    titleLower.includes(c.name.toLowerCase()) ||
+    titleLower.includes(c.id.toLowerCase())
+  );
+
+  const recommendedComparisons: any[] = [];
+  if (matchedColleges.length > 0) {
+    const mainCol = matchedColleges[0];
+    const partners = collegesData
+      .filter((c) => c.id !== mainCol.id)
+      .map((c) => {
+        let score = 0;
+        if (c.tier === mainCol.tier) score += 5;
+        const sharedPrograms = c.programs.filter((p) => mainCol.programs.includes(p));
+        score += sharedPrograms.length * 2;
+        return { college: c, score };
+      })
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((x) => x.college);
+
+    partners.forEach((partner) => {
+      const sorted = [mainCol.slug, partner.slug].sort();
+      recommendedComparisons.push({
+        slug: `${sorted[0]}-vs-${sorted[1]}`,
+        title: `${mainCol.name} vs ${partner.name}`,
+        col1: mainCol,
+        col2: partner
+      });
+    });
   }
 
   const articleSchema = {
@@ -395,6 +452,115 @@ export default async function BlogPost({ params }: PageProps) {
 
           </div>
 
+        </div>
+
+        {/* ── RELATED POSTS & COMPARISONS WIDGETS ── */}
+        <div className="mt-20 border-t border-slate-200/80 pt-16 space-y-16">
+          
+          {/* Recommended Comparisons Widget */}
+          {recommendedComparisons.length > 0 && (
+            <section className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center">
+                  <GraduationCap className="h-5 w-5 text-indigo-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+                    Compare Accreditations & Fees
+                  </h3>
+                  <p className="text-xs md:text-sm font-medium text-slate-500">
+                    Compare {matchedColleges[0].name} with other top-rated online universities.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {recommendedComparisons.map((comp) => (
+                  <Link
+                    key={comp.slug}
+                    href={`/compare/${comp.slug}`}
+                    className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.02)] hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/30 transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md">
+                          Side-by-Side
+                        </span>
+                        <span className="text-xs font-semibold text-slate-400">2026 Edition</span>
+                      </div>
+                      <h4 className="text-base font-black text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug">
+                        {comp.title}
+                      </h4>
+                      <p className="text-xs font-medium text-slate-500 line-clamp-2">
+                        Compare total fees ({comp.col1.feeText} vs {comp.col2.feeText}), NAAC grades, LMS features, and placements.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between pt-6 mt-4 border-t border-slate-50">
+                      <span className="text-xs font-bold text-indigo-600 group-hover:underline">
+                        View Comparison
+                      </span>
+                      <span className="text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all">
+                        →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Related Posts Widget */}
+          {relatedPosts.length > 0 && (
+            <section className="space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center">
+                  <BookOpen className="h-5 w-5 text-indigo-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+                    Related Guides & Reviews
+                  </h3>
+                  <p className="text-xs md:text-sm font-medium text-slate-500">
+                    Expand your research with our expert academic guides and reviews.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.02)] hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/30 transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between text-xs font-semibold text-slate-400">
+                        <span>{post.category || 'Guides'}</span>
+                        <span>{post.date}</span>
+                      </div>
+                      <h4 className="text-base font-black text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug line-clamp-2">
+                        {post.title}
+                      </h4>
+                      {post.description && (
+                        <p className="text-xs font-medium text-slate-500 line-clamp-2 leading-relaxed">
+                          {post.description}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between pt-6 mt-4 border-t border-slate-50">
+                      <span className="text-xs font-bold text-indigo-600 group-hover:underline">
+                        Read Full Article
+                      </span>
+                      <span className="text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all">
+                        →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+          
         </div>
 
       </div>
