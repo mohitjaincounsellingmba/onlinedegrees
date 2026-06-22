@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import {
   MapPin, BadgeCheck, IndianRupee, GraduationCap, Search,
   X, SlidersHorizontal, Phone, ChevronDown, BookOpen,
@@ -820,6 +820,25 @@ export default function OnlineDegreeClient() {
   const [selectedCollege, setSelectedCollege] = useState<typeof COLLEGES[0] | null>(null);
   const [showInquiry, setShowInquiry] = useState(false);
   const [inquiryCollege, setInquiryCollege] = useState<typeof COLLEGES[0] | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const program = params.get('program');
+      if (program) {
+        const uppercaseProgram = program.toUpperCase();
+        const validPrograms = ['MBA', 'MCA', 'BBA', 'BCA', 'B.COM', 'M.COM', 'PGDM', 'MA', 'M.SC'];
+        const matched = validPrograms.find(p => p === uppercaseProgram);
+        if (matched) {
+          let courseName = matched;
+          if (matched === 'B.COM') courseName = 'B.Com';
+          if (matched === 'M.COM') courseName = 'M.Com';
+          if (matched === 'M.SC') courseName = 'M.Sc';
+          setCourse(courseName);
+        }
+      }
+    }
+  }, []);
 
   const selectedFeeRange = FEE_RANGES[feeRange];
 

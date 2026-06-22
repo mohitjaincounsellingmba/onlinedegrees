@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { getPostData, getSortedPostsData } from "@/lib/markdown";
 import ReactMarkdown from 'react-markdown';
@@ -328,12 +329,13 @@ export default async function BlogPost({ params }: PageProps) {
                     img: ({ node, src, alt, ...props }) => {
                       if (!src) return null;
                       return (
-                        <div className="my-10 relative rounded-2xl overflow-hidden border border-slate-100 shadow-lg group">
-                          <img
+                        <div className="my-10 relative rounded-2xl overflow-hidden border border-slate-100 shadow-lg group aspect-[16/9] w-full">
+                          <Image
                             src={src as string}
                             alt={alt || "Illustration"}
-                            className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                            loading="lazy"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 800px"
+                            className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                           />
                           {alt && (
                             <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 backdrop-blur-sm p-3 text-center">

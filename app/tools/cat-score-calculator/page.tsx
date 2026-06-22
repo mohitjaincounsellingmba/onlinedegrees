@@ -368,7 +368,7 @@ export default function CatScoreCalculatorPage() {
             <div className="pt-12">
               <h3 className="text-2xl font-black uppercase mb-6">Related CAT Resources</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Link className="bg-white border-4 border-foreground p-6 font-black hover:bg-amber-50 transition-colors flex items-center justify-between group shadow-[4px_4px_0px_#000]" href="/colleges">
+                <Link className="bg-white border-4 border-foreground p-6 font-black hover:bg-amber-50 transition-colors flex items-center justify-between group shadow-[4px_4px_0px_#000]" href="/compare">
                   <span>Top MBA Colleges 2026 →</span>
                 </Link>
                 <Link className="bg-white border-4 border-foreground p-6 font-black hover:bg-amber-50 transition-colors flex items-center justify-between group shadow-[4px_4px_0px_#000]" href="/#comparison-engine">

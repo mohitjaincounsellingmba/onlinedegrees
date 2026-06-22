@@ -20,28 +20,28 @@ export function Footer() {
 
   const footerLinks = {
     programs: [
-      { name: 'Online MBA Degree', href: '#' },
-      { name: 'Online MCA Degree', href: '#' },
-      { name: 'Online BBA Degree', href: '#' },
-      { name: 'Online BCA Degree', href: '#' },
-      { name: 'Online B.Com Degree', href: '#' },
-      { name: 'Online M.Com Degree', href: '#' },
+      { name: 'Online MBA Degree', href: '/?program=mba#comparison-engine' },
+      { name: 'Online MCA Degree', href: '/?program=mca#comparison-engine' },
+      { name: 'Online BBA Degree', href: '/?program=bba#comparison-engine' },
+      { name: 'Online BCA Degree', href: '/?program=bca#comparison-engine' },
+      { name: 'Online B.Com Degree', href: '/?program=bcom#comparison-engine' },
+      { name: 'Online M.Com Degree', href: '/?program=mcom#comparison-engine' },
     ],
     approvals: [
-      { name: 'UGC-DEB Status', href: '#' },
-      { name: 'NAAC A++ Universities', href: '#' },
-      { name: 'AICTE Approvals', href: '#' },
-      { name: 'WES Assessment', href: '#' },
-      { name: 'Government Job Validity', href: '#' },
+      { name: 'UGC-DEB Status', href: '/#ugc-guidelines' },
+      { name: 'NAAC A++ Universities', href: '/#ugc-guidelines' },
+      { name: 'AICTE Approvals', href: '/#ugc-guidelines' },
+      { name: 'WES Assessment', href: '/#ugc-guidelines' },
+      { name: 'Government Job Validity', href: '/#ugc-guidelines' },
     ],
     support: [
-      { name: 'Expert Counselling', href: '#' },
+      { name: 'Expert Counselling', href: '/?program=All#comparison-engine' },
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
       { name: 'University Reviews', href: '/blog' },
-      { name: 'Comparison Guide', href: '#' },
+      { name: 'Comparison Guide', href: '/compare' },
       { name: 'Create Resume', href: '/create-resume' },
       { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
-      { name: 'Admissions 2026', href: '#' },
+      { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };
 
@@ -128,12 +128,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.programs.map((link, idx) => (
                 <li key={idx}>
-                  <button
-                    onClick={() => handleScroll('comparison-engine')}
-                    className="text-gray-500 hover:text-white transition-all text-sm font-medium text-left cursor-pointer hover:translate-x-1 inline-block"
+                  <Link
+                    href={link.href}
+                    className="text-gray-500 hover:text-white transition-all text-sm font-medium text-left hover:translate-x-1 inline-block"
                   >
                     → {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -148,12 +148,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.approvals.map((link, idx) => (
                 <li key={idx}>
-                  <button
-                    onClick={() => handleScroll('ugc-guidelines')}
-                    className="text-gray-500 hover:text-white transition-all text-sm font-medium text-left cursor-pointer hover:translate-x-1 inline-block"
+                  <Link
+                    href={link.href}
+                    className="text-gray-500 hover:text-white transition-all text-sm font-medium text-left hover:translate-x-1 inline-block"
                   >
                     → {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -168,12 +168,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.support.map((link, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-500 hover:text-white transition-all text-sm font-medium hover:translate-x-1 inline-block"
                   >
                     → {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

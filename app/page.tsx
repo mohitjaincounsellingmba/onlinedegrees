@@ -193,9 +193,9 @@ export default function Home() {
             </div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter">
-              FIND YOUR <br />
-              <span className="text-gradient-genz">PERFECT DEGREE</span> <br />
-              NO CAP. 🧢
+              UGC APPROVED <br />
+              <span className="text-gradient-genz">ONLINE DEGREES</span> <br />
+              IN INDIA 2026 🎓
             </h1>
             
             <p className="text-gray-400 text-lg font-medium max-w-lg">
