@@ -120,6 +120,12 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>${baseUrl}/compare/directory</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${baseUrl}/emi-calculator</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>

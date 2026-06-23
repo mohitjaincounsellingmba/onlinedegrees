@@ -39,6 +39,7 @@ export function Footer() {
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
       { name: 'University Reviews', href: '/blog' },
       { name: 'Comparison Guide', href: '/compare' },
+      { name: 'Comparison Directory', href: '/compare/directory' },
       { name: 'Create Resume', href: '/create-resume' },
       { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
