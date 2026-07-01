@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { collegesData } from '@/lib/colleges';
 import { CompareClient } from '@/components/CompareClient';
 import { JsonLd } from '@/components/JsonLd';
@@ -62,10 +62,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export async function generateStaticParams() {
   const params: { slugs: string }[] = [];
   
-  for (let i = 0; i < collegesData.length; i++) {
-    for (let j = i + 1; j < collegesData.length; j++) {
+  // Sort colleges alphabetically by slug to ensure canonical-consistent paths
+  const sortedColleges = [...collegesData].sort((a, b) => a.slug.localeCompare(b.slug));
+  
+  for (let i = 0; i < sortedColleges.length; i++) {
+    for (let j = i + 1; j < sortedColleges.length; j++) {
       params.push({
-        slugs: `${collegesData[i].slug}-vs-${collegesData[j].slug}`,
+        slugs: `${sortedColleges[i].slug}-vs-${sortedColleges[j].slug}`,
       });
     }
   }
@@ -82,6 +85,14 @@ export default async function CompareDetailPage({ params }: PageProps) {
   }
   
   const { col1, col2 } = parsed;
+  
+  // Sort alphabetically to maintain a single canonical version
+  const sortedSlugs = [col1.slug, col2.slug].sort();
+  const sortedSlugPair = `${sortedSlugs[0]}-vs-${sortedSlugs[1]}`;
+
+  if (slugs !== sortedSlugPair) {
+    permanentRedirect(`/compare/${sortedSlugPair}`);
+  }
   
   // Setup Breadcrumb schema
   const breadcrumbSchema = {

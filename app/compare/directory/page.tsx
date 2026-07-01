@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "Online Shiksha directory"
   ],
   alternates: {
-    canonical: "https://onlineshiksha.online/compare/directory",
+    canonical: "/compare/directory",
   },
   openGraph: {
     title: "University Comparison Directory 2026 | Online Shiksha",
     description: "Compare fees, placement packages, ratings, and learning systems for all 34 top UGC approved online universities.",
     type: "website",
-    url: "https://onlineshiksha.online/compare/directory",
+    url: "/compare/directory",
   }
 };
 

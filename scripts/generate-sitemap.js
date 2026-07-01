@@ -4,7 +4,8 @@ const path = require('path');
 const postsDirectory = path.join(__dirname, '../posts');
 const blogsDirectory = path.join(__dirname, '../blogs');
 const publicDirectory = path.join(__dirname, '../public');
-const collegesData = require('../lib/colleges.json');
+const collegesDataRaw = require('../lib/colleges.json');
+const collegesData = [...collegesDataRaw].sort((a, b) => a.slug.localeCompare(b.slug));
 
 // Create public directory if it doesn't exist
 if (!fs.existsSync(publicDirectory)) {

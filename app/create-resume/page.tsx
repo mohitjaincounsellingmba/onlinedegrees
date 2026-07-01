@@ -34,18 +34,18 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://onlineshiksha.online/create-resume",
+    canonical: "/create-resume",
   },
   openGraph: {
     title: "Free ATS Resume Builder for MBA, MCA & BCA Graduates | Online Shiksha",
     description: "Build a professional, ATS-optimized resume in minutes. Free PDF download. Perfect for online MBA, MCA, and BCA graduates in India applying for jobs in 2026.",
-    url: "https://onlineshiksha.online/create-resume",
+    url: "/create-resume",
     siteName: "Online Shiksha",
     locale: "en_IN",
     type: "website",
     images: [
       {
-        url: "https://onlineshiksha.online/og-image.webp",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Free ATS Resume Builder – Online Shiksha",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free ATS Resume Builder for MBA, MCA & BCA Graduates | Online Shiksha",
     description: "Build a professional, ATS-optimized resume in minutes. Free PDF download. Perfect for online MBA, MCA, and BCA graduates in India.",
-    images: ["https://onlineshiksha.online/og-image.webp"],
+    images: ["/og-image.webp"],
     site: "@onlineshiksha",
     creator: "@careerwithmohit",
   },
