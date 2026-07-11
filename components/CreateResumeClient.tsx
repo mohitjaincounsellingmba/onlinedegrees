@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Download, Plus, Trash2, Briefcase, GraduationCap, User, Mail, Phone, MapPin } from 'lucide-react';
+import { Download, Plus, Trash2, Briefcase, GraduationCap, User, Mail, Phone, MapPin, Award, Code } from 'lucide-react';
 
 interface Experience {
   id: string;
@@ -12,10 +12,34 @@ interface Experience {
   description: string;
 }
 
+interface Internship {
+  id: string;
+  company: string;
+  role: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
 interface Education {
   id: string;
   institution: string;
   degree: string;
+  year: string;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string;
+  link: string;
+}
+
+interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
   year: string;
 }
 
@@ -40,12 +64,42 @@ export function CreateResumeClient() {
     }
   ]);
 
+  const [internships, setInternships] = useState<Internship[]>([
+    {
+      id: '1',
+      company: 'Innovation Labs',
+      role: 'Web Development Intern',
+      startDate: 'May 2021',
+      endDate: 'Jul 2021',
+      description: 'Assisted in building responsive landing pages and integrating API endpoints. Collaborated with design and QA teams.'
+    }
+  ]);
+
   const [educations, setEducations] = useState<Education[]>([
     {
       id: '1',
       institution: 'Delhi University',
       degree: 'Bachelor of Technology in Computer Science',
       year: '2018 - 2022'
+    }
+  ]);
+
+  const [projects, setProjects] = useState<Project[]>([
+    {
+      id: '1',
+      title: 'E-commerce Platform',
+      description: 'Developed a full-stack e-commerce website with user authentication, product catalog, cart management, and payment integration.',
+      technologies: 'React, Node.js, Express, MongoDB, Stripe',
+      link: 'github.com/example/ecommerce'
+    }
+  ]);
+
+  const [certifications, setCertifications] = useState<Certification[]>([
+    {
+      id: '1',
+      name: 'AWS Certified Cloud Practitioner',
+      issuer: 'Amazon Web Services',
+      year: '2023'
     }
   ]);
 
@@ -66,6 +120,21 @@ export function CreateResumeClient() {
     setExperiences(experiences.map(exp => exp.id === id ? { ...exp, [field]: value } : exp));
   };
 
+  const addInternship = () => {
+    setInternships([
+      ...internships,
+      { id: Date.now().toString(), company: '', role: '', startDate: '', endDate: '', description: '' }
+    ]);
+  };
+
+  const removeInternship = (id: string) => {
+    setInternships(internships.filter(intern => intern.id !== id));
+  };
+
+  const updateInternship = (id: string, field: keyof Internship, value: string) => {
+    setInternships(internships.map(intern => intern.id === id ? { ...intern, [field]: value } : intern));
+  };
+
   const addEducation = () => {
     setEducations([
       ...educations,
@@ -79,6 +148,36 @@ export function CreateResumeClient() {
 
   const updateEducation = (id: string, field: keyof Education, value: string) => {
     setEducations(educations.map(edu => edu.id === id ? { ...edu, [field]: value } : edu));
+  };
+
+  const addProject = () => {
+    setProjects([
+      ...projects,
+      { id: Date.now().toString(), title: '', description: '', technologies: '', link: '' }
+    ]);
+  };
+
+  const removeProject = (id: string) => {
+    setProjects(projects.filter(proj => proj.id !== id));
+  };
+
+  const updateProject = (id: string, field: keyof Project, value: string) => {
+    setProjects(projects.map(proj => proj.id === id ? { ...proj, [field]: value } : proj));
+  };
+
+  const addCertification = () => {
+    setCertifications([
+      ...certifications,
+      { id: Date.now().toString(), name: '', issuer: '', year: '' }
+    ]);
+  };
+
+  const removeCertification = (id: string) => {
+    setCertifications(certifications.filter(cert => cert.id !== id));
+  };
+
+  const updateCertification = (id: string, field: keyof Certification, value: string) => {
+    setCertifications(certifications.map(cert => cert.id === id ? { ...cert, [field]: value } : cert));
   };
 
   const handlePrint = () => {
@@ -195,6 +294,52 @@ export function CreateResumeClient() {
               </div>
             </div>
 
+            {/* Internships */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold flex items-center gap-2 text-slate-800">
+                  <Briefcase className="text-indigo-600" size={24} /> Internships
+                </h2>
+                <button onClick={addInternship} className="text-indigo-600 hover:bg-indigo-50 p-2 rounded-lg transition-colors" title="Add Internship">
+                  <Plus size={20} />
+                </button>
+              </div>
+              
+              <div className="space-y-6">
+                {internships.map((intern) => (
+                  <div key={intern.id} className="p-4 border border-slate-100 bg-slate-50 rounded-xl relative group">
+                    <button onClick={() => removeInternship(intern.id)} className="absolute top-3 right-3 text-red-400 hover:text-red-600 transition-colors">
+                      <Trash2 size={18} />
+                    </button>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Company / Organization</label>
+                          <input type="text" value={intern.company} onChange={e => updateInternship(intern.id, 'company', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="Company Name" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Role</label>
+                          <input type="text" value={intern.role} onChange={e => updateInternship(intern.id, 'role', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="Intern Role" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Start Date</label>
+                          <input type="text" value={intern.startDate} onChange={e => updateInternship(intern.id, 'startDate', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. May 2021" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">End Date</label>
+                          <input type="text" value={intern.endDate} onChange={e => updateInternship(intern.id, 'endDate', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. Jul 2021" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-500 mb-1">Description</label>
+                        <textarea rows={3} value={intern.description} onChange={e => updateInternship(intern.id, 'description', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none resize-none" placeholder="Describe your key responsibilities and achievements..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Education */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
               <div className="flex items-center justify-between">
@@ -227,6 +372,86 @@ export function CreateResumeClient() {
                         <div>
                           <label className="block text-xs font-semibold text-slate-500 mb-1">Year</label>
                           <input type="text" value={edu.year} onChange={e => updateEducation(edu.id, 'year', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. 2018 - 2022" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Projects */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold flex items-center gap-2 text-slate-800">
+                  <Code className="text-indigo-600" size={24} /> Projects
+                </h2>
+                <button onClick={addProject} className="text-indigo-600 hover:bg-indigo-50 p-2 rounded-lg transition-colors" title="Add Project">
+                  <Plus size={20} />
+                </button>
+              </div>
+              
+              <div className="space-y-6">
+                {projects.map((proj) => (
+                  <div key={proj.id} className="p-4 border border-slate-100 bg-slate-50 rounded-xl relative group">
+                    <button onClick={() => removeProject(proj.id)} className="absolute top-3 right-3 text-red-400 hover:text-red-600 transition-colors">
+                      <Trash2 size={18} />
+                    </button>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Project Title</label>
+                          <input type="text" value={proj.title} onChange={e => updateProject(proj.id, 'title', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="Project Name" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Link (GitHub / Demo)</label>
+                          <input type="text" value={proj.link} onChange={e => updateProject(proj.id, 'link', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. github.com/username/project" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-500 mb-1">Technologies Used</label>
+                        <input type="text" value={proj.technologies} onChange={e => updateProject(proj.id, 'technologies', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. React, Node.js, Tailwind CSS" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-500 mb-1">Description</label>
+                        <textarea rows={3} value={proj.description} onChange={e => updateProject(proj.id, 'description', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none resize-none" placeholder="Describe the project goal, your role, and achievements..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold flex items-center gap-2 text-slate-800">
+                  <Award className="text-indigo-600" size={24} /> Certifications
+                </h2>
+                <button onClick={addCertification} className="text-indigo-600 hover:bg-indigo-50 p-2 rounded-lg transition-colors" title="Add Certification">
+                  <Plus size={20} />
+                </button>
+              </div>
+              
+              <div className="space-y-6">
+                {certifications.map((cert) => (
+                  <div key={cert.id} className="p-4 border border-slate-100 bg-slate-50 rounded-xl relative group">
+                    <button onClick={() => removeCertification(cert.id)} className="absolute top-3 right-3 text-red-400 hover:text-red-600 transition-colors">
+                      <Trash2 size={18} />
+                    </button>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-500 mb-1">Certification Name</label>
+                        <input type="text" value={cert.name} onChange={e => updateCertification(cert.id, 'name', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. AWS Certified Solutions Architect" />
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Issuing Organization</label>
+                          <input type="text" value={cert.issuer} onChange={e => updateCertification(cert.id, 'issuer', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. Amazon Web Services" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-semibold text-slate-500 mb-1">Year / Date</label>
+                          <input type="text" value={cert.year} onChange={e => updateCertification(cert.id, 'year', e.target.value)} className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-600 text-sm outline-none" placeholder="e.g. 2023" />
                         </div>
                       </div>
                     </div>
@@ -308,6 +533,25 @@ export function CreateResumeClient() {
                   </section>
                 )}
 
+                {/* Internships */}
+                {internships.some(i => i.company || i.role) && (
+                  <section>
+                    <h3 className="text-lg font-black uppercase tracking-widest text-slate-800 border-b-2 border-slate-200 pb-2 mb-4">Internships</h3>
+                    <div className="space-y-6">
+                      {internships.filter(i => i.company || i.role).map(intern => (
+                        <div key={intern.id}>
+                          <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 className="font-bold text-slate-900 text-base md:text-lg">{intern.role}</h4>
+                            <span className="text-sm font-semibold text-indigo-600 whitespace-nowrap">{intern.startDate} {intern.endDate && `- ${intern.endDate}`}</span>
+                          </div>
+                          <h5 className="font-semibold text-slate-700 text-sm mb-2">{intern.company}</h5>
+                          <p className="text-slate-600 text-sm leading-relaxed whitespace-pre-wrap">{intern.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
                 {/* Education */}
                 {educations.some(e => e.institution || e.degree) && (
                   <section>
@@ -320,6 +564,53 @@ export function CreateResumeClient() {
                             <h5 className="font-medium text-slate-700 text-sm">{edu.institution}</h5>
                           </div>
                           <span className="text-sm font-semibold text-indigo-600 whitespace-nowrap">{edu.year}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                {/* Projects */}
+                {projects.some(p => p.title) && (
+                  <section>
+                    <h3 className="text-lg font-black uppercase tracking-widest text-slate-800 border-b-2 border-slate-200 pb-2 mb-4">Projects</h3>
+                    <div className="space-y-6">
+                      {projects.filter(p => p.title).map(proj => (
+                        <div key={proj.id}>
+                          <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+                            <h4 className="font-bold text-slate-900 text-base md:text-lg">
+                              {proj.title}
+                              {proj.link && (
+                                <span className="text-xs font-normal text-slate-500 ml-2">
+                                  ({proj.link})
+                                </span>
+                              )}
+                            </h4>
+                          </div>
+                          {proj.technologies && (
+                            <h5 className="font-semibold text-indigo-600 text-xs uppercase tracking-wider mb-2">
+                              Technologies: {proj.technologies}
+                            </h5>
+                          )}
+                          <p className="text-slate-600 text-sm leading-relaxed whitespace-pre-wrap">{proj.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                {/* Certifications */}
+                {certifications.some(c => c.name) && (
+                  <section>
+                    <h3 className="text-lg font-black uppercase tracking-widest text-slate-800 border-b-2 border-slate-200 pb-2 mb-4">Certifications</h3>
+                    <div className="space-y-4">
+                      {certifications.filter(c => c.name).map(cert => (
+                        <div key={cert.id} className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                          <div>
+                            <h4 className="font-bold text-slate-900 text-base">{cert.name}</h4>
+                            <h5 className="font-medium text-slate-700 text-sm">{cert.issuer}</h5>
+                          </div>
+                          <span className="text-sm font-semibold text-indigo-600 whitespace-nowrap">{cert.year}</span>
                         </div>
                       ))}
                     </div>
