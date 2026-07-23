@@ -17,14 +17,28 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "University Comparison Directory 2026 | Online Shiksha",
-    description: "Compare fees, placement packages, ratings, and learning systems for all 34 top UGC approved online universities.",
+    description: "Compare fees, placement packages, ratings, and learning systems for all top UGC approved online universities.",
     type: "website",
-    url: "/compare/directory",
-  }
+    url: "https://onlineshiksha.online/compare/directory",
+    siteName: "Online Shiksha",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "University Comparison Directory 2026",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "University Comparison Directory 2026 | Online Shiksha",
+    description: "Compare fees, placement packages, ratings, and learning systems for all top UGC approved online universities.",
+    images: ["/og-image.webp"],
+  },
 };
 
 export default function ComparisonDirectoryPage() {
-  // Breadcrumb schema for structured rich results
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -50,9 +64,19 @@ export default function ComparisonDirectoryPage() {
     ]
   };
 
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "University Comparison Directory 2026",
+    "description": "Browse all 561 side-by-side comparison combinations of top UGC-DEB approved online universities.",
+    "url": "https://onlineshiksha.online/compare/directory",
+    "numberOfItems": 561
+  };
+
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={collectionSchema} />
       <ComparisonDirectoryClient />
     </>
   );

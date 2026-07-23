@@ -20,27 +20,28 @@ export const metadata: Metadata = {
     "distance education India UGC", "NAAC A++ online university",
     "Amity University online", "LPU online MBA", "Chandigarh University online"
   ],
-  authors: [{ name: "Online Shiksha" }],
+  authors: [{ name: "Online Shiksha", url: "https://onlineshiksha.online" }],
+  publisher: "Online Shiksha",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://onlineshiksha.online",
-    siteName: "OnlineShiksha",
+    siteName: "Online Shiksha",
     title: "Online Shiksha | UGC Approved Online Universities 2026",
-    description: "Compare India's top online universities on fees, accreditation, and programs.",
+    description: "Compare 27+ UGC-DEB approved online universities in India for 2026. Find fees, NAAC grades, programs (MBA, MCA, BBA, BCA) and get FREE expert counselling.",
     images: [
       {
         url: "/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "Online Shiksha",
+        alt: "Online Shiksha - Compare UGC Approved Online Universities 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Online Shiksha | UGC Approved Online Universities 2026",
-    description: "Compare India's top online universities on fees, accreditation, and programs.",
+    description: "Compare 27+ UGC-DEB approved online universities in India for 2026. Find fees, NAAC grades, programs (MBA, MCA, BBA, BCA) and get FREE expert counselling.",
     images: ["/og-image.webp"],
   },
   alternates: {
@@ -49,6 +50,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

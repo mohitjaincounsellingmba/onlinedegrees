@@ -19,6 +19,27 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/tools/cat-score-calculator",
   },
+  openGraph: {
+    title: "CAT Score Calculator 2026 | Raw Score & Percentile Predictor | Online Shiksha",
+    description: "Free CAT 2026 Score Calculator. Calculate your raw score, scaled score, and expected percentile for IIM admissions.",
+    url: "https://onlineshiksha.online/tools/cat-score-calculator",
+    siteName: "Online Shiksha",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "CAT Score Calculator 2026 - Online Shiksha",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CAT Score Calculator 2026 | Raw Score & Percentile Predictor | Online Shiksha",
+    description: "Free CAT 2026 Score Calculator. Calculate your raw score, scaled score, and expected percentile for IIM admissions.",
+    images: ["/og-image.webp"],
+  },
 };
 
 export default function CatScoreCalculatorPage() {

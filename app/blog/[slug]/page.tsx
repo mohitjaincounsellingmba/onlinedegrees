@@ -39,9 +39,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: postTitle,
       description: postDescription,
+      url: `https://onlineshiksha.online/blog/${slug}`,
+      siteName: "Online Shiksha",
       type: "article",
       publishedTime: postData.date,
-      authors: ["Online Shiksha Editor"],
+      authors: ["Online Shiksha Team"],
       images: [
         {
           url: "/og-image.webp",
@@ -136,6 +138,7 @@ export default async function BlogPost({ params }: PageProps) {
     "@type": "BlogPosting",
     "headline": postData.title,
     "description": postData.description || postData.content?.substring(0, 160),
+    "image": ["https://onlineshiksha.online/og-image.webp"],
     "datePublished": postData.date,
     "dateModified": postData.date,
     "author": {

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free ATS Resume Builder for MBA, MCA & BCA Graduates | Online Shiksha",
     description: "Build a professional, ATS-optimized resume in minutes. Free PDF download. Perfect for online MBA, MCA, and BCA graduates in India applying for jobs in 2026.",
-    url: "/create-resume",
+    url: "https://onlineshiksha.online/create-resume",
     siteName: "Online Shiksha",
     locale: "en_IN",
     type: "website",

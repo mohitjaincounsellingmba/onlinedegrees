@@ -53,7 +53,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       type: "website",
-      url: `https://onlineshiksha.online/compare/${slugs}`,
+      url: `https://onlineshiksha.online${canonicalUrl}`,
+      siteName: "Online Shiksha",
+      images: [
+        {
+          url: "/og-image.webp",
+          width: 1200,
+          height: 630,
+          alt: `${col1.name} vs ${col2.name} Comparison`,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og-image.webp"],
     }
   };
 }
