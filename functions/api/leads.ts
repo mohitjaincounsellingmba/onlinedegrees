@@ -1,37 +1,58 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
 import { Resend } from 'resend';
 
-const LEADS_FILE = path.join(process.cwd(), 'data', 'leads.json');
 const ADMIN_EMAIL = 'advik.mohit.jain@gmail.com';
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-
-// Webhook endpoints for full dual-workspace sync & absolute lead coverage
 const PRIMARY_ACTIVEPIECES_WEBHOOK = 'https://activepieces.careerwithmohit.online/api/v1/webhooks/kC1sYlGf7iOQ21LskIu0F';
 const BACKUP_ACTIVEPIECES_WEBHOOK = 'https://cloud.activepieces.com/api/v1/webhooks/h3HoLiVtxuydbGOfr11F3';
 
-export async function GET(req: Request) {
+interface Env {
+  RESEND_API_KEY?: string;
+  LEADS_KV?: any; // Cloudflare KV namespace
+}
+
+export async function onRequestGet(context: { request: Request; env: Env }): Promise<Response> {
+  const req = context.request;
   const authHeader = req.headers.get('x-admin-secret');
   if (authHeader !== 'mohitadmin2026') {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 
   try {
-    const data = await fs.readFile(LEADS_FILE, 'utf-8');
-    return NextResponse.json(JSON.parse(data));
-  } catch (error) {
-    return NextResponse.json([], { status: 200 }); // Return empty array if file not found
+    if (context.env.LEADS_KV) {
+      const data = await context.env.LEADS_KV.get('leads_list');
+      if (data) {
+        return new Response(data, {
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+    } else {
+      console.warn('LEADS_KV binding is missing. Cannot fetch stored leads.');
+    }
+    return new Response(JSON.stringify([]), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } catch (error: any) {
+    console.error('Error fetching leads:', error);
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
 
-export async function POST(req: Request) {
+export async function onRequestPost(context: { request: Request; env: Env }): Promise<Response> {
   try {
-    const lead = await req.json();
+    const req = context.request;
+    const lead = await req.json() as any;
     const { name, number, email, location, source, message, ...details } = lead;
 
     if (!name || !number) {
-      return NextResponse.json({ error: 'Name and number are required' }, { status: 400 });
+      return new Response(JSON.stringify({ error: 'Name and number are required' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     const newLead = {
@@ -71,28 +92,31 @@ export async function POST(req: Request) {
       }
     }
 
-    // 2. Local File Fallback Storage (Encrypted / JSON database)
-    const dataDir = path.dirname(LEADS_FILE);
+    // 2. Cloudflare KV Fallback Storage
     let fileSaved = false;
-    try {
-      await fs.mkdir(dataDir, { recursive: true });
-      let leads = [];
+    if (context.env.LEADS_KV) {
       try {
-        const data = await fs.readFile(LEADS_FILE, 'utf-8');
-        leads = JSON.parse(data);
-      } catch (e) {}
-      leads.push(newLead);
-      await fs.writeFile(LEADS_FILE, JSON.stringify(leads, null, 2));
-      fileSaved = true;
-    } catch (e: any) {
-      console.error('Leads File Storage Fallback Error:', e.message);
+        let leads = [];
+        const data = await context.env.LEADS_KV.get('leads_list');
+        if (data) {
+          leads = JSON.parse(data);
+        }
+        leads.push(newLead);
+        await context.env.LEADS_KV.put('leads_list', JSON.stringify(leads));
+        fileSaved = true;
+      } catch (e: any) {
+        console.error('Leads KV Storage Error:', e.message);
+      }
+    } else {
+      console.warn('LEADS_KV binding is missing. Filesystem fallback is unavailable on Cloudflare Workers.');
     }
 
     // 3. Email Backup via Resend (Production Alert System)
     let emailSent = false;
-    if (RESEND_API_KEY) {
+    const resendApiKey = context.env.RESEND_API_KEY;
+    if (resendApiKey) {
       try {
-        const resend = new Resend(RESEND_API_KEY);
+        const resend = new Resend(resendApiKey);
         await resend.emails.send({
           from: 'Online Shiksha Leads <notifications@resend.dev>',
           to: [ADMIN_EMAIL],
@@ -114,21 +138,27 @@ export async function POST(req: Request) {
       } catch (err: any) {
         console.error('Resend Lead Notification Error:', err.message);
       }
+    } else {
+      console.warn('RESEND_API_KEY environment variable is missing.');
     }
 
-    return NextResponse.json({
+    return new Response(JSON.stringify({
       success: true,
       lead: newLead,
       webhook: webhookSaved ? 'success' : 'failed',
-      storage: fileSaved ? 'filesystem' : 'error',
+      storage: fileSaved ? 'kv' : 'error',
       email: emailSent ? 'sent' : 'missed'
+    }), {
+      headers: { 'Content-Type': 'application/json' }
     });
   } catch (error: any) {
     console.error('Leads API Handler Crash:', error);
     // Always return success to client to ensure beautiful, uninterrupted user flows
-    return NextResponse.json({
+    return new Response(JSON.stringify({
       success: true,
       message: 'Recorded silent'
+    }), {
+      headers: { 'Content-Type': 'application/json' }
     });
   }
 }

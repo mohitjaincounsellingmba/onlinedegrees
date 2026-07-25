@@ -1,10 +1,11 @@
-import { NextResponse } from 'next/server';
-
-export async function POST(req: Request) {
+export async function onRequestPost(context: { request: Request }): Promise<Response> {
   try {
-    const { url } = await req.json();
+    const { url } = await context.request.json() as { url?: string };
     if (!url) {
-      return NextResponse.json({ error: 'URL is required' }, { status: 400 });
+      return new Response(JSON.stringify({ error: 'URL is required' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     // Fetch the candidate response sheet
@@ -15,7 +16,10 @@ export async function POST(req: Request) {
     });
 
     if (!res.ok) {
-      return NextResponse.json({ error: `Failed to fetch response sheet: Status ${res.status}` }, { status: 400 });
+      return new Response(JSON.stringify({ error: `Failed to fetch response sheet: Status ${res.status}` }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     const html = await res.text();
@@ -28,22 +32,30 @@ export async function POST(req: Request) {
     const answeredCount = answeredMatches.length;
 
     if (totalFetched === 0) {
-      return NextResponse.json({ 
+      return new Response(JSON.stringify({ 
         error: 'Could not find any questions in this response sheet link. Please make sure it is a valid CAT candidate response URL.' 
-      }, { status: 400 });
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
-    return NextResponse.json({
+    return new Response(JSON.stringify({
       success: true,
       data: {
         totalFetched,
         answeredCount
       }
+    }), {
+      headers: { 'Content-Type': 'application/json' }
     });
   } catch (error: any) {
     console.error('Error analyzing response link:', error);
-    return NextResponse.json({ 
+    return new Response(JSON.stringify({ 
       error: error.message || 'An error occurred while analyzing the response link' 
-    }, { status: 500 });
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }

@@ -1,0 +1,13 @@
+name = "onlinedegrees"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "out"
+
+[vars]
+# Non-sensitive configuration variables.
+# Note: Add sensitive secrets (like RESEND_API_KEY) in the Cloudflare Pages Dashboard.
+
+# KV Namespace for backup storage of leads.
+# To enable local/production leads backup, bind a KV namespace named LEADS_KV.
+# [[kv_namespaces]]
+# binding = "LEADS_KV"
+# id = "your-kv-namespace-id"
