@@ -46,9 +46,10 @@ export async function onRequestPost(context: { request: Request; env: Env }): Pr
   try {
     const req = context.request;
     const lead = await req.json() as any;
-    const { name, number, email, location, source, message, ...details } = lead;
+    const { name, number, phone, email, location, source, message, ...details } = lead;
+    const finalNumber = number || phone;
 
-    if (!name || !number) {
+    if (!name || !finalNumber) {
       return new Response(JSON.stringify({ error: 'Name and number are required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
@@ -58,7 +59,7 @@ export async function onRequestPost(context: { request: Request; env: Env }): Pr
     const newLead = {
       id: Math.random().toString(36).substring(2, 11),
       name,
-      number,
+      number: finalNumber,
       email: email || '',
       location: location || '',
       source: source || 'Online Shiksha Inquiry',

@@ -10,6 +10,7 @@ const SimpleInquiryForm = () => {
     setStatus('submitting');
     const payload = {
       name: formData.name,
+      number: formData.phone,
       phone: formData.phone,
       email: formData.email,
       message: formData.message,
