@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "NDIM admission guidance mock", "anti cheat counselor quiz"
   ],
   alternates: {
-    canonical: "/ndim-counselling-exam",
+    canonical: "/ndim-counselling-exam/",
   },
   openGraph: {
     title: "NDIM Delhi Counselling Exam 2026 | Master Counselor Training Quiz",

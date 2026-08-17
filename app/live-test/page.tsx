@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "free online exam with certificate", "live test console", "timed quiz app"
   ],
   alternates: {
-    canonical: "/live-test",
+    canonical: "/live-test/",
   },
   openGraph: {
     title: "Online Live Test 2026 | Anti-Cheat Exam Simulator | Online Shiksha",
