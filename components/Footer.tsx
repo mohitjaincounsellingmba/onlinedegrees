@@ -42,6 +42,8 @@ export function Footer() {
       { name: 'Comparison Directory', href: '/compare/directory' },
       { name: 'Create Resume', href: '/create-resume' },
       { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
+      { name: 'Online Live Test', href: '/live-test' },
+      { name: 'NDIM Counselling Exam', href: '/ndim-counselling-exam' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };
