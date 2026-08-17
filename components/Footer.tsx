@@ -43,6 +43,7 @@ export function Footer() {
       { name: 'Create Resume', href: '/create-resume' },
       { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
       { name: 'Online Live Test', href: '/live-test/' },
+      { name: 'Counselor Training Center', href: '/counselor-training-center/' },
       { name: 'NDIM Counselling Exam', href: '/ndim-counselling-exam/' },
       { name: 'ISBR Counselling Exam', href: '/isbr-counselling-exam/' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
