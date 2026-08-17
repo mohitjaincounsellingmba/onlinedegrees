@@ -203,6 +203,8 @@ export function Footer() {
             <Link href="/terms-of-service" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Terms of Service</Link>
             <span className="text-[#333]">·</span>
             <Link href="/disclaimer" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Disclaimer</Link>
+            <span className="text-[#333]">·</span>
+            <Link href="/admin/" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Admin Login</Link>
           </div>
         </div>
       </div>

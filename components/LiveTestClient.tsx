@@ -174,6 +174,25 @@ export function LiveTestClient() {
             name: parsed.name,
             reason: 'Reload/Tab closure'
           }));
+
+          // Send POST request to backend reporting this reload violation
+          fetch('/api/exams', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: parsed.name,
+              email: parsed.email,
+              phone: parsed.phone || '',
+              examName: 'Online Live Test',
+              score: 0,
+              maxScore: 27,
+              percentage: '0.0',
+              correctAnswers: 0,
+              totalQuestions: 9,
+              status: 'terminated',
+              reason: 'Page reload, refresh, or tab closure detected'
+            })
+          }).catch(console.error);
         }
       } catch (e) {
         console.error("Error reading session", e);
@@ -274,9 +293,15 @@ export function LiveTestClient() {
       
       // Update session in storage
       const savedSession = localStorage.getItem('live_test_session');
+      let currentName = name;
+      let currentEmail = email;
+      let currentPhone = phone;
       if (savedSession) {
         try {
           const parsed = JSON.parse(savedSession);
+          currentName = parsed.name || name;
+          currentEmail = parsed.email || email;
+          currentPhone = parsed.phone || phone;
           localStorage.setItem('live_test_session', JSON.stringify({
             ...parsed,
             status: 'terminated',
@@ -289,6 +314,25 @@ export function LiveTestClient() {
       if (document.fullscreenElement) {
         document.exitFullscreen().catch(() => {});
       }
+
+      // Post cheat termination to backend
+      fetch('/api/exams', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: currentName,
+          email: currentEmail,
+          phone: currentPhone,
+          examName: 'Online Live Test',
+          score: 0,
+          maxScore: 27,
+          percentage: '0.0',
+          correctAnswers: 0,
+          totalQuestions: 9,
+          status: 'terminated',
+          reason: `Cheating detected: ${reason}`
+        })
+      }).catch(console.error);
     }
   };
 
@@ -423,6 +467,49 @@ export function LiveTestClient() {
     }
   };
 
+  const postResultToBackend = async (statusOverride: 'submitted' | 'terminated', reasonOverride?: string) => {
+    try {
+      let totalCorrect = 0;
+      let totalAttempted = 0;
+      
+      EXAM_SECTIONS.forEach(sec => {
+        sec.questions.forEach(q => {
+          const userAnswer = answers[q.id];
+          if (userAnswer !== undefined) {
+            totalAttempted++;
+            if (userAnswer === q.correctAnswer) {
+              totalCorrect++;
+            }
+          }
+        });
+      });
+
+      const score = totalCorrect * 3;
+      const maxScore = totalQuestionsCount * 3;
+      const percentage = ((totalCorrect / totalQuestionsCount) * 100).toFixed(1);
+
+      await fetch('/api/exams', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          examName: 'Online Live Test',
+          score: statusOverride === 'terminated' ? 0 : score,
+          maxScore,
+          percentage: statusOverride === 'terminated' ? '0.0' : percentage,
+          correctAnswers: statusOverride === 'terminated' ? 0 : totalCorrect,
+          totalQuestions: totalQuestionsCount,
+          status: statusOverride,
+          reason: reasonOverride || ''
+        })
+      });
+    } catch (e) {
+      console.error('Failed to post result to backend:', e);
+    }
+  };
+
   const submitExamResults = (submissionType: string) => {
     setStatus('submitted');
     
@@ -440,6 +527,9 @@ export function LiveTestClient() {
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
     }
+
+    // Post success submission to backend
+    postResultToBackend('submitted');
   };
 
   // Reset exam so they can re-attempt (for practice)
