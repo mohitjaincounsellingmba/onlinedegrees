@@ -46,6 +46,7 @@ export function Footer() {
       { name: 'Counselor Training Center', href: '/counselor-training-center/' },
       { name: 'NDIM Counselling Exam', href: '/ndim-counselling-exam/' },
       { name: 'ISBR Counselling Exam', href: '/isbr-counselling-exam/' },
+      { name: 'Approvals & Accreditations Exam', href: '/approvals-counselling-exam/' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };

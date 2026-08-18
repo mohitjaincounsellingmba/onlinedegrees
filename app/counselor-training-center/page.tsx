@@ -73,6 +73,17 @@ export default function CounselorTrainingCenterPage() {
       badgeColor: "bg-[#ccff00] text-black border-black",
       link: "/isbr-counselling-exam/",
       uspList: ["Accreditation & Curriculum Focus", "Bangalore Tech Hub Proximity", "60 Questions"]
+    },
+    {
+      id: "approvals",
+      title: "Approvals & Accreditations Exam",
+      subtitle: "Master Counselor Quiz",
+      description: "50 questions checking your knowledge of Indian regulatory bodies (UGC, AICTE, DEB, AIU), grading agencies, and MBA corporate equivalency guidelines.",
+      questions: 50,
+      duration: "25 Min",
+      badgeColor: "bg-[#ff007f] text-white border-black",
+      link: "/approvals-counselling-exam/",
+      uspList: ["UGC & Regulatory Focus", "Accreditation Frameworks", "50 Questions"]
     }
   ];
 
