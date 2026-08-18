@@ -653,6 +653,8 @@ export function NdimCounsellingExamClient() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [passcode, setPasscode] = useState('');
+  const [passcodeError, setPasscodeError] = useState('');
 
   // Active Test State
   const [activeSectionIdx, setActiveSectionIdx] = useState(0);
@@ -877,6 +879,11 @@ export function NdimCounsellingExamClient() {
     e.preventDefault();
     if (!name || !email || !phone) return;
 
+    if (passcode !== '2027') {
+      setPasscodeError('Invalid passcode. Please enter 2027 to begin the exam.');
+      return;
+    }
+
     setStatus('running');
     setRemainingTime(EXAM_DURATION_SECONDS);
     setAnswers({});
@@ -1039,6 +1046,8 @@ export function NdimCounsellingExamClient() {
     setName('');
     setEmail('');
     setPhone('');
+    setPasscode('');
+    setPasscodeError('');
     setActiveSectionIdx(0);
     setActiveQuestionIdx(0);
     setAnswers({});
@@ -1206,6 +1215,28 @@ export function NdimCounsellingExamClient() {
                 placeholder="e.g. +91 9876543210"
                 className="w-full border-4 border-black bg-[#fdfdfb] p-4 rounded-2xl font-bold placeholder-slate-400 focus:outline-none focus:bg-[#ccff00]/5 transition-all text-black"
               />
+            </div>
+
+            <div>
+              <label className="block text-xs font-black uppercase tracking-wider text-black mb-2 flex items-center gap-2">
+                <Lock className="w-4 h-4" /> Exam Passcode
+              </label>
+              <input
+                type="text"
+                required
+                value={passcode}
+                onChange={(e) => {
+                  setPasscode(e.target.value);
+                  setPasscodeError('');
+                }}
+                placeholder="Enter 2027 to start"
+                className="w-full border-4 border-black bg-[#fdfdfb] p-4 rounded-2xl font-bold placeholder-slate-400 focus:outline-none focus:bg-[#ccff00]/5 transition-all text-black"
+              />
+              {passcodeError && (
+                <p className="text-red-500 font-bold text-xs mt-2 flex items-center gap-1">
+                  <AlertTriangle className="w-3.5 h-3.5" /> {passcodeError}
+                </p>
+              )}
             </div>
 
             <div className="bg-[#ccff00]/5 border-2 border-dashed border-[#ccff00] p-4 rounded-2xl text-xs font-bold text-slate-600 flex gap-3">
