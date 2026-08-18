@@ -144,6 +144,37 @@ export default function RootLayout({
             gtag('config', 'AW-18052249575');
           `}
         </Script>
+        
+        {/* Global Fetch Interceptor for Local Exam Results Backup */}
+        <Script id="exam-interceptor" strategy="afterInteractive">
+          {`
+            (function() {
+              if (typeof window !== 'undefined') {
+                const originalFetch = window.fetch;
+                window.fetch = async function(input, init) {
+                  const url = typeof input === 'string' ? input : (input instanceof URL ? input.href : (input && input.url ? input.url : ''));
+                  if (url.includes('/api/exams') && init && init.method === 'POST' && init.body) {
+                    try {
+                      const bodyObj = JSON.parse(init.body.toString());
+                      const localList = localStorage.getItem('local_exams_list') ? JSON.parse(localStorage.getItem('local_exams_list')) : [];
+                      const newRecord = {
+                        ...bodyObj,
+                        id: bodyObj.id || Math.random().toString(36).substring(2, 11),
+                        timestamp: bodyObj.timestamp || new Date().toISOString()
+                      };
+                      localList.push(newRecord);
+                      localStorage.setItem('local_exams_list', JSON.stringify(localList));
+                      console.log('Intercepted exam submission successfully.');
+                    } catch (e) {
+                      console.error('LocalStorage write failure in global fetch interceptor:', e);
+                    }
+                  }
+                  return originalFetch.apply(this, arguments);
+                };
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

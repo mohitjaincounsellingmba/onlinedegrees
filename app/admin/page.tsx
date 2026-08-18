@@ -69,6 +69,8 @@ export default function AdminDashboardPage() {
   const fetchExamRecords = async () => {
     setLoading(true);
     setFetchError('');
+    const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+    
     try {
       const response = await fetch('/api/exams', {
         method: 'GET',
@@ -82,8 +84,25 @@ export default function AdminDashboardPage() {
       }
 
       const data = await response.json();
-      const recordsArray = data.records || [];
+      let recordsArray = data.records || [];
       setKvMissing(data.kvStatus === 'missing');
+
+      // On localhost, merge server KV results with local storage backup records
+      if (isLocalhost && typeof window !== 'undefined') {
+        const localData = localStorage.getItem('local_exams_list');
+        if (localData) {
+          try {
+            const parsedLocal = JSON.parse(localData);
+            const merged = [...recordsArray];
+            parsedLocal.forEach((rec: ExamRecord) => {
+              if (!merged.some(m => m.id === rec.id)) {
+                merged.push(rec);
+              }
+            });
+            recordsArray = merged;
+          } catch (_) {}
+        }
+      }
 
       // Sort immediately by date descending
       const sortedData = [...recordsArray].sort(
@@ -92,6 +111,24 @@ export default function AdminDashboardPage() {
       setRecords(sortedData);
     } catch (err: any) {
       console.error("Failed to fetch exam records:", err);
+      
+      // Local development/localhost server fallback to local storage
+      if (typeof window !== 'undefined') {
+        const localData = localStorage.getItem('local_exams_list');
+        if (localData) {
+          try {
+            const parsedLocal = JSON.parse(localData);
+            const sortedData = [...parsedLocal].sort(
+              (a: ExamRecord, b: ExamRecord) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+            );
+            setRecords(sortedData);
+            setKvMissing(true); // Treat as missing server DB since fetch failed
+            setFetchError('');
+            return;
+          } catch (_) {}
+        }
+      }
+
       setFetchError("Could not retrieve exam logs from the server. Check if LEADS_KV is configured.");
     } finally {
       setLoading(false);
@@ -252,8 +289,13 @@ export default function AdminDashboardPage() {
       {/* Header Area */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b-4 border-black">
         <div>
-          <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter">
-            Exam <span className="text-[#00ffa3] underline decoration-8 decoration-black underline-offset-4">Control</span> Room
+          <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tighter flex flex-wrap items-center gap-3">
+            <span>Exam <span className="text-[#00ffa3] underline decoration-8 decoration-black underline-offset-4">Control</span> Room</span>
+            {typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && (
+              <span className="text-xs bg-[#ccff00] border-2 border-black px-2.5 py-1 rounded-xl uppercase font-black text-black tracking-wide shadow-[2px_2px_0px_#000]">
+                Local Sandbox Mode
+              </span>
+            )}
           </h1>
           <p className="text-sm font-bold text-slate-500 uppercase tracking-widest mt-1">
             Monitor real-time candidate scores and anti-cheating alerts
