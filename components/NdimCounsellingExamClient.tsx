@@ -880,7 +880,7 @@ export function NdimCounsellingExamClient() {
     if (!name || !email || !phone) return;
 
     if (passcode !== '2027') {
-      setPasscodeError('Invalid passcode. Please enter 2027 to begin the exam.');
+      setPasscodeError('Incorrect passcode. Please contact your administrator.');
       return;
     }
 
@@ -1222,14 +1222,14 @@ export function NdimCounsellingExamClient() {
                 <Lock className="w-4 h-4" /> Exam Passcode
               </label>
               <input
-                type="text"
+                type="password"
                 required
                 value={passcode}
                 onChange={(e) => {
                   setPasscode(e.target.value);
                   setPasscodeError('');
                 }}
-                placeholder="Enter 2027 to start"
+                placeholder="Enter exam passcode"
                 className="w-full border-4 border-black bg-[#fdfdfb] p-4 rounded-2xl font-bold placeholder-slate-400 focus:outline-none focus:bg-[#ccff00]/5 transition-all text-black"
               />
               {passcodeError && (
