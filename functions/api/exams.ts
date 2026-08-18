@@ -24,19 +24,31 @@ export async function onRequestGet(context: { request: Request; env: Env }): Pro
     if (context.env.LEADS_KV) {
       const data = await context.env.LEADS_KV.get('exams_list');
       if (data) {
-        return new Response(data, {
+        return new Response(JSON.stringify({
+          records: JSON.parse(data),
+          kvStatus: 'connected'
+        }), {
           headers: { 'Content-Type': 'application/json' }
         });
       }
+      return new Response(JSON.stringify({
+        records: [],
+        kvStatus: 'connected'
+      }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
     } else {
       console.warn('LEADS_KV binding is missing. Cannot fetch stored exams.');
+      return new Response(JSON.stringify({
+        records: [],
+        kvStatus: 'missing'
+      }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
-    return new Response(JSON.stringify([]), {
-      headers: { 'Content-Type': 'application/json' }
-    });
   } catch (error: any) {
     console.error('Error fetching exams:', error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: error.message, records: [], kvStatus: 'error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

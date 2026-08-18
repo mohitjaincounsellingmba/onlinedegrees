@@ -33,6 +33,7 @@ export default function AdminDashboardPage() {
   const [records, setRecords] = useState<ExamRecord[]>([]);
   const [loading, setLoading] = useState(false);
   const [fetchError, setFetchError] = useState('');
+  const [kvMissing, setKvMissing] = useState(false);
 
   // Filters & Search states
   const [searchTerm, setSearchTerm] = useState('');
@@ -81,8 +82,11 @@ export default function AdminDashboardPage() {
       }
 
       const data = await response.json();
+      const recordsArray = data.records || [];
+      setKvMissing(data.kvStatus === 'missing');
+
       // Sort immediately by date descending
-      const sortedData = (data || []).sort(
+      const sortedData = [...recordsArray].sort(
         (a: ExamRecord, b: ExamRecord) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
       );
       setRecords(sortedData);
@@ -272,6 +276,28 @@ export default function AdminDashboardPage() {
           </button>
         </div>
       </div>
+
+      {/* DB Binding Warning Banner */}
+      {kvMissing && (
+        <div className="bg-[#ff007f]/10 border-4 border-[#ff007f] p-6 rounded-2xl shadow-[6px_6px_0px_#ff007f] space-y-3">
+          <div className="flex items-center gap-3 text-[#ff007f]">
+            <ShieldAlert className="w-8 h-8 stroke-[2.5]" />
+            <h2 className="text-xl font-black uppercase tracking-tight">Database Connection Missing!</h2>
+          </div>
+          <p className="font-bold text-slate-700 text-sm leading-relaxed">
+            The exams database is not active because the <code className="bg-black text-white px-1.5 py-0.5 rounded font-mono">LEADS_KV</code> namespace is not bound to your Cloudflare Pages project. Activepieces webhooks are functioning correctly, but exam logs cannot be saved or read locally on this dashboard until KV is connected.
+          </p>
+          <div className="bg-white border-2 border-black p-4 rounded-xl text-xs space-y-2 font-bold text-slate-600">
+            <p className="text-black uppercase font-black text-xs">How to bind it in Cloudflare Pages:</p>
+            <ol className="list-decimal list-inside space-y-1">
+              <li>Open your <strong>Cloudflare Dashboard</strong> and select your project <strong>onlinedegrees</strong> under Workers &amp; Pages.</li>
+              <li>Go to <strong>Settings</strong> &rarr; <strong>Functions</strong> (scroll down to <strong>KV namespace bindings</strong>).</li>
+              <li>Click <strong>Add binding</strong>. Enter variable name: <code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-black">LEADS_KV</code> and select your active KV namespace (create one in KV settings if needed).</li>
+              <li>Save and trigger a redeployment in the <strong>Deployments</strong> tab.</li>
+            </ol>
+          </div>
+        </div>
+      )}
 
       {/* Summary Statistics Panels */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
