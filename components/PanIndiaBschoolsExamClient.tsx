@@ -1093,7 +1093,7 @@ export function PanIndiaBschoolsExamClient() {
     e.preventDefault();
     if (!name || !email || !phone) return;
 
-    if (passcode !== '2027') {
+    if (passcode !== '9999') {
       setPasscodeError('Incorrect passcode. Please contact your administrator.');
       return;
     }
