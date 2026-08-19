@@ -47,6 +47,7 @@ export function Footer() {
       { name: 'NDIM Counselling Exam', href: '/ndim-counselling-exam/' },
       { name: 'ISBR Counselling Exam', href: '/isbr-counselling-exam/' },
       { name: 'Approvals & Accreditations Exam', href: '/approvals-counselling-exam/' },
+      { name: 'Pan-India B-Schools Exam', href: '/pan-india-bschool-exam/' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };

@@ -84,6 +84,17 @@ export default function CounselorTrainingCenterPage() {
       badgeColor: "bg-[#ff007f] text-white border-black",
       link: "/approvals-counselling-exam/",
       uspList: ["UGC & Regulatory Focus", "Accreditation Frameworks", "50 Questions"]
+    },
+    {
+      id: "pan-india",
+      title: "Pan-India B-Schools Exam",
+      subtitle: "Master Counselor Quiz",
+      description: "116 questions verifying establishment years and precise regional locations of top management institutes across India.",
+      questions: 116,
+      duration: "60 Min",
+      badgeColor: "bg-[#00ffa3] text-black border-black",
+      link: "/pan-india-bschool-exam/",
+      uspList: ["Regional Campus Focus", "Establishment Timelines", "116 Questions"]
     }
   ];
 

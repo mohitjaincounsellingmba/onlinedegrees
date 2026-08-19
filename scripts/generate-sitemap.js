@@ -157,6 +157,12 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>${baseUrl}/pan-india-bschool-exam</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${baseUrl}/disclaimer</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
