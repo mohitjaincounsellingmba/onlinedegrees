@@ -35,6 +35,7 @@ export function Footer() {
       { name: 'Government Job Validity', href: '/#ugc-guidelines' },
     ],
     support: [
+      { name: 'Meet Mohit Jain (Founder)', href: '/portfolio' },
       { name: 'Expert Counselling', href: '/?program=All#comparison-engine' },
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
       { name: 'University Reviews', href: '/blog' },
