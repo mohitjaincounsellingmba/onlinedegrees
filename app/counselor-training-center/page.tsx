@@ -95,6 +95,17 @@ export default function CounselorTrainingCenterPage() {
       badgeColor: "bg-[#00ffa3] text-black border-black",
       link: "/pan-india-bschool-exam/",
       uspList: ["Regional Campus Focus", "Establishment Timelines", "116 Questions"]
+    },
+    {
+      id: "tier23-placements",
+      title: "Tier 2-3 Placements & Salaries Exam",
+      subtitle: "Master Counselor Quiz",
+      description: "30 questions verifying placement average packages, roles, designations, and summer stipends for MBA/PGDM graduates.",
+      questions: 30,
+      duration: "15 Min",
+      badgeColor: "bg-[#ccff00] text-black border-black",
+      link: "/tier2-3-placements-exam/",
+      uspList: ["Package & Salary Matrices", "Sector Roles & Internships", "30 Questions"]
     }
   ];
 

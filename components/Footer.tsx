@@ -49,6 +49,7 @@ export function Footer() {
       { name: 'ISBR Counselling Exam', href: '/isbr-counselling-exam/' },
       { name: 'Approvals & Accreditations Exam', href: '/approvals-counselling-exam/' },
       { name: 'Pan-India B-Schools Exam', href: '/pan-india-bschool-exam/' },
+      { name: 'Tier 2-3 Placements & Salaries Exam', href: '/tier2-3-placements-exam/' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };
