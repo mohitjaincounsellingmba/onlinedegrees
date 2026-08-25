@@ -107,6 +107,7 @@ export function VideoEditorClient() {
   const [captions, setCaptions] = useState<Caption[]>(DEFAULT_CAPTIONS);
   const [activeCapId, setActiveCapId] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
+  const [scriptText, setScriptText] = useState<string>('');
 
   // Styling States
   const [fontFamily, setFontFamily] = useState<string>('Montserrat');
@@ -256,6 +257,47 @@ export function VideoEditorClient() {
         }, 800);
       }
     }, 700);
+  };
+
+  // Align custom text script to video duration
+  const handleAlignScript = () => {
+    if (!scriptText.trim()) {
+      alert("Please enter some script text first!");
+      return;
+    }
+    
+    // Clean up and split text into words
+    const words = scriptText.replace(/\s+/g, ' ').trim().split(' ');
+    if (words.length === 0) return;
+    
+    // Group words into blocks of 4
+    const wordsPerBlock = 4;
+    const blocks: string[] = [];
+    for (let i = 0; i < words.length; i += wordsPerBlock) {
+      blocks.push(words.slice(i, i + wordsPerBlock).join(' '));
+    }
+    
+    // Distribute blocks evenly over the video duration
+    const activeDuration = (duration && !isNaN(duration) && duration > 0) ? duration : 20;
+    const blockDuration = activeDuration / blocks.length;
+    
+    const alignedCaptions: Caption[] = blocks.map((text, idx) => {
+      const start = idx * blockDuration;
+      const end = (idx + 1) * blockDuration - 0.1;
+      return {
+        id: String(Date.now() + idx),
+        start: Math.round(start * 10) / 10,
+        end: Math.round(end * 10) / 10,
+        text
+      };
+    });
+    
+    setCaptions(alignedCaptions);
+    setCurrentTime(0);
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+    alert(`Aligned ${alignedCaptions.length} subtitle blocks to your video!`);
   };
 
   // Apply Styling Template presets
@@ -1322,6 +1364,29 @@ export function VideoEditorClient() {
                     </div>
                   </div>
                 )}
+
+                {/* Custom Script Auto-Aligner (CapCut custom style) */}
+                <div className="border-t border-slate-800 pt-4 mt-4 space-y-4">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-1">
+                    <Sparkles className="w-3.5 h-3.5 text-[#ccff00]" /> Or Align Custom Script
+                  </h4>
+                  <p className="text-[10px] text-slate-500 font-semibold leading-relaxed">
+                    Paste the exact narration/words spoken in your uploaded video. We will auto-segment and distribute them evenly across the video track!
+                  </p>
+                  <textarea
+                    value={scriptText}
+                    onChange={(e) => setScriptText(e.target.value)}
+                    placeholder="Example: Welcome to my video. Today we are going to show you how to generate styled captions like CapCut..."
+                    rows={4}
+                    className="w-full bg-[#18181b] border border-slate-800 p-3 rounded-xl text-xs font-semibold text-white placeholder-slate-600 focus:border-[#ccff00] focus:outline-none"
+                  />
+                  <button
+                    onClick={handleAlignScript}
+                    className="w-full bg-[#ff007f] hover:bg-[#ff3b9a] text-white font-black text-xs uppercase py-3 rounded-xl border-2 border-black transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-[3px_3px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5"
+                  >
+                    Align Script with Video
+                  </button>
+                </div>
               </div>
             )}
 
