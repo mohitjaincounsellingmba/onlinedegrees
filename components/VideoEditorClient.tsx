@@ -244,7 +244,8 @@ export function VideoEditorClient() {
           // Load precompiled matching subtitles based on selected language
           const matchingCaptions = LANGUAGE_CAPTIONS[selectedLanguage] || DEFAULT_CAPTIONS;
           // Map timestamps proportionally if video duration is shorter/longer
-          const scale = duration / 20.0;
+          const activeDuration = (duration && !isNaN(duration) && duration > 0) ? duration : 20;
+          const scale = activeDuration / 20.0;
           const adjustedCaptions = matchingCaptions.map((cap, i) => ({
             id: String(i + 1),
             start: Math.round(cap.start * scale * 10) / 10,
@@ -410,6 +411,12 @@ export function VideoEditorClient() {
         lastTimeRef.current = now;
       }
 
+      // Get precise time for rendering at 60 FPS
+      let drawTime = currentTime;
+      if (!isSynthetic && videoRef.current) {
+        drawTime = videoRef.current.currentTime;
+      }
+
       // 1. CLEAR CANVAS
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -422,7 +429,7 @@ export function VideoEditorClient() {
         // Draw dynamic grid lines with perspective lines
         ctx.strokeStyle = '#272530';
         ctx.lineWidth = 1.5;
-        const gridOffset = (currentTime * 60) % 40;
+        const gridOffset = (drawTime * 60) % 40;
         for (let y = gridOffset; y < canvas.height; y += 40) {
           ctx.beginPath();
           ctx.moveTo(0, y);
@@ -440,7 +447,7 @@ export function VideoEditorClient() {
         }
 
         // Draw glowing neon circular shape in background
-        const pulse = 1 + Math.sin(currentTime * 4) * 0.08;
+        const pulse = 1 + Math.sin(drawTime * 4) * 0.08;
         const gradient = ctx.createRadialGradient(
           canvas.width / 2, canvas.height / 2 - 40, 10,
           canvas.width / 2, canvas.height / 2 - 40, 90 * pulse
@@ -464,7 +471,7 @@ export function VideoEditorClient() {
         const centerY = canvas.height / 2 + 60;
 
         for (let i = 0; i < barCount; i++) {
-          const oscValue = Math.abs(Math.sin(i * 0.4 + currentTime * 9.5));
+          const oscValue = Math.abs(Math.sin(i * 0.4 + drawTime * 9.5));
           const barHeight = 12 + oscValue * 70;
           ctx.fillStyle = i % 2 === 0 ? '#00ffa3' : '#ccff00';
           ctx.fillRect(
@@ -477,11 +484,34 @@ export function VideoEditorClient() {
 
         // Draw scanning line overlay
         ctx.fillStyle = 'rgba(204, 255, 0, 0.03)';
-        const scanY = (currentTime * 150) % canvas.height;
+        const scanY = (drawTime * 150) % canvas.height;
         ctx.fillRect(0, scanY, canvas.width, 3);
       } else if (videoRef.current && videoRef.current.readyState >= 2) {
-        // Draw the uploaded video frame directly
-        ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+        // Draw the uploaded video frame with letterboxing (contain aspect ratio)
+        const video = videoRef.current;
+        const vWidth = video.videoWidth;
+        const vHeight = video.videoHeight;
+        const vAspect = vWidth / vHeight;
+        const cvAspect = canvas.width / canvas.height;
+        
+        let drawWidth = canvas.width;
+        let drawHeight = canvas.height;
+        let drawX = 0;
+        let drawY = 0;
+        
+        if (vAspect > cvAspect) {
+          // Video is wider than canvas
+          drawHeight = canvas.width / vAspect;
+          drawY = (canvas.height - drawHeight) / 2;
+        } else {
+          // Video is taller than canvas
+          drawWidth = canvas.height * vAspect;
+          drawX = (canvas.width - drawWidth) / 2;
+        }
+        
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, drawX, drawY, drawWidth, drawHeight);
       } else {
         // Placeholder state when video loaded but metadata not fully rendered
         ctx.fillStyle = '#08080a';
@@ -492,8 +522,13 @@ export function VideoEditorClient() {
         ctx.fillText('Preparing Video Stream...', canvas.width / 2, canvas.height / 2);
       }
 
+      // Find active caption block based on exact frame drawTime
+      const currentActiveCaption = captions.find(
+        cap => drawTime >= cap.start && drawTime <= cap.end
+      ) || null;
+
       // 3. DRAW DYNAMIC CAPTIONS OVERLAY
-      if (activeCaption) {
+      if (currentActiveCaption) {
         ctx.save();
         
         // Load fonts dynamically on canvas context
@@ -504,12 +539,12 @@ export function VideoEditorClient() {
         const capX = canvas.width / 2;
         const capY = (verticalPosition / 100) * canvas.height;
 
-        const words = activeCaption.text.split(' ');
+        const words = currentActiveCaption.text.split(' ');
         const wordCount = words.length;
         
         // Compute active word based on progress in subtitle duration
-        const elapsed = currentTime - activeCaption.start;
-        const totalDur = activeCaption.end - activeCaption.start;
+        const elapsed = drawTime - currentActiveCaption.start;
+        const totalDur = currentActiveCaption.end - currentActiveCaption.start;
         const wordIndex = Math.min(
           Math.floor((elapsed / totalDur) * wordCount),
           wordCount - 1
@@ -517,7 +552,7 @@ export function VideoEditorClient() {
 
         if (textEffect !== 'karaoke') {
           // Standard full-phrase subtitle display
-          const textWidth = ctx.measureText(activeCaption.text).width;
+          const textWidth = ctx.measureText(currentActiveCaption.text).width;
           const textHeight = fontSize;
 
           // Draw Background box
@@ -536,14 +571,14 @@ export function VideoEditorClient() {
           // Bounce pop scaling effects for entrance
           let scale = 1;
           if (textEffect === 'pop') {
-            const age = currentTime - activeCaption.start;
+            const age = drawTime - currentActiveCaption.start;
             if (age < 0.15) {
               scale = 0.85 + (age / 0.15) * 0.3; // zooms past 1.0 to 1.15
             } else if (age < 0.28) {
               scale = 1.15 - ((age - 0.15) / 0.13) * 0.15; // bounces back to 1.0
             }
           } else if (textEffect === 'bounce') {
-            scale = 1 + Math.abs(Math.sin((currentTime - activeCaption.start) * 6)) * 0.05;
+            scale = 1 + Math.abs(Math.sin((drawTime - currentActiveCaption.start) * 6)) * 0.05;
           }
 
           ctx.translate(capX, capY);
@@ -554,12 +589,12 @@ export function VideoEditorClient() {
             ctx.strokeStyle = outlineColor;
             ctx.lineWidth = outlineWidth;
             ctx.lineJoin = 'round';
-            ctx.strokeText(activeCaption.text, 0, 0);
+            ctx.strokeText(currentActiveCaption.text, 0, 0);
           }
 
           // Draw text
           ctx.fillStyle = textColor;
-          ctx.fillText(activeCaption.text, 0, 0);
+          ctx.fillText(currentActiveCaption.text, 0, 0);
 
         } else {
           // CapCut / VN Word-by-Word Karaoke Active Emphasis Style
@@ -632,7 +667,6 @@ export function VideoEditorClient() {
     currentTime, 
     duration, 
     captions, 
-    activeCaption, 
     fontFamily, 
     fontSize, 
     textColor, 
@@ -938,18 +972,16 @@ export function VideoEditorClient() {
         className="hidden" 
       />
 
-      {videoUrl && (
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          onTimeUpdate={handleVideoTimeUpdate}
-          onLoadedMetadata={handleVideoLoadedMetadata}
-          onEnded={handleVideoEnded}
-          className="hidden"
-          playsInline
-          muted={isMuted}
-        />
-      )}
+      <video
+        ref={videoRef}
+        src={videoUrl || undefined}
+        onTimeUpdate={handleVideoTimeUpdate}
+        onLoadedMetadata={handleVideoLoadedMetadata}
+        onEnded={handleVideoEnded}
+        style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none' }}
+        playsInline
+        muted={isMuted}
+      />
 
       {/* ── MAIN WORKSPACE GRID ── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
