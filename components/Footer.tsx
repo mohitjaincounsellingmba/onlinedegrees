@@ -43,8 +43,6 @@ export function Footer() {
       { name: 'Comparison Directory', href: '/compare/directory' },
       { name: 'Create Resume', href: '/create-resume' },
       { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
-      { name: 'Video Editor (CapCut Style)', href: '/tools/video-editor/' },
-      { name: 'AI Video Editor', href: '/tools/video-editor/' },
       { name: 'Online Live Test', href: '/live-test/' },
       { name: 'Counselor Training Center', href: '/counselor-training-center/' },
       { name: 'NDIM Counselling Exam', href: '/ndim-counselling-exam/' },
@@ -52,6 +50,7 @@ export function Footer() {
       { name: 'Approvals & Accreditations Exam', href: '/approvals-counselling-exam/' },
       { name: 'Pan-India B-Schools Exam', href: '/pan-india-bschool-exam/' },
       { name: 'Tier 2-3 Placements & Salaries Exam', href: '/tier2-3-placements-exam/' },
+      { name: 'Kundali, Numerology & Tarot (Hindi)', href: '/tools/astro-tools' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };
