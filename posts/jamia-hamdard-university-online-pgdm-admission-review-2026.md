@@ -88,7 +88,7 @@ If you want a premium learning experience, a recognized degree, and solid career
 
 ---
 
-[👉 Get Free Career Guidance – Talk to an Expert](/inquiry) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771)
+[👉 Get Free Career Guidance – Talk to an Expert](/inquiry/?course=online-mba) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ### 🚀 Enhance Your Placement Chances
 Boost your skills and test your preparation! **[Explore Our Premium Mock Test Series 2026](https://www.careerwithmohit.online/tools/mock-tests)** to get real-time exam experience and advance your career.

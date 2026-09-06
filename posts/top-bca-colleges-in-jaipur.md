@@ -64,7 +64,7 @@ BCA is a 3-year application-focused degree, whereas B.Tech is a 4-year engineeri
 
 ---
 
-[👉 Get Free Career Guidance – Talk to an Expert](/inquiry) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771)
+[👉 Get Free Career Guidance – Talk to an Expert](/inquiry/?course=online-bca) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20want%20admission%20guidance%20for%20Online%20BCA%20(2026%20session).%20Please%20help%20me%20compare%20affordable%20universities%20and%20practical%20coding%20syllabus.)
 
 ### 🚀 Boost Your Placement Chances
 Boost your skills! **[Explore Our Premium Mock Test Series 2026](https://www.careerwithmohit.online/tools/mock-tests)** to practice exam topics and advance your IT career.

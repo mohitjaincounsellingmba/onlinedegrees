@@ -91,4 +91,4 @@ Yes. Almost all low-budget universities allow you to pay your fees semester-wise
 
 *Need help shortlisting the right university? Get in touch with our experts today for unbiased counseling.*
 
-[👉 Connect with Academic Counselors Now!](/inquiry)
+[👉 Connect with Academic Counselors Now!](/inquiry/?course=online-mba)

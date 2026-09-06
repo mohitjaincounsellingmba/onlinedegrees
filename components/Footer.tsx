@@ -20,12 +20,12 @@ export function Footer() {
 
   const footerLinks = {
     programs: [
-      { name: 'Online MBA Degree', href: '/?program=mba#comparison-engine' },
-      { name: 'Online MCA Degree', href: '/?program=mca#comparison-engine' },
-      { name: 'Online BBA Degree', href: '/?program=bba#comparison-engine' },
-      { name: 'Online BCA Degree', href: '/?program=bca#comparison-engine' },
-      { name: 'Online B.Com Degree', href: '/?program=bcom#comparison-engine' },
-      { name: 'Online M.Com Degree', href: '/?program=mcom#comparison-engine' },
+      { name: 'Online MBA Admissions 2026', href: '/inquiry/?course=online-mba' },
+      { name: 'Executive MBA (Fast-Track)', href: '/inquiry/?course=executive-mba' },
+      { name: 'Online BBA Degree 2026', href: '/inquiry/?course=online-bba' },
+      { name: 'Online MCA (Tech Careers)', href: '/inquiry/?course=online-mca' },
+      { name: 'Online BCA Degree 2026', href: '/inquiry/?course=online-bca' },
+      { name: 'Online B.Com / M.Com', href: '/inquiry/?course=online-mba' },
     ],
     approvals: [
       { name: 'UGC-DEB Status', href: '/#ugc-guidelines' },
@@ -35,8 +35,9 @@ export function Footer() {
       { name: 'Government Job Validity', href: '/#ugc-guidelines' },
     ],
     support: [
+      { name: 'Admission Guidance (Free Shortlist)', href: '/inquiry/' },
       { name: 'Meet Mohit Jain (Founder)', href: '/portfolio/' },
-      { name: 'Expert Counselling', href: '/?program=All#comparison-engine' },
+      { name: 'Expert Counselling', href: '/inquiry/' },
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
       { name: 'University Reviews', href: '/blog/' },
       { name: 'Blog Directory (All Guides)', href: '/blog/directory/' },

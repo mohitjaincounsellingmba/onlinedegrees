@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, Kalinga University Online is a top-
 | **Starting Fee** | Approx. ₹20,000 - ₹40,000 per semester |
 | **Key Advantage** | Most Affordable Genuine UGC-Approved Degree in Central India |
 
-👉 **[Launch Your Admission Journey at Kalinga University Online](/inquiry)**
+👉 **[Launch Your Admission Journey at Kalinga University Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Kalinga's online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from Kalinga University are **UGC-DEB approved** and re
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Affordable Choice:** Read about the [Top-10 Online MBAs Under 1 Lakh](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for Kalinga Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for Kalinga Online? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

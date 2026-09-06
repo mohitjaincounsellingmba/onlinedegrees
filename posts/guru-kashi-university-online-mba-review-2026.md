@@ -46,7 +46,7 @@ The A++ rating makes the degree highly credible for migrations, higher studies a
 ## 🏆 Final Verdict: The Smart Professional's Pick
 If you want the **best possible NAAC rating at an unbeatable price**, **Guru Kashi University** is the smartest choice you can make in 2026.
 
-[👉 Apply for Guru Kashi Online MBA](/inquiry) | [💬 WhatsApp Mohit Jain for Direct Admission Help](/inquiry)
+[👉 Apply for Guru Kashi Online MBA](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain for Direct Admission Help](/inquiry/?course=online-mba)
 
 ---
 **Read Also:**

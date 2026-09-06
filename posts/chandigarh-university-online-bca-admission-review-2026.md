@@ -88,7 +88,7 @@ If you want a premium learning experience, a recognized degree, and solid career
 
 ---
 
-[👉 Get Free Career Guidance – Talk to an Expert](/inquiry) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771)
+[👉 Get Free Career Guidance – Talk to an Expert](/inquiry/?course=online-bca) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20want%20admission%20guidance%20for%20Online%20BCA%20(2026%20session).%20Please%20help%20me%20compare%20affordable%20universities%20and%20practical%20coding%20syllabus.)
 
 ### 🚀 Enhance Your Placement Chances
 Boost your skills and test your preparation! **[Explore Our Premium Mock Test Series 2026](https://www.careerwithmohit.online/tools/mock-tests)** to get real-time exam experience and advance your career.

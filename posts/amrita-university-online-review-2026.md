@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, Amrita University Online is a top-t
 | **Starting Fee** | Approx. ₹40,000 - ₹60,000 per semester |
 | **Key Advantage** | Top-10 NIRF Brand Value + Holistic Professional Growth |
 
-👉 **[Launch Your Admission Journey at Amrita University Online](/inquiry)**
+👉 **[Launch Your Admission Journey at Amrita University Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Amrita's online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from Amrita Vishwa Vidyapeetham are **UGC-DEB approved*
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Top Brand:** Read about the [Top-5 Online MBAs with NIRF Top-20 Rankings](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Thinking about Amrita? Talk to our expert counselors for a detailed fee breakdown and enrollment guide today!](/inquiry)
+[👉 Thinking about Amrita? Talk to our expert counselors for a detailed fee breakdown and enrollment guide today!](/inquiry/?course=online-bba)
 
 ---
 

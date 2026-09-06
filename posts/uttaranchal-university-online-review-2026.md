@@ -20,7 +20,7 @@ Based in the serene education hub of Dehradun, Uttaranchal University Online is 
 | **Starting Fee** | Approx. ₹15,000 - ₹30,000 per semester |
 | **Key Advantage** | Most Affordable NAAC A+ Option in India |
 
-👉 **[Start Your Admission Journey at Uttaranchal University Online](/inquiry)**
+👉 **[Start Your Admission Journey at Uttaranchal University Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Uttaranchal University’s online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from Uttaranchal University are **UGC-DEB approved** an
 ## Next Steps for You
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Affordable Choice:** Read about the [Top-5 Online MBAs Under 1 Lakh](/online-degree-certification).
-- **Personalized Help:** Not sure about which specialization to pick? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Help:** Not sure about which specialization to pick? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarly info or current enrollment deadlines for Uttaranchal University? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarly info or current enrollment deadlines for Uttaranchal University? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

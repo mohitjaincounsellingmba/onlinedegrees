@@ -20,7 +20,7 @@ As one of India's largest and most innovative universities, LPU offers a world-c
 | **Starting Fee** | Approx. ₹30,000 - ₹50,000 per semester |
 | **Key Advantage** | Record Placements (Recent highest at ₹1Cr+) |
 
-👉 **[Launch Your Admission Journey at LPU Online](/inquiry)**
+👉 **[Launch Your Admission Journey at LPU Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 LPU's online programs are designed to meet the needs of the 2026 job market:
@@ -55,10 +55,10 @@ Yes. All online programs from Lovely Professional University are **UGC-DEB appro
 ## Decision Making Guide
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [Chandigarh University Online 2026](/blog/chandigarh-university-online-review-2026).
 - **Accreditation Hub:** Read about [UGC-DEB Approved Online Universities in India](/online-degree-certification).
-- **Personalized Advice:** Not sure which program to pick? [Consult with Mohit Jain for free today!](/inquiry)
+- **Personalized Advice:** Not sure which program to pick? [Consult with Mohit Jain for free today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Thinking about LPU? Talk to our admission counselors for the latest scholarships and fee discounts!](/inquiry)
+[👉 Thinking about LPU? Talk to our admission counselors for the latest scholarships and fee discounts!](/inquiry/?course=online-bba)
 
 ---
 

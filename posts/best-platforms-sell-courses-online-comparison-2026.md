@@ -86,7 +86,7 @@ Marketplaces are often the easiest to scrape. Branded apps provide the highest l
 **Don't Just Teach—Build an Empire.**
 Your knowledge is your greatest asset. Don't waste it on a platform that doesn't let you own your brand. Mohit Jain provides a **"Digital Ecosystem Audit"**—helping you choose the right hosting strategy and building the branded app that turns your teaching skills into a sustainable business empire.
 
-[👉 Book My Digital Academy Demo](/sell-your-coaching-online) | [💬 Chat with Mohit](/inquiry)
+[👉 Book My Digital Academy Demo](/sell-your-coaching-online) | [💬 Chat with Mohit](/inquiry/?course=online-mba)
 
 ---
 

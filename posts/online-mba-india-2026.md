@@ -158,7 +158,7 @@ When comparing an Online MBA to a traditional Full-Time MBA/PGDM, here are the k
 
 ---
 
-[👉 Need help choosing between Online MBA and a Full-Time PGDM?](/inquiry) | [💬 Book a Free Career Strategy Session with Mohit Jain](/inquiry)
+[👉 Need help choosing between Online MBA and a Full-Time PGDM?](/inquiry/?course=online-mba) | [💬 Book a Free Career Strategy Session with Mohit Jain](/inquiry/?course=online-mba)
 
 ---
 

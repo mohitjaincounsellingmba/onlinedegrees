@@ -77,4 +77,4 @@ For BIMTECH and Jaipuria, examinations are conducted online via live AI-proctore
 
 *Need assistance choosing between an online MBA and an online PGDM? Let our senior academic advisors help you make the right choice.*
 
-[👉 Get Free Expert PGDM Guidance Now!](/inquiry)
+[👉 Get Free Expert PGDM Guidance Now!](/inquiry/?course=executive-mba)

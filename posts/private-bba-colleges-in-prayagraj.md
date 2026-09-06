@@ -63,7 +63,7 @@ Yes, BBA is a professional degree. With skills in digital marketing, finance, or
 
 ---
 
-[👉 Get Free Career Guidance – Talk to an Expert](/inquiry) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771)
+[👉 Get Free Career Guidance – Talk to an Expert](/inquiry/?course=online-bba) | [💬 WhatsApp Advisor Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20BBA%20(2026%20Batch).%20Please%20guide%20me%20on%20the%20best%20accredited%20universities%2C%20fee%20concessions%2C%20and%20placement%20assistance.)
 
 ### 🚀 Boost Your Preparation & Skills
 Enhance your placements! **[Explore Our Premium Mock Test Series 2026](https://www.careerwithmohit.online/tools/mock-tests)** to test your skills and advance your career.

@@ -46,7 +46,7 @@ A Manav Rachna Online MBA is well-regarded by top MNCs and manufacturing firms i
 ## 🏆 Final Verdict: The Popular Choice for Professionals
 If you want a **reliable, NAAC 'A' accredited MBA** from a university with a strong physical presence and corporate reach, **Manav Rachna University** is a top contender for your 2026 plans.
 
-[👉 Apply for Manav Rachna Online MBA](/inquiry) | [💬 WhatsApp Mohit Jain for Career Help](/inquiry)
+[👉 Apply for Manav Rachna Online MBA](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain for Career Help](/inquiry/?course=online-mba)
 
 ---
 **See Also:**

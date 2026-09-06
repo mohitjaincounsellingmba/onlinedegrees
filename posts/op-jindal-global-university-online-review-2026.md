@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, O.P. Jindal Global University Onlin
 | **Starting Fee** | Approx. ₹50,000 - ₹90,000 per semester |
 | **Key Advantage** | Only Indian Private University in Top-500 QS World Rankings |
 
-👉 **[Start Your Global Admission Journey at JGU Online](/inquiry)**
+👉 **[Start Your Global Admission Journey at JGU Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 OP Jindal’s online programs are optimized for the 2026 global workforce:
@@ -49,10 +49,10 @@ Yes. All online programs from O.P. Jindal Global University are **UGC-DEB approv
 ## Your Path to a Global Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [NMIMS Online 2026](/blog/nmims-online-review-2026).
 - **Global Hub:** Read about [Top-5 Online MBAs with AACSB in India](/online-degree-certification).
-- **Consultation:** Not sure if this global brand fits your budget? [Consult with Mohit Jain today!](/inquiry)
+- **Consultation:** Not sure if this global brand fits your budget? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Thinking about JGU? Talk to our expert counselors for a detailed fee breakdown and specialization guide!](/inquiry)
+[👉 Thinking about JGU? Talk to our expert counselors for a detailed fee breakdown and specialization guide!](/inquiry/?course=online-bba)
 
 ---
 

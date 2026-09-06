@@ -129,7 +129,7 @@ Yes. The program is 100% online and accessible from any location in India.
 
 ---
 
-[👉 Get Expert Advice on Uttaranchal Online MBA](/inquiry) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771)
+[👉 Get Expert Advice on Uttaranchal Online MBA](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ---
 

@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, Birchwood University Online is a to
 | **Starting Fee** | Approx. ₹70,000 (Total program) |
 | **Key Advantage** | Most Affordable Genuine US Online Degree |
 
-👉 **[Start Your US Career Journey with Birchwood Online](/inquiry)**
+👉 **[Start Your US Career Journey with Birchwood Online](/inquiry/?course=online-mba)**
 
 ## Popular Programs & Fee Structure
 Birchwood's online programs are optimized for the 2026 global workforce:
@@ -54,10 +54,10 @@ Yes. All programs from Birchwood University are **WES recognized** and hold the 
 ## Decision Guide 2026
 - **Compare:** Check [Golden Gate Online 2026](/blog/golden-gate-university-usa-online-review-2026) vs [NMIMS Online 2026](/blog/nmims-online-review-2026).
 - **Global Hub:** Read about the [Top-5 Online MBAs from US/UK for Indian Students](/online-degree-certification).
-- **Personalized Advice:** Not sure how a US degree fits your career goals? [Get free roadmap advice from Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how a US degree fits your career goals? [Get free roadmap advice from Mohit Jain today!](/inquiry/?course=online-mba)
 
 ---
-[👉 Thinking about Birchwood USA? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry)
+[👉 Thinking about Birchwood USA? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry/?course=online-mba)
 
 ---
 

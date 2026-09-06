@@ -76,7 +76,7 @@ The university holds an impressive **4.6 out of 5** rating from student reviews,
 
 **Vivekananda Global University (VGU) Online** is a powerhouse of flexible, high-quality education. With NAAC A+ accreditation, an incredible roster of placement partners, and a wide array of courses tailored to modern industry needs, it stands out as an excellent choice for 2026 admissions.
 
-[👉 Apply for VGU Online Courses](/inquiry) | [💬 Schedule a Career Counselling Session with Mohit Jain](/inquiry)
+[👉 Apply for VGU Online Courses](/inquiry/?course=online-mba) | [💬 Schedule a Career Counselling Session with Mohit Jain](/inquiry/?course=online-mba)
 
 ---
 

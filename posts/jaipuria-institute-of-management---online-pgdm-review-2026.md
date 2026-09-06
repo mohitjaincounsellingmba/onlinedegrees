@@ -23,7 +23,7 @@ This is a comprehensive, honest review covering real fees, accreditation, and wh
 | **Duration** | 2 Years (PG) |
 | **Total Fee** | **₹1,40,000** |
 | **Learning Mode** | Online (Weekend Live + Recorded) |
-| **Contact Support** | [WhatsApp Mohit Jain](https://wa.me/919560020771) |
+| **Contact Support** | [WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.) |
 
 ---
 
@@ -85,7 +85,7 @@ Exams are typically conducted online via online-proctored platforms. You can tak
 
 ---
 
-[👉 Apply for Jaipuria Institute of Management - Online PGDM Online – Talk to an Expert](/inquiry) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771)
+[👉 Apply for Jaipuria Institute of Management - Online PGDM Online – Talk to an Expert](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ---
 

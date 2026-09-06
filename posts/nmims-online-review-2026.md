@@ -20,7 +20,7 @@ Enrolling in the 2026 session gives you access to a premium ecosystem with an el
 | **Starting Fee** | Approx. ₹45,000 - ₹60,000 per semester |
 | **Brand Legacy** | India's Top-5 Private B-School Brand |
 
-👉 **[Start Your Premium MBA Journey with NMIMS](/inquiry)**
+👉 **[Start Your Premium MBA Journey with NMIMS](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 NMIMS offers a focused set of programs focused on high-end management results:
@@ -49,10 +49,10 @@ Yes. All online programs from NMIMS are **UGC-DEB approved** and hold the highes
 ## Your Decision Support
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Mumbai Hub:** Read about [Top-5 Online MBAs in Mumbai 2026](/online-degree-certification).
-- **Specialized Advice:** Not sure if NMIMS fits your budget? [Consult with Mohit Jain today!](/inquiry)
+- **Specialized Advice:** Not sure if NMIMS fits your budget? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Thinking about NMIMS? Talk to our expert counselors to get a detailed fee breakdown and specialization guide!](/inquiry)
+[👉 Thinking about NMIMS? Talk to our expert counselors to get a detailed fee breakdown and specialization guide!](/inquiry/?course=online-bba)
 
 ---
 

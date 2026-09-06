@@ -20,7 +20,7 @@ As we look toward the 2026 session, Jain’s online programs are a top pick for 
 | **Starting Fee** | Approx. ₹40,000 - ₹60,000 per semester |
 | **Key Advantage** | High-Tech Specializations with Bangalore Ecosystem Hub |
 
-👉 **[Launch Your Admission Journey at Jain Online](/inquiry)**
+👉 **[Launch Your Admission Journey at Jain Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Jain's online programs are highly market-relevant for 2026:
@@ -55,10 +55,10 @@ Yes. All online programs from Jain University are **UGC-DEB approved** and recog
 ## Your Path to Graduation
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Bangalore Hub:** Read our report on [Top Tech Online Degrees in Bangalore](/online-degree-certification).
-- **Consultation:** Not sure which specialization fits your profile? [Get a free roadmap from Mohit Jain!](/inquiry)
+- **Consultation:** Not sure which specialization fits your profile? [Get a free roadmap from Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for special discounts or early-bird offers? Talk to our Jain University counselors!](/inquiry)
+[👉 Looking for special discounts or early-bird offers? Talk to our Jain University counselors!](/inquiry/?course=online-bba)
 
 ---
 

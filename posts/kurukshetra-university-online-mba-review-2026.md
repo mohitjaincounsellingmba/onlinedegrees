@@ -48,7 +48,7 @@ With its strong brand presence across Haryana, Delhi, and Punjab, a degree from 
 ## 🏆 Final Verdict: A Trusted Legacy
 The **Kurukshetra University Online MBA** is the perfect choice for those who prioritize **trust, accreditation, and affordability**. It is a safe and dignified path to a masters degree in 2026.
 
-[👉 Apply for KUK Online MBA](/inquiry) | [💬 WhatsApp Mohit Jain for Admission Guidance](/inquiry)
+[👉 Apply for KUK Online MBA](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain for Admission Guidance](/inquiry/?course=online-mba)
 
 ---
 **See Also:**

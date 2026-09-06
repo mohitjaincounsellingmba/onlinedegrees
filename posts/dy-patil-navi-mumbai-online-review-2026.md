@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, D.Y. Patil University Navi Mumbai O
 | **Starting Fee** | Approx. ₹35,000 - ₹55,000 per semester |
 | **Key Advantage** | Highest NAAC Grade + Mumbai’s Premium Corporate Brand |
 
-👉 **[Start Your Admission Journey at DY Patil Navi Mumbai Online](/inquiry)**
+👉 **[Start Your Admission Journey at DY Patil Navi Mumbai Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 DY Patil's online programs are optimized for the 2026 workforce:
@@ -54,10 +54,10 @@ Yes. All online programs from D.Y. Patil University (Navi Mumbai) are **UGC-DEB 
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Mumbai Hub:** Read about the [Top-5 Online MBAs in Mumbai 2026](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for DY Patil Navi Mumbai? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for DY Patil Navi Mumbai? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

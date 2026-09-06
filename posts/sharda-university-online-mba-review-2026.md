@@ -49,7 +49,7 @@ By choosing the Sharda University Online MBA, you are setting yourself up for an
 
 If you are serious about advancing your career without pausing your current job, the **Sharda University Online MBA** is an undeniably strong, positive investment in your future. Its blend of flexibility, renowned faculty, and dedicated career guidance creates a perfect ecosystem for success.
 
-[👉 Apply for Sharda University Online MBA](/inquiry) | [💬 Schedule a Details Call with Mohit Jain](/inquiry)
+[👉 Apply for Sharda University Online MBA](/inquiry/?course=online-mba) | [💬 Schedule a Details Call with Mohit Jain](/inquiry/?course=online-mba)
 
 ---
 

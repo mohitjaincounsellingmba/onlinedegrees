@@ -20,7 +20,7 @@ For the 2026-27 academy session, Jaipuria Online PGDM stands as a professional, 
 | **Starting Fee** | Approx. ₹35,000 - ₹50,000 per semester |
 | **Key Advantage** | AIU Recognized as Equivalent to an MBA (Valid for PhD & Govt Jobs) |
 
-👉 **[Start Your Premium PGDM at Jaipuria Online](/inquiry)**
+👉 **[Start Your Premium PGDM at Jaipuria Online](/inquiry/?course=online-mba)**
 
 ## Online PGDM Program & Fee Structure
 Jaipuria's online PGDM is highly specialized for the 2026 workforce:
@@ -47,10 +47,10 @@ Yes. All online programs from Jaipuria Institute of Management are **AICTE appro
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [NMIMS Online 2026](/blog/nmims-online-review-2026).
 - **Accreditation Hub:** Read about [Top-5 Online PGDMs in India](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-mba)
 
 ---
-[👉 Thinking about Jaipuria? Talk to our expert counselors for a detailed fee breakdown and specialization guide today!](/inquiry)
+[👉 Thinking about Jaipuria? Talk to our expert counselors for a detailed fee breakdown and specialization guide today!](/inquiry/?course=online-mba)
 
 ---
 

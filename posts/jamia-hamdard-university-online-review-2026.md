@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, Jamia Hamdard University Online is 
 | **Starting Fee** | Approx. ₹25,000 - ₹50,000 per semester |
 | **Key Advantage** | Delhi-Based Heritage + Strongest Value in the Capital |
 
-👉 **[Launch Your Admission Journey at Jamia Hamdard University Online](/inquiry)**
+👉 **[Launch Your Admission Journey at Jamia Hamdard University Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Jamia Hamdard's online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from Jamia Hamdard University are **UGC-DEB approved** 
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Delhi Hub:** Read about the [Top-5 Online MBAs in Delhi NCR](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for Jamia Hamdard Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for Jamia Hamdard Online? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

@@ -20,7 +20,7 @@ For the 2026 session, D.Y. Patil Online stands as one of the most credible optio
 | **Starting Fee** | Approx. ₹47,000 - ₹60,000 per semester |
 | **Key Advantage** | Highest NAAC Grade + WES Approved (Top pick for moving abroad) |
 
-👉 **[Start Your Higher Studies Journey at D.Y. Patil Online](/inquiry)**
+👉 **[Start Your Higher Studies Journey at D.Y. Patil Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 D.Y. Patil’s online programs are designed for the global workforce of 2026:
@@ -55,10 +55,10 @@ Yes. All online programs from D.Y. Patil Vidyapeeth (Pune) are **UGC-DEB approve
 ## Decision Guide 2026
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [Jain University Online 2026](/blog/jain-university-online-review-2026).
 - **Abroad Aspirants:** Read about [Top WES-Approved Online Degrees in India](/online-degree-certification).
-- **Consultation:** Not sure if this fits your career goals? [Get free professional counselling from Mohit Jain!](/inquiry)
+- **Consultation:** Not sure if this fits your career goals? [Get free professional counselling from Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for D.Y. Patil Pune? Talk to our counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for D.Y. Patil Pune? Talk to our counselors today!](/inquiry/?course=online-bba)
 
 ---
 

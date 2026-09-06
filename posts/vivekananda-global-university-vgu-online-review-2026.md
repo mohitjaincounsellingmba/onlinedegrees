@@ -20,7 +20,7 @@ As we move into the 2026 session, VGU Online is a top-tier choice for students a
 | **Starting Fee** | Approx. ₹35,000 - ₹50,000 per semester |
 | **Key Advantage** | High-Quality Academic Standards + Rajasthan's Best Vibe |
 
-👉 **[Launch Your Admission Journey at VGU Online](/inquiry)**
+👉 **[Launch Your Admission Journey at VGU Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 VGU's online programs are optimized for the 2026 job market:
@@ -55,10 +55,10 @@ Yes. All online programs from Vivekananda Global University are **UGC-DEB approv
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Affordable Choice:** Read about the [Top-10 Online MBAs in Rajasthan](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for VGU Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for VGU Online? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

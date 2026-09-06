@@ -88,4 +88,4 @@ Unlike regular colleges with cutoffs of 90%+, online and distance BBA programs u
 
 *Need help deciding which BBA specialization to choose? Speak with our academic experts for personalized guidance.*
 
-[👉 Connect with BBA Advisors Now!](/inquiry)
+[👉 Connect with BBA Advisors Now!](/inquiry/?course=online-bba)

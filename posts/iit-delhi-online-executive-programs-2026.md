@@ -78,7 +78,7 @@ An executive program from IIT Delhi is more than just a certificate; it is a tra
 **Still Confused About Which Executive Program to Choose?**
 Selecting the wrong program can waste years of your career. At **CareerWithMohit**, we help you compare IITs, IIMs, and other top private universities to find the perfect fit for your profile.
 
-[👉 Get Expert Advice on Executive Programs Today!](/inquiry)
+[👉 Get Expert Advice on Executive Programs Today!](/inquiry/?course=executive-mba)
 
 ---
 

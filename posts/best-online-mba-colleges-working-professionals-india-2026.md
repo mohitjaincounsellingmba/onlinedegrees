@@ -19,7 +19,7 @@ In 2026, an online MBA from a **UGC-DEB approved university** is legally equival
 *   **Fees:** Approx. ₹2,00,000 – ₹2,50,000 (Full Program).
 *   **Best For:** Professionals seeking high brand value and networking opportunities in Finance and Marketing.
 
-[👉 Get Admission Guidance for NMIMS Online](/inquiry)
+[👉 Get Admission Guidance for NMIMS Online](/inquiry/?course=executive-mba)
 
 ---
 
@@ -30,7 +30,7 @@ Amity is a pioneer in digital education in India and holds several global accred
 *   **Fees:** Approx. ₹1,80,000 – ₹2,20,000.
 *   **Best For:** Those looking for a globally recognized degree with strong student support services.
 
-[👉 Inquire About Amity Online MBA](/inquiry)
+[👉 Inquire About Amity Online MBA](/inquiry/?course=executive-mba)
 
 ---
 
@@ -41,7 +41,7 @@ Manipal is known for its academic excellence and its advanced Learning Managemen
 *   **Fees:** Approx. ₹1,60,000 – ₹1,80,000.
 *   **Best For:** Students who prefer a structured, technology-driven learning experience.
 
-[👉 Apply to Manipal Online MBA 2026](/inquiry)
+[👉 Apply to Manipal Online MBA 2026](/inquiry/?course=executive-mba)
 
 ---
 
@@ -52,7 +52,7 @@ Jain University is a popular choice for students looking for modern specializati
 *   **Fees:** Approx. ₹1,40,000 – ₹1,60,000.
 *   **Best For:** Professionals aiming for niche career transitions into tech-led management roles.
 
-[👉 Request Counseling for Jain Online](/inquiry)
+[👉 Request Counseling for Jain Online](/inquiry/?course=executive-mba)
 
 ---
 
@@ -63,7 +63,7 @@ One of the fastest-growing universities in India with a high NAAC A++ rating.
 *   **Fees:** Approx. ₹1,20,000 – ₹1,50,000.
 *   **Best For:** Budget-conscious professionals who still want a premium-ranked university tag.
 
-[👉 Start Your Application for CU Online](/inquiry)
+[👉 Start Your Application for CU Online](/inquiry/?course=executive-mba)
 
 ---
 
@@ -96,7 +96,7 @@ The largest and most affordable university in India, run by the government.
 
 **Need a personalized comparison based on your career goals and budget?**
 
-[👉 Connect with our Expert Online Education Counselors for 100% Free Guidance!](/inquiry)
+[👉 Connect with our Expert Online Education Counselors for 100% Free Guidance!](/inquiry/?course=executive-mba)
 
 ---
 

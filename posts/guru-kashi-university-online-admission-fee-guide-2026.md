@@ -20,7 +20,7 @@ Taking an online degree is a smooth digital process, but following correct regis
 | **Approvals** | **UGC-DEB, NAAC A++, ISO 9001** |
 | **Admission Mode** | 100% Online (Self-apply or Advisor Support) |
 | **Entrance Test** | Direct Admission (Merit-based) |
-| **Contact Support** | [WhatsApp Counselor](https://wa.me/919560020771) |
+| **Contact Support** | [WhatsApp Counselor](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.) |
 
 ---
 
@@ -88,7 +88,7 @@ No, the entire process from form submission to document verification and fee pay
 
 ---
 
-[👉 Apply for Admission – Get Counselor Support](/inquiry) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771)
+[👉 Apply for Admission – Get Counselor Support](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ---
 

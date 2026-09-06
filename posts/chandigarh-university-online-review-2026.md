@@ -18,7 +18,7 @@ keywords: ["Chandigarh University Online review 2026", "Chandigarh online MBA fe
 | **Starting Fee** | Approx. ₹35,000 - ₹55,000 per semester |
 | **Key Advantage** | Strongest Placement Record in North India |
 
-👉 **[Start Your Enrollment for CU Online](/inquiry)**
+👉 **[Start Your Enrollment for CU Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Chandigarh University Online provides specialized tracks in high-demand fields:
@@ -53,10 +53,10 @@ Absolutely. All online programs from Chandigarh University are **UGC-DEB approve
 ## Your Path Forward
 - **Compare Options:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [Jain University Online 2026](/blog/jain-university-online-mba-review-2026).
 - **Placement Guide:** Read our report on [Online MBA Placements in India](/online-degree-certification).
-- **Consultation:** Not sure which specialization to pick? [Get a free session with Mohit Jain!](/inquiry)
+- **Consultation:** Not sure which specialization to pick? [Get a free session with Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
-[👉 Talk to our experts to get the latest scholarship details for Chandigarh University!](/inquiry)
+[👉 Talk to our experts to get the latest scholarship details for Chandigarh University!](/inquiry/?course=online-bba)
 
 ---
 

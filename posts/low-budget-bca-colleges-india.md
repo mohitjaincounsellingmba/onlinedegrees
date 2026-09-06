@@ -87,4 +87,4 @@ While some universities prefer students with a mathematics background in Class 1
 
 *Not sure which online BCA college is right for you? Compare structures, syllabus, and placement data with our experts.*
 
-[👉 Connect with Tech Counselors Now!](/inquiry)
+[👉 Connect with Tech Counselors Now!](/inquiry/?course=online-bca)

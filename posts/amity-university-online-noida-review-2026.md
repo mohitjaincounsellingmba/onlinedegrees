@@ -65,7 +65,7 @@ To better understand your options, check out these related guides:
 **Planning Your Admission in Amity Online?**
 Don't navigate the complex admission process alone. At **CareerWithMohit**, we provide 100% verified guidance to help you choose the right specialization and secure your seat in the 2026 batch.
 
-[👉 Get Expert Admission Help Now!](/inquiry)
+[👉 Get Expert Admission Help Now!](/inquiry/?course=online-mba)
 
 ---
 

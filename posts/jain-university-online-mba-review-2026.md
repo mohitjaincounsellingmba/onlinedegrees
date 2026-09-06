@@ -148,7 +148,7 @@ Yes. The program features live and recorded sessions accessible 24/7, designed s
 
 ---
 
-[👉 Apply for JAIN Online MBA – Get Expert Guidance](/inquiry) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771)
+[👉 Apply for JAIN Online MBA – Get Expert Guidance](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ---
 

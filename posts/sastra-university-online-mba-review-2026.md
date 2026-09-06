@@ -46,7 +46,7 @@ Priced at **₹2.2 Lakhs**, SASTRA is for those who are willing to invest in a "
 ## 🏆 Final Verdict: Best for Prestige
 If you value **academic excellence and brand prestige** above all else, **SASTRA University Online MBA** is one of the most respected degrees you can earn in 2026.
 
-[👉 Inquire for SASTRA Online MBA](/inquiry) | [💬 Chat with Mohit Jain for Expert Guidance](/inquiry)
+[👉 Inquire for SASTRA Online MBA](/inquiry/?course=online-mba) | [💬 Chat with Mohit Jain for Expert Guidance](/inquiry/?course=online-mba)
 
 ---
 **Related Reviews:**

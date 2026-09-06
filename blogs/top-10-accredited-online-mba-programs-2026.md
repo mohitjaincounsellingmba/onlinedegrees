@@ -66,7 +66,7 @@ Choosing an online MBA is a significant investment of time and money. Accreditat
 ---
 
 ## 📣 Ready to Apply?
-**[Get a free eligibility check](/inquiry)** or **[Chat with Mohit on WhatsApp]** (https://wa.me/919560020771) to discuss the best fit for you.
+**[Get a free eligibility check](/inquiry/?course=online-mba)** or **[Chat with Mohit on WhatsApp]** (https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.) to discuss the best fit for you.
 
 ---
 <div style="text-align:center; margin:20px 0;">

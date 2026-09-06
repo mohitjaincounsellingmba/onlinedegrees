@@ -84,4 +84,4 @@ Yes. While top regular colleges have extremely high cutoffs, online and distance
 
 *Confused about choosing between a regular BBA and an online BBA? Compare structures, specializations, and placement reviews with our experts.*
 
-[👉 Connect with BBA Counselors Now!](/inquiry)
+[👉 Connect with BBA Counselors Now!](/inquiry/?course=online-bba)

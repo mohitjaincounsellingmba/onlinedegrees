@@ -46,7 +46,7 @@ The brand value of OP Jindal is immense. It is highly favored by top consulting 
 ## 🏆 Final Verdict: The Best for Global Careers
 If you are looking for a program that carries the same weight as an international degree at a fraction of the cost, the **OP Jindal Global University Online MBA** is the clear winner.
 
-[👉 Apply for OP Jindal Online MBA](/inquiry) | [💬 Get Free Counselling from Mohit Jain](/inquiry)
+[👉 Apply for OP Jindal Online MBA](/inquiry/?course=online-mba) | [💬 Get Free Counselling from Mohit Jain](/inquiry/?course=online-mba)
 
 ---
 **Explore More Premium Options:**

@@ -46,7 +46,7 @@ For an investment of under ₹1 Lakh, the return is exceptional. Graduates are e
 ## 🏆 Final Verdict: The Best Value Choice
 If you are looking for **maximum accreditation (NAAC A+) at a minimum cost**, **Mody University Online MBA** is arguably the best choice in Rajasthan and beyond.
 
-[👉 Inquire Now for Mody University Online](/inquiry) | [💬 Chat with Mohit Jain for Admission Help](/inquiry)
+[👉 Inquire Now for Mody University Online](/inquiry/?course=online-mba) | [💬 Chat with Mohit Jain for Admission Help](/inquiry/?course=online-mba)
 
 ---
 **Compare with:**

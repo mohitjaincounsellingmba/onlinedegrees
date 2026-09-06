@@ -35,8 +35,12 @@ export function Header() {
         </Link>
         
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-bold text-slate-600">
           <Link href="/" className="hover:text-indigo-600 transition-colors">Home</Link>
+          <Link href="/inquiry/" className="text-indigo-600 hover:text-indigo-700 font-extrabold flex items-center gap-1">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1"></span>
+            Admissions 2026
+          </Link>
           <Link href="/compare/" className="hover:text-indigo-600 transition-colors">Compare College</Link>
           <Link href="/blog/" className="hover:text-indigo-600 transition-colors">Blog</Link>
           <Link href="/emi-calculator/" className="hover:text-indigo-600 transition-colors">EMI Calculator</Link>
@@ -46,18 +50,18 @@ export function Header() {
           >
             UGC Guidelines
           </button>
-          <button 
-            onClick={() => scrollToSection('faqs')} 
-            className="hover:text-indigo-600 transition-colors font-bold text-left cursor-pointer"
-          >
-            FAQs
-          </button>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <Link 
+            href="/inquiry/"
+            className="hidden sm:inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-xs font-black uppercase tracking-wider text-white transition-all shadow-md shadow-indigo-600/20 hover:scale-105 active:scale-95"
+          >
+            Get Free Guidance
+          </Link>
           <Link 
             href="tel:+919560020771" 
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-2 text-sm font-bold text-white transition-all hover:bg-slate-800 hover:scale-105 active:scale-95"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-bold text-white transition-all hover:bg-slate-800 hover:scale-105 active:scale-95"
           >
             <Phone className="h-4 w-4" />
             <span className="hidden sm:inline">Call Expert</span>
@@ -78,6 +82,9 @@ export function Header() {
           <nav className="flex flex-col px-8 py-8 gap-6 text-base font-bold text-slate-700">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-indigo-600 transition-colors flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-3"></span>Home
+            </Link>
+            <Link href="/inquiry/" onClick={() => setIsMobileMenuOpen(false)} className="text-indigo-600 hover:text-indigo-700 font-black transition-colors flex items-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-3"></span>Admissions 2026 (Apply Now)
             </Link>
             <Link href="/compare/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-indigo-600 transition-colors flex items-center">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-3"></span>Compare College

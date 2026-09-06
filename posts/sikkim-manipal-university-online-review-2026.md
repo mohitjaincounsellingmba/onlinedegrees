@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, SMU Online is a top-tier choice for
 | **Starting Fee** | Approx. ₹25,000 - ₹40,000 per semester |
 | **Key Advantage** | 20+ Years in Online/Distance Education Heritage |
 
-👉 **[Launch Your Admission Journey at SMU Online](/inquiry)**
+👉 **[Launch Your Admission Journey at SMU Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Sikkim Manipal’s online programs are designed for the 2026 job market:
@@ -55,10 +55,10 @@ Yes. All online programs from SMU are **UGC-DEB approved** and recognized by the
 ## Decision Helper
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Legacy Guide:** Read about [Top-5 Oldest Online Universities in India](/online-degree-certification).
-- **Consultation:** Not sure if SMU fits your career path? [Get free professional advice from Mohit Jain!](/inquiry)
+- **Consultation:** Not sure if SMU fits your career path? [Get free professional advice from Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
-[👉 Thinking about SMU? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry)
+[👉 Thinking about SMU? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry/?course=online-bba)
 
 ---
 

@@ -105,6 +105,7 @@ const today = new Date().toISOString().split('T')[0];
 // 2. Generate sitemap-main.xml (core landing pages with trailing slashes)
 const staticPages = [
   { url: `${baseUrl}/`, priority: '1.0', changefreq: 'daily' },
+  { url: `${baseUrl}/inquiry/`, priority: '0.9', changefreq: 'daily' },
   { url: `${baseUrl}/blog/`, priority: '0.9', changefreq: 'daily' },
   { url: `${baseUrl}/blog/directory/`, priority: '0.9', changefreq: 'daily' },
   { url: `${baseUrl}/compare/`, priority: '0.8', changefreq: 'weekly' },

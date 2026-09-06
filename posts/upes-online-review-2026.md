@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, UPES Online is a top-tier choice fo
 | **Starting Fee** | Approx. ₹40,000 - ₹65,000 per semester |
 | **Key Advantage** | World-Class Brand in Energy & Logistics Management |
 
-👉 **[Start Your Admission Journey at UPES Online](/inquiry)**
+👉 **[Start Your Admission Journey at UPES Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 UPES's online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from UPES are **UGC-DEB approved** and recognized by th
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Niche Choice:** Read about the [Top-5 Online MBAs in Energy & Logistics](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for UPES Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for UPES Online? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

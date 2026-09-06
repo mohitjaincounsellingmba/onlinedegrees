@@ -20,7 +20,7 @@ As we look at the 2026 academic year, SRM Online is a top-tier choice for studen
 | **Starting Fee** | Approx. ₹25,000 - ₹50,000 per semester |
 | **Key Advantage** | NAAC A++ Standard at Very Affordable Fees |
 
-👉 **[Launch Your Admission Journey at SRM Online](/inquiry)**
+👉 **[Launch Your Admission Journey at SRM Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 SRM's online programs are highly market-relevant for 2026:
@@ -55,10 +55,10 @@ Absolutely. All online programs from SRM IST (Deemed to be University) are **UGC
 ## Your Path to a Degree
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **South India Hub:** Read about [Top-5 Online MBAs in Tamil Nadu](/online-degree-certification).
-- **Free Consultation:** Not sure if SRM fits your career goals? [Get a free session with Mohit Jain!](/inquiry)
+- **Free Consultation:** Not sure if SRM fits your career goals? [Get a free session with Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
-[👉 Thinking about SRM? Talk to our expert counselors for the latest scholarships and enrollment details!](/inquiry)
+[👉 Thinking about SRM? Talk to our expert counselors for the latest scholarships and enrollment details!](/inquiry/?course=online-bba)
 
 ---
 

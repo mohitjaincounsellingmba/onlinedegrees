@@ -8,6 +8,9 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft, Calendar, User, MessageSquare, BookOpen, CheckCircle, GraduationCap } from 'lucide-react';
 import SimpleInquiryForm from "@/components/SimpleInquiryForm";
+import BlogLeadBanner from "@/components/BlogLeadBanner";
+import { detectDegree } from "@/lib/detectDegree";
+import StickyMobileLeadBar from "@/components/StickyMobileLeadBar";
 import { JsonLd } from "@/components/JsonLd";
 import { collegesData } from "@/lib/colleges";
 
@@ -76,6 +79,8 @@ export default async function BlogPost({ params }: PageProps) {
   if (!postData) {
     notFound();
   }
+
+  const targetDegree = detectDegree(slug, postData.title, postData.category);
 
   // ── RELATED POSTS LOGIC ──
   const allPosts = getSortedPostsData();
@@ -356,6 +361,9 @@ export default async function BlogPost({ params }: PageProps) {
 
             </div>
 
+            {/* ── HIGH-CONVERTING IN-ARTICLE LEAD BANNER ── */}
+            <BlogLeadBanner slug={slug} title={postData.title} category={postData.category} />
+
             {/* ── FAQS SECTION Accordion ── */}
             {postData.faqs && postData.faqs.length > 0 && (
               <div className="bg-white rounded-[2rem] p-6 md:p-10 lg:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/50">
@@ -398,36 +406,36 @@ export default async function BlogPost({ params }: PageProps) {
                   <GraduationCap className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-black tracking-tight mb-3">
-                  Free Expert Guidance
+                  Free {targetDegree.name} Guidance
                 </h3>
                 <p className="text-slate-400 text-sm font-medium leading-relaxed mb-8">
-                  Get personalized university shortlists, exact fee structures, and application assistance from senior academic advisors.
+                  Get personalized {targetDegree.name} university shortlists, exact 2026 fee structures, and direct application assistance from Mohit Jain.
                 </p>
 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-[#ccff00] shrink-0 mt-0.5" />
                     <span className="text-sm font-bold text-slate-300">UGC & DEB Approved Courses Only</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-400 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-[#ccff00] shrink-0 mt-0.5" />
                     <span className="text-sm font-bold text-slate-300">Compare 50+ Top Universities</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-indigo-400 shrink-0 mt-0.5" />
-                    <span className="text-sm font-bold text-slate-300">Direct Admission Support</span>
+                    <CheckCircle className="h-5 w-5 text-[#ccff00] shrink-0 mt-0.5" />
+                    <span className="text-sm font-bold text-slate-300">0% Monthly EMI Available</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-3">
                   <Link
-                    href="#counselling-form"
-                    className="bg-white hover:bg-slate-100 text-slate-950 text-center rounded-xl py-4 text-sm font-black uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl active:scale-[0.98]"
+                    href={`/inquiry/?course=${targetDegree.id}`}
+                    className="bg-[#ccff00] hover:bg-lime-400 text-black text-center rounded-xl py-4 text-sm font-black uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl active:scale-[0.98]"
                   >
-                    Get Free Shortlist
+                    Get Free Shortlist & Fees
                   </Link>
                   <a
-                    href="https://wa.me/919560020771"
+                    href={`https://wa.me/919560020771?text=${encodeURIComponent(targetDegree.waText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-center rounded-xl py-4 text-sm font-black uppercase tracking-wider transition-all border border-emerald-500/20 hover:border-emerald-500/40 flex items-center justify-center gap-2 active:scale-[0.98]"
@@ -449,10 +457,10 @@ export default async function BlogPost({ params }: PageProps) {
                 </h3>
               </div>
               <p className="text-sm font-medium text-slate-500 mb-8 leading-relaxed">
-                Enter your details to receive customized university comparisons directly on WhatsApp.
+                Enter your details to receive customized {targetDegree.name} comparisons directly on WhatsApp.
               </p>
               
-              <SimpleInquiryForm />
+              <SimpleInquiryForm courseName={targetDegree.name} source={`Blog Sidebar: ${postData.title}`} />
             </div>
 
           </div>
@@ -569,6 +577,9 @@ export default async function BlogPost({ params }: PageProps) {
         </div>
 
       </div>
+
+      {/* ── STICKY MOBILE LEAD BAR ── */}
+      <StickyMobileLeadBar slug={slug} title={postData.title} category={postData.category} />
     </article>
   );
 }

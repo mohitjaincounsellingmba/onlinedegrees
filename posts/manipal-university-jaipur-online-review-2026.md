@@ -20,7 +20,7 @@ As we move into the 2026-27 session, a degree from Manipal University Jaipur Onl
 | **Starting Fee** | Approx. ₹40,000 - ₹55,000 per semester |
 | **Key Advantage** | Worldwide Brand Recognition + WES Approved |
 
-👉 **[Start Your Enrollment for MUJ Online](/inquiry)**
+👉 **[Start Your Enrollment for MUJ Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Manipal University Jaipur's online programs are designed for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from Manipal University Jaipur are **UGC-DEB approved**
 ## Your Path Forward
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Global Aspirations:** Read about [Top WES-Approved Online Degrees in India](/online-degree-certification).
-- **Consultation:** Not sure which specialization fits your career profile? [Get free professional advice from Mohit Jain!](/inquiry)
+- **Consultation:** Not sure which specialization fits your career profile? [Get free professional advice from Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarly info or current enrollment deadlines for MUJ Jaipur Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarly info or current enrollment deadlines for MUJ Jaipur Online? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

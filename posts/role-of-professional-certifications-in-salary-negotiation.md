@@ -87,7 +87,7 @@ Place your most relevant, high-value certifications near the top of your resume,
 
 ---
 
-[👉 Get Free Expert Guidance on Career Growth](/inquiry) | [💬 WhatsApp Mohit Jain Now](https://wa.me/919560020771)
+[👉 Get Free Expert Guidance on Career Growth](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain Now](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ---
 

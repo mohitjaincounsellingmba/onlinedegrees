@@ -93,4 +93,4 @@ Private universities like Galgotias and Uttaranchal, as well as SCDL, have activ
 
 *Still unsure which university under 1 Lakh fits your budget and career goals? Get free, unbiased guidance from our expert counselors.*
 
-[👉 Connect with MBA Advisors Now!](/inquiry)
+[👉 Connect with MBA Advisors Now!](/inquiry/?course=online-mba)

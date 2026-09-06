@@ -51,7 +51,7 @@ Andhra University is ideal for:
 ## 🏆 Final Verdict: Best for Budget Seekers
 If your primary goal is to get a **highly credible degree at the lowest possible cost**, the **Andhra University Online MBA** is your best bet. It combines legacy, governmental trust, and affordability like no other.
 
-[👉 Get Admission Details for Andhra University Online](/inquiry) | [💬 Talk to Mohit Jain for Career Guidance](/inquiry)
+[👉 Get Admission Details for Andhra University Online](/inquiry/?course=online-mba) | [💬 Talk to Mohit Jain for Career Guidance](/inquiry/?course=online-mba)
 
 ---
 **Internal Links:**

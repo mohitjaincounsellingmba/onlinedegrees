@@ -20,7 +20,7 @@ Thinking of enrolling? Here is everything you need to know about India’s most 
 | **Starting Fee** | Approx. ₹30,000 - ₹50,000 per semester |
 | **Global Recognition** | WES Approved (Valid for Canada/USA/UAE) |
 
-👉 **[Launch Your Application for Amity Online](/inquiry)**
+👉 **[Launch Your Application for Amity Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Amity offers a wide range of undergraduate and postgraduate programs. The most sought-after ones include:
@@ -55,10 +55,10 @@ Yes. As per the **UGC (Open and Distance Learning Programs and Online Programs) 
 ## Next Steps for Your Career
 - **Compare Options:** See how Amity compares with [LPU Online 2026](/blog/lovely-professional-university-lpu-online-mba-review-2026) or [Chandigarh University](/blog/chandigarh-university-online-mba-review-2026).
 - **Global Aspirations:** Learn more about [WES Approved Online Degrees in India](/online-degree-certification).
-- **Admission Help:** Need a detailed fee breakdown? [Talk to our experts today!](/inquiry)
+- **Admission Help:** Need a detailed fee breakdown? [Talk to our experts today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Confused about specializations? Get a free career roadmap call from Mohit Jain!](/inquiry)
+[👉 Confused about specializations? Get a free career roadmap call from Mohit Jain!](/inquiry/?course=online-bba)
 
 ---
 

@@ -119,7 +119,7 @@ Yes, but you should choose a university that holds global accreditations (like W
 
 ---
 
-[👉 Get Free Expert Guidance & Apply](/inquiry) | [💬 WhatsApp Mohit Jain Now](https://wa.me/919560020771)
+[👉 Get Free Expert Guidance & Apply](/inquiry/?course=executive-mba) | [💬 WhatsApp Mohit Jain Now](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20an%20experienced%20working%20professional%20interested%20in%201-Year%20Executive%20MBA.%20Please%20share%20top%20university%20options%2C%20fees%2C%20and%20eligibility.)
 
 ---
 

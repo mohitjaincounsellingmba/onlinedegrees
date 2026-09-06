@@ -87,4 +87,4 @@ Yes. Under current government regulations, online degrees from UGC-DEB approved 
 
 *Still confused about which online BBA fits your career path? Compare fees, LMS features, and live classes with our expert counselors.*
 
-[👉 Connect with Online BBA Experts Now!](/inquiry)
+[👉 Connect with Online BBA Experts Now!](/inquiry/?course=online-bba)

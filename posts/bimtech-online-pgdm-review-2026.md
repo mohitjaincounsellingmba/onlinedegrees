@@ -64,7 +64,7 @@ Plan your management journey with our expert resources:
 **Still Unsure About BIMTECH Online?**
 Selecting the right PGDM can be life-changing. At **CareerWithMohit**, we provide 100% unbiased guidance to help you find the best ROI college for your profile.
 
-[👉 Get Expert Advice on Your PGDM Journey!](/inquiry)
+[👉 Get Expert Advice on Your PGDM Journey!](/inquiry/?course=online-mba)
 
 ---
 

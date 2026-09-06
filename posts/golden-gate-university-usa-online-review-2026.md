@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, Golden Gate University Online is a 
 | **Starting Fee** | Approx. ₹3,00,000 (Total program) |
 | **Key Advantage** | Silicon Valley Faculty + 100+ Years Heritage |
 
-👉 **[Start Your Silicon Valley Journey with GGU Online](/inquiry)**
+👉 **[Start Your Silicon Valley Journey with GGU Online](/inquiry/?course=online-mba)**
 
 ## Popular Programs & Fee Structure
 GGU's online programs are optimized for the 2026 global workforce:
@@ -54,10 +54,10 @@ Yes. All programs from Golden Gate University are **WES recognized** and hold th
 ## Your Path to a Global Career
 - **Compare:** Check [NMIMS Online 2026](/blog/nmims-online-review-2026) vs [OP Jindal Online 2026](/blog/op-jindal-global-university-online-review-2026).
 - **Global Hub:** Read about [Top-5 Online MBAs with Global Accreditation](/online-degree-certification).
-- **Consulation:** Not sure if a US degree fits your career goals? [Get free professional advice from Mohit Jain today!](/inquiry)
+- **Consulation:** Not sure if a US degree fits your career goals? [Get free professional advice from Mohit Jain today!](/inquiry/?course=online-mba)
 
 ---
-[👉 Thinking about GGU USA? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry)
+[👉 Thinking about GGU USA? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry/?course=online-mba)
 
 ---
 

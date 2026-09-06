@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, SCDL is a top-tier choice for stude
 | **Starting Fee** | Approx. ₹20,000 - ₹40,000 per year |
 | **Key Advantage** | Most Respected Distance Brand in Pune + High Corporate ROI |
 
-👉 **[Start Your Admission Journey at SCDL](/inquiry)**
+👉 **[Start Your Admission Journey at SCDL](/inquiry/?course=online-mba)**
 
 ## Popular Programs & Fee Structure
 SCDL's online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All programs from Symbiosis Centre for Distance Learning are **AICTE approv
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Pune Hub:** Read about the [Top-5 Online MBAs in Pune](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-mba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for SCDL? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for SCDL? Talk to our expert counselors today!](/inquiry/?course=online-mba)
 
 ---
 

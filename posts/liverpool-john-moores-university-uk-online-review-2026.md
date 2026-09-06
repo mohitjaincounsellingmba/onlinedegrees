@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, Liverpool John Moores University On
 | **Starting Fee** | Approx. ₹2,50,000 (Total program) |
 | **Key Advantage** | High-Quality Research Hub + Top-Tier Industry Tie-Ups |
 
-👉 **[Start Your British Education Journey at LJMU Online](/inquiry)**
+👉 **[Start Your British Education Journey at LJMU Online](/inquiry/?course=online-mba)**
 
 ## Popular Programs & Fee Structure
 LJMU's online programs are optimized for the 2026 global workforce:
@@ -54,10 +54,10 @@ Yes. All programs from Liverpool John Moores University are **WES recognized** a
 ## Decision Helper 2026
 - **Compare:** Check [Golden Gate Online 2026](/blog/golden-gate-university-usa-online-review-2026).
 - **Global Hub:** Read about [Top-5 Online MBAs from US/UK for Indian Students](/online-degree-certification).
-- **Consultation:** Not sure if a British degree fits your career goals? [Get free roadmap advice from Mohit Jain today!](/inquiry)
+- **Consultation:** Not sure if a British degree fits your career goals? [Get free roadmap advice from Mohit Jain today!](/inquiry/?course=online-mba)
 
 ---
-[👉 Thinking about LJMU? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry)
+[👉 Thinking about LJMU? Talk to our expert counselors to get a detailed fee breakdown and enrollment guide today!](/inquiry/?course=online-mba)
 
 ---
 

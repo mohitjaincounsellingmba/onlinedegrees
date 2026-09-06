@@ -20,7 +20,7 @@ As we move into the 2026-27 academy session, SASTRA University Online is a top-t
 | **Starting Fee** | Approx. ₹40,000 - ₹65,000 per semester |
 | **Key Advantage** | Highest NAAC Grade + Strongest Technical Heritage in TN |
 
-👉 **[Launch Your Admission Journey at SASTRA University Online](/inquiry)**
+👉 **[Launch Your Admission Journey at SASTRA University Online](/inquiry/?course=online-mca)**
 
 ## Popular Programs & Fee Structure
 SASTRA's online programs are optimized for the 2026 workforce:
@@ -55,10 +55,10 @@ Yes. All online programs from SASTRA University are **UGC-DEB approved** and rec
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **South India Hub:** Read about the [Top-5 Online MBAs in Tamil Nadu](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-mca)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for SASTRA Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for SASTRA Online? Talk to our expert counselors today!](/inquiry/?course=online-mca)
 
 ---
 

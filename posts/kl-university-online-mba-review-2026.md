@@ -22,7 +22,7 @@ Here is a detailed review of the program's fee structure, specializations, place
 | **Total MBA Fee** | **₹1,20,000** |
 | **Specializations Offered** | Marketing, Finance, HR, Operations, Business Analytics |
 | **Learning Mode** | 100% Online |
-| **Official Support** | [WhatsApp Mohit Jain](https://wa.me/919560020771) |
+| **Official Support** | [WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.) |
 
 ---
 
@@ -92,7 +92,7 @@ Yes. Since this online MBA is recognized by UGC, you can apply for PhD and highe
 
 ---
 
-[👉 Apply for KL University Online Online MBA – Talk to an Expert](/inquiry) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771)
+[👉 Apply for KL University Online Online MBA – Talk to an Expert](/inquiry/?course=online-mba) | [💬 WhatsApp Mohit Jain](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20am%20interested%20in%20Online%20MBA%20(2026%20Batch).%20Please%20share%20the%20top%20university%20shortlist%2C%20fee%20structures%2C%20and%20early-bird%20scholarship%20details.)
 
 ---
 

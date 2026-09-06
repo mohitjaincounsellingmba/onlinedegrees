@@ -20,7 +20,7 @@ For the 2026-27 academy session, Parul University Online is a top-tier choice fo
 | **Starting Fee** | Approx. ₹35,000 - ₹55,000 per semester |
 | **Key Advantage** | Highest NAAC Grade + Gujarat's Top Placement Brand |
 
-👉 **[Start Your Admission Journey at Parul University Online](/inquiry)**
+👉 **[Start Your Admission Journey at Parul University Online](/inquiry/?course=online-bba)**
 
 ## Popular Programs & Fee Structure
 Parul's online programs are designed for the 2026 job market:
@@ -55,10 +55,10 @@ Yes. All online programs from Parul University are **UGC-DEB approved** and reco
 ## Next Step in Your Career
 - **Compare:** Check [Amity Online 2026](/blog/amity-university-online-review-2026) vs [LPU Online 2026](/blog/lpu-online-review-2026).
 - **Affordable Choice:** Read about the [Top-10 Online MBAs in Gujarat](/online-degree-certification).
-- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry)
+- **Personalized Advice:** Not sure how to pivot your career? [Consult with Mohit Jain today!](/inquiry/?course=online-bba)
 
 ---
-[👉 Looking for scholarship info or current enrollment deadlines for Parul Online? Talk to our expert counselors today!](/inquiry)
+[👉 Looking for scholarship info or current enrollment deadlines for Parul Online? Talk to our expert counselors today!](/inquiry/?course=online-bba)
 
 ---
 

@@ -288,7 +288,7 @@ The key takeaways:
 
 *Need help choosing the right online MBA program before you build your resume? Our expert counselors will guide you for FREE.*
 
-[📞 Call Us: +91 95600 20771](tel:+919560020771) | [💬 WhatsApp Now](https://wa.me/919560020771)
+[📞 Call Us: +91 95600 20771](tel:+919560020771) | [💬 WhatsApp Now](https://wa.me/919560020771?text=Hi%20Mohit%20Sir%2C%20I%20want%20to%20apply%20for%20Online%20MCA%20(2026%20Batch).%20Please%20share%20universities%20with%20Cloud%2FAI%20specializations%20and%20top%20tech%20placement%20tie-ups.)
 
 ---
 

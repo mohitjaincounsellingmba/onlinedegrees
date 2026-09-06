@@ -91,4 +91,4 @@ Yes. According to current government regulations, online degrees from UGC-DEB ap
 
 *Still confused about which online MBA fits your career path? Compare fees, LMS features, and live classes with our expert counselors.*
 
-[👉 Connect with Online MBA Experts Now!](/inquiry)
+[👉 Connect with Online MBA Experts Now!](/inquiry/?course=online-mba)
