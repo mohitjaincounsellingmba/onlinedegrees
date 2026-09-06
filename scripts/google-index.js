@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { google } = require('googleapis');
 
-const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+const publicDir = path.join(__dirname, '../public');
+const sitemapPath = path.join(publicDir, 'sitemap.xml');
 const statePath = path.join(__dirname, 'indexing-state.json');
 const keyPath = path.join(__dirname, '../service-account.json');
 
@@ -10,10 +11,21 @@ const keyPath = path.join(__dirname, '../service-account.json');
 const DAILY_LIMIT = parseInt(process.env.LIMIT || '200', 10);
 const DRY_RUN = process.argv.includes('--dry-run') || !fs.existsSync(keyPath);
 
+function extractUrlsFromXml(xmlContent) {
+  const locRegex = /<loc>([^<]+)<\/loc>/g;
+  const urls = [];
+  let match;
+  while ((match = locRegex.exec(xmlContent)) !== null) {
+    const url = match[1].trim();
+    urls.push(url.endsWith('/') ? url : `${url}/`);
+  }
+  return urls;
+}
+
 async function main() {
   console.log('🚀 Starting Google Search Console Indexing Submission Tool...');
   
-  // 1. Verify sitemap.xml exists
+  // 1. Verify sitemaps exist
   if (!fs.existsSync(sitemapPath)) {
     console.error(`❌ Error: Sitemap not found at ${sitemapPath}`);
     console.log('💡 Run "npm run build" or "node scripts/generate-sitemap.js" first to generate the sitemap.');
@@ -30,18 +42,36 @@ async function main() {
     }
   }
 
-  // 3. Read sitemap.xml and extract URLs
-  console.log('📁 Reading sitemap.xml...');
-  const sitemapXml = fs.readFileSync(sitemapPath, 'utf8');
-  const locRegex = /<loc>([^<]+)<\/loc>/g;
-  const urls = [];
-  let match;
-  
-  while ((match = locRegex.exec(sitemapXml)) !== null) {
-    urls.push(match[1].trim());
+  // 3. Read sitemaps and extract URLs
+  // Prioritize blog posts from sitemap-blogs.xml if present
+  console.log('📁 Reading sitemaps...');
+  const blogSitemapPath = path.join(publicDir, 'sitemap-blogs.xml');
+  const mainSitemapPath = path.join(publicDir, 'sitemap-main.xml');
+  const compSitemapPath = path.join(publicDir, 'sitemap-comparisons.xml');
+
+  let urls = [];
+  if (fs.existsSync(blogSitemapPath)) {
+    console.log('   -> Found dedicated sitemap-blogs.xml. Loading blog URLs...');
+    urls.push(...extractUrlsFromXml(fs.readFileSync(blogSitemapPath, 'utf8')));
   }
-  
-  console.log(`✅ Found ${urls.length} total URLs in sitemap.xml.`);
+  if (fs.existsSync(mainSitemapPath)) {
+    console.log('   -> Found sitemap-main.xml. Loading core landing page URLs...');
+    urls.push(...extractUrlsFromXml(fs.readFileSync(mainSitemapPath, 'utf8')));
+  }
+  if (fs.existsSync(compSitemapPath)) {
+    console.log('   -> Found sitemap-comparisons.xml. Loading comparison URLs...');
+    urls.push(...extractUrlsFromXml(fs.readFileSync(compSitemapPath, 'utf8')));
+  }
+
+  // Fallback to sitemap.xml if sub-sitemaps were not found
+  if (urls.length === 0) {
+    console.log('   -> Reading default sitemap.xml...');
+    urls = extractUrlsFromXml(fs.readFileSync(sitemapPath, 'utf8'));
+  }
+
+  // Deduplicate
+  urls = Array.from(new Set(urls));
+  console.log(`✅ Found ${urls.length} unique canonical URLs with trailing slashes.`);
 
   // 4. Filter for URLs not yet submitted
   const pendingUrls = urls.filter(url => !state.submitted[url]);
@@ -127,7 +157,6 @@ async function main() {
         console.error(`❌ Failed to submit URL: ${url}`);
         console.error(`   Reason: ${err.response?.data?.error?.message || err.message}`);
         
-        // Quota exceeded or permission errors should halt the entire execution
         if (err.response?.status === 403 || err.response?.status === 429) {
           console.error('\n🛑 Critical failure: API permission denied or daily quota exceeded.');
           console.error('👉 Please verify service account roles in Google Cloud and Search Console properties.');
@@ -136,7 +165,7 @@ async function main() {
       }
     }
 
-    // Save state dynamically after each submission to prevent loss in case of unexpected abort
+    // Save state dynamically after each submission to prevent loss
     try {
       state.lastRun = new Date().toISOString();
       fs.writeFileSync(statePath, JSON.stringify(state, null, 2), 'utf8');
@@ -148,13 +177,11 @@ async function main() {
   console.log('\n🏁 Submission batch completed.');
   console.log(`   - Successful submissions: ${successCount}`);
   console.log(`   - Failed submissions: ${failCount}`);
-  console.log(`💡 State file saved to: scripts/indexing-state.json`);
-  if (!DRY_RUN) {
-    console.log(`👉 Remaining pending URLs to index: ${pendingUrls.length - successCount}`);
-  }
+  console.log(`\n💾 Current indexing progress saved to: ${statePath}`);
+  console.log(`📊 Progress: ${Object.keys(state.submitted).length}/${urls.length} URLs indexed.`);
 }
 
 main().catch(err => {
-  console.error('💥 Fatal error in execution:', err);
+  console.error('💥 Fatal error in indexing execution:', err);
   process.exit(1);
 });

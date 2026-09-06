@@ -12,16 +12,20 @@ if (!fs.existsSync(publicDirectory)) {
   fs.mkdirSync(publicDirectory, { recursive: true });
 }
 
-// Generate robots.txt
+// 1. Generate robots.txt
+// NOTE: Googlebot MUST be allowed to fetch Next.js static assets (_next/static) to render JavaScript and CSS properly.
+// Do NOT disallow /_next/.
 const robotsTxt = `User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
+Disallow: /admin/
 
 Sitemap: https://onlineshiksha.online/sitemap.xml
+Sitemap: https://onlineshiksha.online/sitemap-blogs.xml
+Sitemap: https://onlineshiksha.online/sitemap-comparisons.xml
 `;
 fs.writeFileSync(path.join(publicDirectory, 'robots.txt'), robotsTxt);
-console.log('✅ Generated public/robots.txt');
+console.log('✅ Generated public/robots.txt (Allowed Next.js rendering assets, disallowed /api/ and /admin/)');
 
 // Helper to clean slug/name and scan both directories
 function getSortedPosts() {
@@ -62,7 +66,6 @@ function getSortedPosts() {
         if (keywordsMatch && keywordsMatch[1]) {
           keywords = keywordsMatch[1].trim();
         } else {
-          // Fallback to tags if present (can be inline array or yaml list)
           const tagsMatch = fileContents.match(/tags:\s*\[([^\]]+)\]/i) || fileContents.match(/tags:\s*[\r\n]/i);
           if (tagsMatch) {
             keywords = 'found_via_tags';
@@ -95,125 +98,103 @@ function getSortedPosts() {
   return allPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-// Generate sitemap.xml
 const posts = getSortedPosts();
 const baseUrl = 'https://onlineshiksha.online';
 const today = new Date().toISOString().split('T')[0];
 
-let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${baseUrl}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/blog</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/compare</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/compare/directory</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/emi-calculator</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/create-resume</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/tools/cat-score-calculator</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/counselor-training-center</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/approvals-counselling-exam</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/pan-india-bschool-exam</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/tier2-3-placements-exam</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/disclaimer</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/privacy-policy</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/terms-of-service</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-`;
+// 2. Generate sitemap-main.xml (core landing pages with trailing slashes)
+const staticPages = [
+  { url: `${baseUrl}/`, priority: '1.0', changefreq: 'daily' },
+  { url: `${baseUrl}/blog/`, priority: '0.9', changefreq: 'daily' },
+  { url: `${baseUrl}/blog/directory/`, priority: '0.9', changefreq: 'daily' },
+  { url: `${baseUrl}/compare/`, priority: '0.8', changefreq: 'weekly' },
+  { url: `${baseUrl}/compare/directory/`, priority: '0.8', changefreq: 'weekly' },
+  { url: `${baseUrl}/emi-calculator/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/create-resume/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/tools/cat-score-calculator/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/tools/astro-tools/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/tools/video-editor/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/counselor-training-center/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/approvals-counselling-exam/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/pan-india-bschool-exam/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/tier2-3-placements-exam/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/isbr-counselling-exam/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/ndim-counselling-exam/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/live-test/`, priority: '0.8', changefreq: 'monthly' },
+  { url: `${baseUrl}/portfolio/`, priority: '0.7', changefreq: 'monthly' },
+  { url: `${baseUrl}/disclaimer/`, priority: '0.5', changefreq: 'monthly' },
+  { url: `${baseUrl}/privacy-policy/`, priority: '0.5', changefreq: 'monthly' },
+  { url: `${baseUrl}/terms-of-service/`, priority: '0.5', changefreq: 'monthly' },
+];
 
-// 1. Add all dynamic blog posts
-posts.forEach(post => {
-  sitemapXml += `  <url>
-    <loc>${baseUrl}/blog/${post.slug}</loc>
-    <lastmod>${post.date}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+let sitemapMainXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+staticPages.forEach(p => {
+  sitemapMainXml += `  <url>
+    <loc>${p.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
   </url>\n`;
 });
+sitemapMainXml += `</urlset>`;
+fs.writeFileSync(path.join(publicDirectory, 'sitemap-main.xml'), sitemapMainXml);
+console.log(`✅ Generated public/sitemap-main.xml with ${staticPages.length} core pages.`);
 
-// 2. Add all dynamic comparison pairs (Alphabetically sorted to avoid duplicates)
+// 3. Generate sitemap-blogs.xml (all blog posts with trailing slash matching next.config.ts)
+let sitemapBlogsXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+posts.forEach(post => {
+  sitemapBlogsXml += `  <url>
+    <loc>${baseUrl}/blog/${post.slug}/</loc>
+    <lastmod>${post.date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>\n`;
+});
+sitemapBlogsXml += `</urlset>`;
+fs.writeFileSync(path.join(publicDirectory, 'sitemap-blogs.xml'), sitemapBlogsXml);
+console.log(`✅ Generated public/sitemap-blogs.xml with ${posts.length} blog posts (All URLs have trailing slashes!).`);
+
+// 4. Generate sitemap-comparisons.xml (all comparisons with trailing slash)
+let sitemapComparisonsXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
 let comparisonCount = 0;
 for (let i = 0; i < collegesData.length; i++) {
   for (let j = i + 1; j < collegesData.length; j++) {
     const slugPair = `${collegesData[i].slug}-vs-${collegesData[j].slug}`;
-    sitemapXml += `  <url>
-    <loc>${baseUrl}/compare/${slugPair}</loc>
+    sitemapComparisonsXml += `  <url>
+    <loc>${baseUrl}/compare/${slugPair}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>\n`;
     comparisonCount++;
   }
 }
+sitemapComparisonsXml += `</urlset>`;
+fs.writeFileSync(path.join(publicDirectory, 'sitemap-comparisons.xml'), sitemapComparisonsXml);
+console.log(`✅ Generated public/sitemap-comparisons.xml with ${comparisonCount} comparison pages.`);
 
-sitemapXml += `</urlset>`;
-
-fs.writeFileSync(path.join(publicDirectory, 'sitemap.xml'), sitemapXml);
-console.log(`✅ Generated public/sitemap.xml with ${posts.length} blogs and ${comparisonCount} comparison pages!`);
+// 5. Generate public/sitemap.xml as a standard XML Sitemap Index referencing sub-sitemaps
+const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${baseUrl}/sitemap-main.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-blogs.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/sitemap-comparisons.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+</sitemapindex>
+`;
+fs.writeFileSync(path.join(publicDirectory, 'sitemap.xml'), sitemapIndexXml);
+console.log(`✅ Generated public/sitemap.xml as a master Sitemap Index with sitemap-main, sitemap-blogs, and sitemap-comparisons!`);

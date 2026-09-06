@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     "GD-PI-WAT interview preparation", "Online MBA advisor"
   ],
   alternates: {
-    canonical: "/portfolio",
+    canonical: "/portfolio/",
   },
   openGraph: {
     title: "Mohit Jain | Expert B-School Admissions Counselor & Career Mentor",
     description: "Meet Mohit Jain, founder of CareerWithMohit. Certified by FMS Delhi & aligned with IIM Bangalore benchmarks, Mohit provides elite B-school mapping, GD-PI-WAT prep, and career counseling for 15,000+ students.",
-    url: "https://onlineshiksha.online/portfolio",
+    url: "https://onlineshiksha.online/portfolio/",
     type: "profile",
     images: [
       {

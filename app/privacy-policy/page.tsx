@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Online Shiksha",
   description: "Read the Privacy Policy for Online Shiksha. Understand how we collect, protect, and use your personal information and WhatsApp inquiry data.",
   alternates: {
-    canonical: "/privacy-policy",
+    canonical: "/privacy-policy/",
   },
 };
 
@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
         "@type": "ListItem",
         "position": 2,
         "name": "Privacy Policy",
-        "item": "https://onlineshiksha.online/privacy-policy"
+        "item": "https://onlineshiksha.online/privacy-policy/"
       }
     ]
   };

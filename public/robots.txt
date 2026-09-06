@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
+Disallow: /admin/
 
 Sitemap: https://onlineshiksha.online/sitemap.xml
+Sitemap: https://onlineshiksha.online/sitemap-blogs.xml
+Sitemap: https://onlineshiksha.online/sitemap-comparisons.xml

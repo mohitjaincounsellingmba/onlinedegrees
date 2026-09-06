@@ -35,14 +35,15 @@ export function Footer() {
       { name: 'Government Job Validity', href: '/#ugc-guidelines' },
     ],
     support: [
-      { name: 'Meet Mohit Jain (Founder)', href: '/portfolio' },
+      { name: 'Meet Mohit Jain (Founder)', href: '/portfolio/' },
       { name: 'Expert Counselling', href: '/?program=All#comparison-engine' },
       { name: 'WhatsApp Assistance', href: 'https://wa.me/919560020771' },
-      { name: 'University Reviews', href: '/blog' },
-      { name: 'Comparison Guide', href: '/compare' },
-      { name: 'Comparison Directory', href: '/compare/directory' },
-      { name: 'Create Resume', href: '/create-resume' },
-      { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator' },
+      { name: 'University Reviews', href: '/blog/' },
+      { name: 'Blog Directory (All Guides)', href: '/blog/directory/' },
+      { name: 'Comparison Guide', href: '/compare/' },
+      { name: 'Comparison Directory', href: '/compare/directory/' },
+      { name: 'Create Resume', href: '/create-resume/' },
+      { name: 'CAT 2026 Calculator', href: '/tools/cat-score-calculator/' },
       { name: 'Online Live Test', href: '/live-test/' },
       { name: 'Counselor Training Center', href: '/counselor-training-center/' },
       { name: 'NDIM Counselling Exam', href: '/ndim-counselling-exam/' },
@@ -50,7 +51,6 @@ export function Footer() {
       { name: 'Approvals & Accreditations Exam', href: '/approvals-counselling-exam/' },
       { name: 'Pan-India B-Schools Exam', href: '/pan-india-bschool-exam/' },
       { name: 'Tier 2-3 Placements & Salaries Exam', href: '/tier2-3-placements-exam/' },
-      { name: 'Kundali, Numerology & Tarot (Hindi)', href: '/tools/astro-tools' },
       { name: 'Admissions 2026', href: '/?program=All#comparison-engine' },
     ]
   };
@@ -205,11 +205,11 @@ export function Footer() {
             <span className="text-[#ccff00]/40 uppercase tracking-widest text-[10px]">UGC-DEB Education Partner</span>
           </div>
           <div className="flex gap-4 items-center text-xs font-bold text-gray-600">
-            <Link href="/privacy-policy" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Privacy Policy</Link>
+            <Link href="/privacy-policy/" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Privacy Policy</Link>
             <span className="text-[#333]">·</span>
-            <Link href="/terms-of-service" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Terms of Service</Link>
+            <Link href="/terms-of-service/" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Terms of Service</Link>
             <span className="text-[#333]">·</span>
-            <Link href="/disclaimer" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Disclaimer</Link>
+            <Link href="/disclaimer/" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Disclaimer</Link>
             <span className="text-[#333]">·</span>
             <Link href="/admin/" className="hover:text-[#ccff00] transition-colors uppercase tracking-wider">Admin Login</Link>
           </div>

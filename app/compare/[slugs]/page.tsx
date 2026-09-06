@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   
   // Sort alphabetically to maintain a single canonical version
   const sortedSlugs = [col1.slug, col2.slug].sort();
-  const canonicalUrl = `/compare/${sortedSlugs[0]}-vs-${sortedSlugs[1]}`;
+  const canonicalUrl = `/compare/${sortedSlugs[0]}-vs-${sortedSlugs[1]}/`;
 
   return {
     title,
@@ -124,13 +124,13 @@ export default async function CompareDetailPage({ params }: PageProps) {
         "@type": "ListItem",
         "position": 2,
         "name": "Compare Universities",
-        "item": "https://onlineshiksha.online/compare"
+        "item": "https://onlineshiksha.online/compare/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": `${col1.name} vs ${col2.name}`,
-        "item": `https://onlineshiksha.online/compare/${slugs}`
+        "item": `https://onlineshiksha.online/compare/${sortedSlugs[0]}-vs-${sortedSlugs[1]}/`
       }
     ]
   };

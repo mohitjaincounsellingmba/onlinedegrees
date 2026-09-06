@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     "Online Shiksha directory"
   ],
   alternates: {
-    canonical: "/compare/directory",
+    canonical: "/compare/directory/",
   },
   openGraph: {
     title: "University Comparison Directory 2026 | Online Shiksha",
     description: "Compare fees, placement packages, ratings, and learning systems for all top UGC approved online universities.",
     type: "website",
-    url: "https://onlineshiksha.online/compare/directory",
+    url: "https://onlineshiksha.online/compare/directory/",
     siteName: "Online Shiksha",
     images: [
       {
@@ -53,13 +53,13 @@ export default function ComparisonDirectoryPage() {
         "@type": "ListItem",
         "position": 2,
         "name": "Compare Universities",
-        "item": "https://onlineshiksha.online/compare"
+        "item": "https://onlineshiksha.online/compare/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Directory",
-        "item": "https://onlineshiksha.online/compare/directory"
+        "item": "https://onlineshiksha.online/compare/directory/"
       }
     ]
   };

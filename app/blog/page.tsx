@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     "distance education reviews India", "online college fees guide 2026"
   ],
   alternates: {
-    canonical: "/blog",
+    canonical: "/blog/",
   },
   openGraph: {
     title: "University Reviews & Career Blog 2026 | Online Shiksha",
     description: "Read verified reviews of UGC approved online universities in India. Get expert advice on fees, accreditations, and placements.",
-    url: "https://onlineshiksha.online/blog",
+    url: "https://onlineshiksha.online/blog/",
     siteName: "Online Shiksha",
     type: "website",
     images: [
@@ -62,7 +62,7 @@ export default function BlogPage() {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://onlineshiksha.online/blog"
+        "item": "https://onlineshiksha.online/blog/"
       }
     ]
   };
@@ -72,7 +72,7 @@ export default function BlogPage() {
     "@type": "CollectionPage",
     "name": "University Reviews & Career Blog 2026",
     "description": "Read verified reviews of UGC approved online universities in India. Get expert advice on MBA, BBA, MCA, BCA fees, accreditations, and placements.",
-    "url": "https://onlineshiksha.online/blog",
+    "url": "https://onlineshiksha.online/blog/",
     "numberOfItems": totalBlogs
   };
 

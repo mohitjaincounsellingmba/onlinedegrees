@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Disclaimer & Academic Notice | Online Shiksha",
   description: "Read the academic information and counseling disclaimer for Online Shiksha. Learn about fee variations, UGC-DEB accreditations, and advisory terms.",
   alternates: {
-    canonical: "/disclaimer",
+    canonical: "/disclaimer/",
   },
 };
 
@@ -26,7 +26,7 @@ export default function DisclaimerPage() {
         "@type": "ListItem",
         "position": 2,
         "name": "Disclaimer",
-        "item": "https://onlineshiksha.online/disclaimer"
+        "item": "https://onlineshiksha.online/disclaimer/"
       }
     ]
   };

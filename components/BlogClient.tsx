@@ -103,15 +103,23 @@ export function BlogClient({ posts, totalBlogs }: { posts: PostHeader[]; totalBl
           <p className="text-lg text-slate-300 max-w-2xl mx-auto mt-4 leading-relaxed font-medium">
             In‑depth reviews, fee structures, and placement analytics for top UGC‑approved online degrees. Make your next career move with data‑backed confidence.
           </p>
-          <button 
-            onClick={() => {
-              const el = document.getElementById('search-section');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className={genzStyles.genzCTA}
-          >
-            Explore Guides
-          </button>
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+            <button 
+              onClick={() => {
+                const el = document.getElementById('search-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className={genzStyles.genzCTA}
+            >
+              Explore Guides
+            </button>
+            <Link
+              href="/blog/directory/"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-[#ccff00] border border-white/15 text-xs sm:text-sm font-black uppercase tracking-wider transition-all backdrop-blur-md hover:scale-105 shadow-lg"
+            >
+              <BookOpen className="h-4 w-4" /> Browse Full Directory ({totalBlogs} Guides) →
+            </Link>
+          </div>
         </section>
 
         {/* Search and Filters */}

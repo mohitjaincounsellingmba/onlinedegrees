@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "TikTok caption style generator", "free video editor browser"
   ],
   alternates: {
-    canonical: "/tools/video-editor",
+    canonical: "/tools/video-editor/",
   },
   openGraph: {
     title: "AI Video Editor & Auto Captioner Online | CapCut & VN Style | Online Shiksha",
     description: "Free online AI Video Editor with Auto Captions. Generate instant subtitles in multiple languages. Customize fonts, colors, and CapCut styles.",
-    url: "https://onlineshiksha.online/tools/video-editor",
+    url: "https://onlineshiksha.online/tools/video-editor/",
     siteName: "Online Shiksha",
     type: "website",
     images: [
@@ -115,7 +115,7 @@ export default function VideoEditorPage() {
         "@type": "ListItem",
         "position": 3,
         "name": "AI Video Editor & Auto Captioner",
-        "item": "https://onlineshiksha.online/tools/video-editor"
+        "item": "https://onlineshiksha.online/tools/video-editor/"
       }
     ]
   };

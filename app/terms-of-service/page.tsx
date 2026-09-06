@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | Online Shiksha",
   description: "Read the Terms of Service for Online Shiksha. Understand the rules, obligations, and academic directory terms when using our portal.",
   alternates: {
-    canonical: "/terms-of-service",
+    canonical: "/terms-of-service/",
   },
 };
 
@@ -26,7 +26,7 @@ export default function TermsOfServicePage() {
         "@type": "ListItem",
         "position": 2,
         "name": "Terms of Service",
-        "item": "https://onlineshiksha.online/terms-of-service"
+        "item": "https://onlineshiksha.online/terms-of-service/"
       }
     ]
   };

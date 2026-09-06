@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "जन्म कुंडली हिंदी", "अंकशास्त्र मूलांक", "टैरो कार्ड रीडिंग"
   ],
   alternates: {
-    canonical: "/tools/astro-tools",
+    canonical: "/tools/astro-tools/",
   },
   openGraph: {
     title: "फ्री ऑनलाइन कुंडली, अंकशास्त्र और टैरो रीडिंग 2026 | Online Shiksha",
     description: "फ्री ऑनलाइन कुंडली मेकिंग, मूलांक/भाग्यांक अंकशास्त्र और 1 व 3 कार्ड टैरो रीडिंग हिंदी में। जन्म विवरण दर्ज करें और तुरंत अपनी विस्तृत रिपोर्ट प्राप्त करें।",
-    url: "https://onlineshiksha.online/tools/astro-tools",
+    url: "https://onlineshiksha.online/tools/astro-tools/",
     siteName: "Online Shiksha",
     type: "website",
     images: [
@@ -115,7 +115,7 @@ export default function AstroToolsPage() {
         "@type": "ListItem",
         "position": 3,
         "name": "Kundali, Numerology & Tarot",
-        "item": "https://onlineshiksha.online/tools/astro-tools"
+        "item": "https://onlineshiksha.online/tools/astro-tools/"
       }
     ]
   };

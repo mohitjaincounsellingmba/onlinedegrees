@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     "online MBA EMI calculator"
   ],
   alternates: {
-    canonical: "/emi-calculator",
+    canonical: "/emi-calculator/",
   },
   openGraph: {
     title: "Online Degree Course EMI Calculator 2026 | Online Shiksha",
     description: "Calculate your education loan monthly installments with our free online degree EMI calculator. Check No Cost EMI options for MBA, MCA, BBA, and BCA programs.",
-    url: "https://onlineshiksha.online/emi-calculator",
+    url: "https://onlineshiksha.online/emi-calculator/",
     siteName: "Online Shiksha",
     type: "website",
     images: [
@@ -51,7 +51,7 @@ export default function EmiCalculator() {
         "@type": "ListItem",
         "position": 2,
         "name": "EMI Calculator",
-        "item": "https://onlineshiksha.online/emi-calculator"
+        "item": "https://onlineshiksha.online/emi-calculator/"
       }
     ]
   };
@@ -60,7 +60,7 @@ export default function EmiCalculator() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Online Degree Course EMI Calculator",
-    "url": "https://onlineshiksha.online/emi-calculator",
+    "url": "https://onlineshiksha.online/emi-calculator/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript",

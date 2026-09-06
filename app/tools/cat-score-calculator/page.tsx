@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "IIM admission score calculator", "cat varc dilr qa score"
   ],
   alternates: {
-    canonical: "/tools/cat-score-calculator",
+    canonical: "/tools/cat-score-calculator/",
   },
   openGraph: {
     title: "CAT Score Calculator 2026 | Raw Score & Percentile Predictor | Online Shiksha",
     description: "Free CAT 2026 Score Calculator. Calculate your raw score, scaled score, and expected percentile for IIM admissions.",
-    url: "https://onlineshiksha.online/tools/cat-score-calculator",
+    url: "https://onlineshiksha.online/tools/cat-score-calculator/",
     siteName: "Online Shiksha",
     type: "website",
     images: [
@@ -124,7 +124,7 @@ export default function CatScoreCalculatorPage() {
         "@type": "ListItem",
         "position": 3,
         "name": "CAT Score Calculator",
-        "item": "https://onlineshiksha.online/tools/cat-score-calculator"
+        "item": "https://onlineshiksha.online/tools/cat-score-calculator/"
       }
     ]
   };

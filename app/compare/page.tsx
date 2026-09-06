@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "online college fee comparison", "NAAC A++ online colleges comparison"
   ],
   alternates: {
-    canonical: "/compare",
+    canonical: "/compare/",
   },
   openGraph: {
     title: "Compare Online Universities 2026 | Online Shiksha",
     description: "Compare fees, placements, approvals, and features of top UGC approved online universities.",
-    url: "https://onlineshiksha.online/compare",
+    url: "https://onlineshiksha.online/compare/",
     siteName: "Online Shiksha",
     type: "website",
     images: [
@@ -50,7 +50,7 @@ export default function ComparePage() {
         "@type": "ListItem",
         "position": 2,
         "name": "Compare Universities",
-        "item": "https://onlineshiksha.online/compare"
+        "item": "https://onlineshiksha.online/compare/"
       }
     ]
   };

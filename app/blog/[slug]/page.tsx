@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: postDescription,
     keywords: [...(postData.keywords || []), "Online Degrees India", "Distance Education Review", "UGC Approved MBA", "Online College Placements"],
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `/blog/${slug}/`,
     },
     openGraph: {
       title: postTitle,
       description: postDescription,
-      url: `https://onlineshiksha.online/blog/${slug}`,
+      url: `https://onlineshiksha.online/blog/${slug}/`,
       siteName: "Online Shiksha",
       type: "article",
       publishedTime: postData.date,
@@ -144,7 +144,7 @@ export default async function BlogPost({ params }: PageProps) {
     "author": {
       "@type": "Organization",
       "name": "Online Shiksha Team",
-      "url": "https://onlineshiksha.online"
+      "url": "https://onlineshiksha.online/"
     },
     "publisher": {
       "@type": "Organization",
@@ -156,7 +156,7 @@ export default async function BlogPost({ params }: PageProps) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://onlineshiksha.online/blog/${slug}`
+      "@id": `https://onlineshiksha.online/blog/${slug}/`
     }
   };
 
@@ -174,13 +174,13 @@ export default async function BlogPost({ params }: PageProps) {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://onlineshiksha.online/blog"
+        "item": "https://onlineshiksha.online/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": postData.title,
-        "item": `https://onlineshiksha.online/blog/${slug}`
+        "item": `https://onlineshiksha.online/blog/${slug}/`
       }
     ]
   };
@@ -217,7 +217,7 @@ export default async function BlogPost({ params }: PageProps) {
           <nav className="flex flex-wrap items-center justify-center gap-2 text-[10px] md:text-xs font-black uppercase tracking-widest text-indigo-300/70 mb-8">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+            <Link href="/blog/" className="hover:text-white transition-colors">Blog</Link>
             <span>/</span>
             <span className="text-white/90 truncate max-w-[150px] sm:max-w-sm">{postData.title}</span>
           </nav>
@@ -256,7 +256,7 @@ export default async function BlogPost({ params }: PageProps) {
         {/* Back Link */}
         <div className="mb-8 hidden lg:block">
            <Link 
-            href="/blog" 
+            href="/blog/" 
             className="inline-flex items-center gap-2 text-slate-400 hover:text-indigo-600 font-black text-xs uppercase tracking-wider group transition-all"
           >
             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" /> 
@@ -483,7 +483,7 @@ export default async function BlogPost({ params }: PageProps) {
                 {recommendedComparisons.map((comp) => (
                   <Link
                     key={comp.slug}
-                    href={`/compare/${comp.slug}`}
+                    href={`/compare/${comp.slug}/`}
                     className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.02)] hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/30 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div className="space-y-4">
@@ -535,7 +535,7 @@ export default async function BlogPost({ params }: PageProps) {
                 {relatedPosts.map((post) => (
                   <Link
                     key={post.slug}
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/${post.slug}/`}
                     className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.02)] hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-100/30 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div className="space-y-3">

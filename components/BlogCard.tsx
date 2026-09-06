@@ -17,7 +17,7 @@ interface BlogCardProps {
 export default function BlogCard({ slug, title, date, description, category }: BlogCardProps) {
 
   return (
-    <Link href={`/blog/${slug}`} className={`${styles.blogCard} ${genzStyles.blogCardGlass}`}>
+    <Link href={`/blog/${slug}/`} className={`${styles.blogCard} ${genzStyles.blogCardGlass}`}>
 
       {/* Meta */}
       <div className={styles.blogMeta}>
