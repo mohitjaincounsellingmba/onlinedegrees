@@ -121,7 +121,6 @@ const staticPages = [
   { url: `${baseUrl}/tier2-3-placements-exam/`, priority: '0.8', changefreq: 'monthly' },
   { url: `${baseUrl}/isbr-counselling-exam/`, priority: '0.8', changefreq: 'monthly' },
   { url: `${baseUrl}/ndim-counselling-exam/`, priority: '0.8', changefreq: 'monthly' },
-  { url: `${baseUrl}/live-test/`, priority: '0.8', changefreq: 'monthly' },
   { url: `${baseUrl}/portfolio/`, priority: '0.7', changefreq: 'monthly' },
   { url: `${baseUrl}/disclaimer/`, priority: '0.5', changefreq: 'monthly' },
   { url: `${baseUrl}/privacy-policy/`, priority: '0.5', changefreq: 'monthly' },

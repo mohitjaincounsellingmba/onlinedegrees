@@ -3,3 +3,7 @@
 
 # Example:
 # /old-slug /new-slug 301
+
+/live-test/ / 301
+/live-test / 301
+/live-test/* / 301
